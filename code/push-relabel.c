@@ -39,15 +39,6 @@ int main (int argc, char **argv)
 
     readMtx(argv[1], &n, &edges, &row_indeces, &col_indeces, &values);
 
-    //Old hard-coded matrix
-    /*
-    n = 6;
-    edges = 6;
-    GrB_Index row_indeces[6] = {0,0,1,1,3,2} ;
-    GrB_Index col_indeces[6] = {1,2,3,2,2,5} ;
-    double values[6] = {4,2,3,1,5,7};
-    */
-
     CHECK( GrB_Matrix_new (&A, GrB_FP64, n, n) );
     GxB_print(A, GxB_SHORT);
 
@@ -75,58 +66,20 @@ int main (int argc, char **argv)
     printf("Index ramp:\n");
     //GxB_print(index_ramp, GxB_SHORT);
 
-    //printf("Success? %s\n", get_augmenting_path(A, 0, 5, M)?"yes! :D":"no :(");
+    GrB_Vector pre_flow;
+    CHECK( GrB_Vector_new(&pre_flow, GrB_FP64, n) );
+    GrB_Vector height;
+    CHECK( GrB_Vector_new(&height, GrB_FP64, n) );
+    CHECK( GrB_Vector_setElement(height, source, n) );
 
-// Unsure if needed. Maybe some edge cases?
-    int count = 0;
-    GrB_Index nvals;
-    GrB_Matrix_nvals(&nvals, A);
-    while (get_augmenting_path(R, source, sink, index_ramp, M) && count++ < nvals)
+    //Push flow out of source
+
+    while (false /*pre-flow exists*/)
     {
-        printf("----------- Iteration: %d -----------\n", count);
-        //sprintf("\nPath M:\n");
-        //GxB_print(M, GxB_SHORT);
-
-        GrB_Matrix P;
-#if DOUBLE_PREC
-        GrB_Matrix_new(&P, GrB_FP64, n, n);
-        GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_TIMES_FP64, M, R, DEFAULT_DESC);
-#endif
-        printf("\nPath:\n");
-        GxB_print(P, GxB_SHORT);
-        GrB_Vector test;
-        GrB_Vector_new(&test, GrB_FP64, n);
-        //GrB_reduce(scalar, accum op, reduction monoid, vector/matrix, descriptor)
-        //matrix to vector reduction also has a mask argument, not optional, but can be NULL
-        CHECK(GrB_reduce(&delta_f_global, NO_ACCUM, GrB_MIN_MONOID_FP64, P, DEFAULT_DESC));
-        //printf("Gamma value; %lf\n", delta_f_global);
-
-        GrB_UnaryOp apply_delta_op;
-#if DOUBLE_PREC
-        CHECK( GrB_UnaryOp_new(&apply_delta_op, apply_delta, GrB_FP64, GrB_BOOL) );
-#endif
-
-        //GxB_print(M, GxB_SHORT);
-
-        GrB_Descriptor transpose_a;
-        GrB_Descriptor_new(&transpose_a);
-        GrB_Descriptor_set(transpose_a, GrB_INP0, GrB_TRAN);
-
-        CHECK( GrB_Matrix_apply(P, NO_MASK, NO_ACCUM, apply_delta_op, M, transpose_a) );
-        //GxB_print(P, GxB_SHORT);
-        CHECK( GrB_Matrix_apply(P, NO_MASK, GrB_PLUS_FP64, GrB_AINV_FP64, P, transpose_a) );
-        //GxB_print(P, GxB_SHORT);
-
-        //GxB_print(R, GxB_SHORT);
-        GrB_eWiseAdd(R, NO_MASK, NO_ACCUM, GxB_PLUS_FP64_MONOID, R, P, DEFAULT_DESC);
-        //GxB_print(R, GxB_SHORT);
-
-        GrB_Descriptor replace;
-        GrB_Descriptor_new(&replace);
-        GrB_Descriptor_set(replace, GrB_OUTP, GrB_REPLACE);
-
-        GrB_apply(R, R, NO_ACCUM, GrB_IDENTITY_FP64, R, replace); //Remove zero-edges
-        //GxB_print(R, GxB_SHORT);
+        //1. fetch all vertices w pre_flow
+            //max-second semiring to get the residual capacity for each
+            //only possible if I first filter on height, otherwise we'll just fetch the back edge
+        //2. for each, either push flow into 1 lower-level vertex or relabel
     }
 
     double total_flow;
