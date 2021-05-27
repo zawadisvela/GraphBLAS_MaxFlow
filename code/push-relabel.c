@@ -76,10 +76,11 @@ int main (int argc, char **argv)
 
     while (false /*pre-flow exists*/)
     {
-        //1. fetch all vertices w pre_flow
+        //1. fetch all downwardfacing edges
+        //2. match them up with pre-flows
             //max-second semiring to get the residual capacity for each
             //only possible if I first filter on height, otherwise we'll just fetch the back edge
-        //2. for each, either push flow into 1 lower-level vertex or relabel
+        //3. for each, either push flow into 1 lower-level vertex or relabel
     }
 
     double total_flow;

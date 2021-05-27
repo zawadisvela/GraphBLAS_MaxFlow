@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "readmtx.h"
 
-
+#ifdef DEBUG
 #define CHECK(x) \
 {   \
     int err_code = x; \
@@ -11,6 +11,9 @@
         printf("ERROR! %s:%d:%s - errcode: %d\n",__FILE__, __LINE__, __func__, err_code); \
     } \
 }
+#else
+#define CHECK(x) x
+#endif
 
 #define NO_MASK GxB_DEFAULT
 #define NO_ACCUM GxB_DEFAULT
@@ -18,14 +21,48 @@
 
 #define DOUBLE_PREC 1
 
-#if DOUBLE_PREC
-double delta_f_global = 0 ;
 
+double delta_f_global = 0 ;
 void apply_delta (void *result, const void *element)
 {
     (* ((double *) result)) = delta_f_global ;
 }
-#endif
+
+//Perform multiple simultaneous BFS searches to determine s-t
+void set_s_t_bfs(
+    const GrB_Matrix R,
+    GrB_Index *s,
+    GrB_Index *t
+)
+{
+    /*
+    GrB_Index n;
+    GrB_Matrix level = NULL;
+    GrB_Matrix frontiers;
+    GrB_Descriptor desc = NULL;
+
+    CHECK( GrB_Matrix_nrows(&n, R) );
+
+    CHECK( GrB_Matrixr_new(&level, GrB_INT32, n, n) );
+
+    GrB_Vector_setElement(level, 0, s);
+
+    GrB_Vector_new(&frontier, GrB_BOOL, n);
+    GrB_Vector_setElement(frontier, true, s);
+
+    GrB_Descriptor_new(&desc);
+    GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP);
+    GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE);
+
+    bool successor = true;
+    while (successor) {
+        GrB_vxm(frontier, reachable, NO_ACCUM, GxB_LOR_LAND_BOOL, frontier, R, desc);
+        GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC);
+        GrB_assign(reachable, frontier, NULL, true, GrB_ALL, n, NULL);
+    }
+    */
+
+}
 
 void mincut_bfs(
     GrB_Vector* result,
@@ -37,22 +74,22 @@ void mincut_bfs(
     CHECK( GrB_Matrix_nrows(&n, R) );
 
     GrB_Vector reachable = *result;
-    GrB_Vector_setElement(reachable, true, s);
+    CHECK( GrB_Vector_setElement(reachable, true, s) );
 
     GrB_Vector frontier;
-    GrB_Vector_new(&frontier, GrB_BOOL, n);
-    GrB_Vector_setElement(frontier, true, s);
+    CHECK( GrB_Vector_new(&frontier, GrB_BOOL, n) );
+    CHECK( GrB_Vector_setElement(frontier, true, s) );
 
     GrB_Descriptor desc = NULL;
-    GrB_Descriptor_new(&desc);
-    GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP);
-    GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE);
+    CHECK( GrB_Descriptor_new(&desc) );
+    CHECK( GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP) );
+    CHECK( GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE) );
 
     bool successor = true;
     while (successor) {
-        GrB_vxm(frontier, reachable, NO_ACCUM, GxB_LOR_LAND_BOOL, frontier, R, desc);
-        GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC);
-        GrB_assign(reachable, frontier, NULL, true, GrB_ALL, n, NULL);
+        CHECK( GrB_vxm(frontier, reachable, NO_ACCUM, GxB_LOR_LAND_BOOL, frontier, R, desc) );
+        CHECK( GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC) );
+        CHECK( GrB_assign(reachable, frontier, NULL, true, GrB_ALL, n, NULL) );
     }
 }
 
@@ -86,10 +123,10 @@ bool get_augmenting_path(
     //while ((!parent_list.hasElement(sink)) && (wavefront.nvals() > 0))
 
     GrB_Descriptor desc = NULL ;           // Descriptor for vxm
-    GrB_Descriptor_new (&desc) ;
-    GrB_Descriptor_set (desc, GrB_MASK, GrB_COMP) ;     // invert the mask
-    GrB_Descriptor_set (desc, GrB_MASK, GrB_STRUCTURE) ;     // Don't care about values, only structure of mask
-    GrB_Descriptor_set (desc, GrB_OUTP, GrB_REPLACE) ;  // clear q first
+    CHECK( GrB_Descriptor_new (&desc) );
+    CHECK( GrB_Descriptor_set (desc, GrB_MASK, GrB_COMP) );     // invert the mask
+    CHECK( GrB_Descriptor_set (desc, GrB_MASK, GrB_STRUCTURE) );     // Don't care about values, only structure of mask
+    CHECK( GrB_Descriptor_set (desc, GrB_OUTP, GrB_REPLACE) );  // clear q first
 
     while (((GrB_Vector_extractElement(&sink_parent, parent_list, sink) == GrB_NO_VALUE)) && (wavefront_nvals > 0))
     {
@@ -136,15 +173,26 @@ bool get_augmenting_path(
 
         //printf("RESULT w\n:");
         ////GxB_print(wavefront, GxB_SHORT);
-
+        printf("\npre-apply parent list\n");
+        GxB_print(parent_list, GxB_SHORT);
         CHECK( GrB_Vector_apply(parent_list, //w
             NO_MASK, //mask
             GrB_PLUS_INT32, //accum
             GrB_IDENTITY_INT32, //unary op. w<M> = accum (w, op (u)). Nor sure this identity is the same as for indexes
             wavefront, //u
             DEFAULT_DESC) ); // descriptor
+        printf("post-apply parent list\n\n");
+        GxB_print(parent_list, GxB_SHORT);
+/*
 
-        GrB_Vector_nvals(&wavefront_nvals, wavefront);
+        CHECK( GrB_eWiseAdd(parent_list, //w
+            NO_MASK, //mask
+            GrB_PLUS_INT32, //accum
+            GrB_IDENTITY_INT32, //unary op. w<M> = accum (w, op (u)). Nor sure this identity is the same as for indexes
+            wavefront, //u
+            DEFAULT_DESC) ); // descriptor
+*/
+        CHECK( GrB_Vector_nvals(&wavefront_nvals, wavefront) );
 
         //printf("\nparent_list:\n");
         ////GxB_print(parent_list, GxB_SHORT);
@@ -165,10 +213,10 @@ bool get_augmenting_path(
     {
     //    grb::IndexType parent(parent_list.extractElement(curr_vertex));
         GrB_Index parent;
-        GrB_Vector_extractElement(&parent, parent_list, curr_vertex);
+        CHECK( GrB_Vector_extractElement(&parent, parent_list, curr_vertex) );
 
         //M.setElement(parent, curr_vertex, true);
-        GrB_Matrix_setElement(M, true, parent, curr_vertex);
+        CHECK( GrB_Matrix_setElement(M, true, parent, curr_vertex) );
 
         curr_vertex = parent;
     }
@@ -184,87 +232,75 @@ int main (int argc, char **argv)
         printf("Usage: ./edmund-karp filename.mtx <s> <t>\n");
         return 1;
     }
-    GrB_init ( GrB_NONBLOCKING )
+    GrB_init ( GrB_NONBLOCKING );
     //Blocking better for debuggbing
     //GrB_init ( GrB_BLOCKING ) ;
 
 
 
-    GrB_Index n;
-    GrB_Index edges;
+    GrB_Index n;            //No. of vertices
+    GrB_Index edges;        //No. of edges
     GrB_Index* row_indeces;
     GrB_Index* col_indeces;
     double* values;
-    GrB_Matrix A = NULL;
+    GrB_Matrix A = NULL;    //Input graph
+    GrB_Matrix M = NULL;    //Mask for path
+    GrB_Matrix P = NULL;    //Weighted path
+    GrB_Matrix R = NULL;    //Residual network
+    GrB_Vector index_ramp;  //v[i] = i. For extracting parent in BFS
+    GrB_Index source = -1;
+    GrB_Index sink = -1;
 
     readMtx(argv[1], &n, &edges, &row_indeces, &col_indeces, &values);
-
-    //Old hard-coded matrix
-    /*
-    n = 6;
-    edges = 6;
-    GrB_Index row_indeces[6] = {0,0,1,1,3,2} ;
-    GrB_Index col_indeces[6] = {1,2,3,2,2,5} ;
-    double values[6] = {4,2,3,1,5,7};
-    */
-
     CHECK( GrB_Matrix_new (&A, GrB_FP64, n, n) );
-    GxB_print(A, GxB_SHORT);
-
     CHECK( GrB_Matrix_build (A, row_indeces, col_indeces, values, edges, GrB_PLUS_FP64) );
-
+#ifdef DEBUG
     GxB_print(A, GxB_SHORT);
-
-    GrB_Matrix M = NULL;
+#endif
     GrB_Matrix_new(&M, GrB_BOOL, n, n);
+    GrB_Matrix_new(&P, GrB_FP64, n, n);
 
-    GrB_Index source = atoi(argv[2]), sink = atoi(argv[3]); //TODO set sink to something sensible
+    CHECK( GrB_Matrix_dup(&R, A) );
+
+    CHECK( GrB_Vector_new(&index_ramp, GrB_INT32, n) );
+    for (int i = 0; i < n; i++)
+        CHECK( GrB_Vector_setElement(index_ramp, i, i) );
+#ifdef DEBUG
+    printf("Index ramp:\n");
+    GxB_print(index_ramp, GxB_SHORT);
+#endif
+    //printf("Success? %s\n", get_augmenting_path(A, 0, 5, M)?"yes! :D":"no :(");
+
+    source = atoi(argv[2]);
+    sink = atoi(argv[3]); //TODO set sink to something sensible
     printf("SOURCE:%ld, SINK:%ld\n", source, sink);
     if (sink > n) {
         printf("Out of bounds sink y'all ERROR to the MAX!\n");
         return 1;
     }
 
-    GrB_Matrix R = NULL;
-    CHECK( GrB_Matrix_dup(&R, A) );
-
-    GrB_Vector index_ramp;
-    CHECK( GrB_Vector_new(&index_ramp, GrB_INT32, n) );
-    for (int i = 0; i < n; i++)
-        CHECK( GrB_Vector_setElement(index_ramp, i, i) );
-    printf("Index ramp:\n");
-    //GxB_print(index_ramp, GxB_SHORT);
-
-    //printf("Success? %s\n", get_augmenting_path(A, 0, 5, M)?"yes! :D":"no :(");
-
-// Unsure if needed. Maybe some edge cases?
     int count = 0;
     GrB_Index nvals;
     GrB_Matrix_nvals(&nvals, A);
     while (get_augmenting_path(R, source, sink, index_ramp, M) && count++ < nvals)
     {
+
         printf("----------- Iteration: %d -----------\n", count);
         //sprintf("\nPath M:\n");
         //GxB_print(M, GxB_SHORT);
 
-        GrB_Matrix P;
-#if DOUBLE_PREC
-        GrB_Matrix_new(&P, GrB_FP64, n, n);
         GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_TIMES_FP64, M, R, DEFAULT_DESC);
-#endif
+#ifdef DEBUG
         printf("\nPath:\n");
         GxB_print(P, GxB_SHORT);
-        GrB_Vector test;
-        GrB_Vector_new(&test, GrB_FP64, n);
+#endif
         //GrB_reduce(scalar, accum op, reduction monoid, vector/matrix, descriptor)
         //matrix to vector reduction also has a mask argument, not optional, but can be NULL
         CHECK(GrB_reduce(&delta_f_global, NO_ACCUM, GrB_MIN_MONOID_FP64, P, DEFAULT_DESC));
         //printf("Gamma value; %lf\n", delta_f_global);
 
         GrB_UnaryOp apply_delta_op;
-#if DOUBLE_PREC
         CHECK( GrB_UnaryOp_new(&apply_delta_op, apply_delta, GrB_FP64, GrB_BOOL) );
-#endif
 
         //GxB_print(M, GxB_SHORT);
 
@@ -289,10 +325,10 @@ int main (int argc, char **argv)
         //GxB_print(R, GxB_SHORT);
     }
 
-    double total_flow;
+    double total_flow = 0;
     for (GrB_Index i = 0; i < n; i++) {
-        double capacity;
-        double residual;
+        double capacity = 0;
+        double residual = 0;
 
         if(GrB_Matrix_extractElement(&capacity, A, source, i) == GrB_NO_VALUE)
             capacity = 0;

@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
         build-essential \
         libboost-all-dev \
         python3 \
+	valgrind \
         #devscripts \
         #debhelper \
         #fakeroot \
@@ -36,7 +37,8 @@ RUN 	apt update && \
 
 RUN 	git clone --recursive https://github.com/DrTimothyAldenDavis/GraphBLAS.git && \
 	cd GraphBLAS && \
-    	make install
+    	make jobs=16 && \
+	make install
 
 COPY install_graphblas.sh /install_grapblas.sh
 
