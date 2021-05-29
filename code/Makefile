@@ -11,7 +11,7 @@ debug: edmund-karp.c readmtx.h
 
 
 profile: edmund-karp.c readmtx.h
-	gcc edmund-karp.c -lgraphblas -Og -o edmund-karp-prof
+	gcc edmund-karp.c -D PROFILE -lgraphblas -Og -o edmund-karp-prof
 
 .PHONY: run
 run: edmund-karp

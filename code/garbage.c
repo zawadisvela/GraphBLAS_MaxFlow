@@ -1,3 +1,16 @@
+
+//Used for locating all filled edges, not necessary for finding min-cut
+
+GrB_Descriptor mask_complement;
+GrB_Descriptor_new(&mask_complement);
+GrB_Descriptor_set(mask_complement, GrB_MASK, GrB_COMP);
+
+GrB_Matrix min_cut;
+GrB_Matrix_new(&min_cut, GrB_FP64, n, n);
+GrB_apply(min_cut, R, NO_ACCUM, GrB_IDENTITY_FP64, A, mask_complement);
+
+
+
 //Used to check the incoming flow into source, unecessary
 
 if(GrB_Matrix_extractElement(&capacity, A, i, source) == GrB_NO_VALUE)

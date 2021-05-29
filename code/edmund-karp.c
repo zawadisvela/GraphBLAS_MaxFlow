@@ -1,6 +1,7 @@
 
 #include <GraphBLAS.h>
 #include <stdio.h>
+#include <time.h>
 #include "readmtx.h"
 
 #ifdef DEBUG
@@ -117,7 +118,7 @@ bool get_augmenting_path(
     CHECK( GrB_Vector_new(&wavefront, GrB_INT32, n) );
     CHECK( GrB_Vector_setElement(wavefront, 0xDEADBEEF, source) ); //Value doesn't matter, only existence
 
-    int sink_parent;
+    int sink_parent = -1;
     GrB_Index wavefront_nvals;
     CHECK( GrB_Vector_nvals(&wavefront_nvals, wavefront) );
     //while ((!parent_list.hasElement(sink)) && (wavefront.nvals() > 0))
@@ -163,35 +164,48 @@ bool get_augmenting_path(
             //NULL,
             parent_list, //mask <- automatically removes self-loops
             NO_ACCUM, //no accumulate/default
-#if DOUBLE_PREC
-            //GxB_MIN_FIRST_FP64, //semiring. First to extract parent. Why min? Could be ANY?
+
+#if defined(DEBUG) || defined(PROFILE)
+            GxB_MIN_FIRST_FP64, //semiring. First to extract parent. Why min? Could be ANY?
+#else
             GxB_ANY_FIRST_FP64, //Should yield same result, and leaves more implementation freedom
 #endif
+
             wavefront, // v
             R, // M
             desc) ); //descriptor
 
         //printf("RESULT w\n:");
         ////GxB_print(wavefront, GxB_SHORT);
-        printf("\npre-apply parent list\n");
-        GxB_print(parent_list, GxB_SHORT);
+
+
+    //    GxB_print(parent_list, GxB_SHORT);
         CHECK( GrB_Vector_apply(parent_list, //w
             NO_MASK, //mask
-            GrB_PLUS_INT32, //accum
+            GrB_PLUS_INT32, //accum. What, why? There won't ever be overlap because the parent is used as mask, but can't we just not feed it a accumulator then?
+            //NO_ACCUM,
             GrB_IDENTITY_INT32, //unary op. w<M> = accum (w, op (u)). Nor sure this identity is the same as for indexes
             wavefront, //u
             DEFAULT_DESC) ); // descriptor
-        printf("post-apply parent list\n\n");
-        GxB_print(parent_list, GxB_SHORT);
-/*
+    //    GxB_print(parent_list, GxB_SHORT);
 
+        //printf("---PRE-ADD---\n" );
+        //GxB_print(parent_list, GxB_COMPLETE);
+        //GxB_print(wavefront, GxB_COMPLETE);
+
+/*
         CHECK( GrB_eWiseAdd(parent_list, //w
             NO_MASK, //mask
-            GrB_PLUS_INT32, //accum
-            GrB_IDENTITY_INT32, //unary op. w<M> = accum (w, op (u)). Nor sure this identity is the same as for indexes
+            //GrB_PLUS_INT32, //accum
+            NO_ACCUM,
+            GrB_PLUS_INT32, //unary op. w<M> = accum (w, op (u)). Nor sure this identity is the same as for indexes
+            parent_list,
             wavefront, //u
             DEFAULT_DESC) ); // descriptor
 */
+        //printf("---POST-ADD---\n" );
+        //GxB_print(parent_list, GxB_COMPLETE);
+
         CHECK( GrB_Vector_nvals(&wavefront_nvals, wavefront) );
 
         //printf("\nparent_list:\n");
@@ -232,10 +246,13 @@ int main (int argc, char **argv)
         printf("Usage: ./edmund-karp filename.mtx <s> <t>\n");
         return 1;
     }
-    GrB_init ( GrB_NONBLOCKING );
-    //Blocking better for debuggbing
-    //GrB_init ( GrB_BLOCKING ) ;
 
+    //Blocking better for debuggbing
+#if defined(DEBUG) || defined(PROFILE)
+    GrB_init ( GrB_BLOCKING ) ;
+#else
+    GrB_init ( GrB_NONBLOCKING );
+#endif
 
 
     GrB_Index n;            //No. of vertices
@@ -260,8 +277,6 @@ int main (int argc, char **argv)
     GrB_Matrix_new(&M, GrB_BOOL, n, n);
     GrB_Matrix_new(&P, GrB_FP64, n, n);
 
-    CHECK( GrB_Matrix_dup(&R, A) );
-
     CHECK( GrB_Vector_new(&index_ramp, GrB_INT32, n) );
     for (int i = 0; i < n; i++)
         CHECK( GrB_Vector_setElement(index_ramp, i, i) );
@@ -279,93 +294,123 @@ int main (int argc, char **argv)
         return 1;
     }
 
-    int count = 0;
-    GrB_Index nvals;
-    GrB_Matrix_nvals(&nvals, A);
-    while (get_augmenting_path(R, source, sink, index_ramp, M) && count++ < nvals)
+    for (int runs = 0; runs < 3; runs++)
     {
+        time_t start = time(NULL);
 
-        printf("----------- Iteration: %d -----------\n", count);
-        //sprintf("\nPath M:\n");
-        //GxB_print(M, GxB_SHORT);
+        CHECK( GrB_Matrix_dup(&R, A) );
 
-        GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_TIMES_FP64, M, R, DEFAULT_DESC);
-#ifdef DEBUG
-        printf("\nPath:\n");
-        GxB_print(P, GxB_SHORT);
-#endif
-        //GrB_reduce(scalar, accum op, reduction monoid, vector/matrix, descriptor)
-        //matrix to vector reduction also has a mask argument, not optional, but can be NULL
-        CHECK(GrB_reduce(&delta_f_global, NO_ACCUM, GrB_MIN_MONOID_FP64, P, DEFAULT_DESC));
-        //printf("Gamma value; %lf\n", delta_f_global);
+        int count = 0;
+        GrB_Index nvals;
+        GrB_Matrix_nvals(&nvals, A);
+        while (get_augmenting_path(R, source, sink, index_ramp, M) && count++ < nvals)
+        {
 
-        GrB_UnaryOp apply_delta_op;
-        CHECK( GrB_UnaryOp_new(&apply_delta_op, apply_delta, GrB_FP64, GrB_BOOL) );
+            printf("----------- Iteration: %d -----------\n", count);
+            //sprintf("\nPath M:\n");
+            //GxB_print(M, GxB_SHORT);
 
-        //GxB_print(M, GxB_SHORT);
+            GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_TIMES_FP64, M, R, DEFAULT_DESC);
+    #ifdef DEBUG
+            printf("\nPath:\n");
+            GxB_print(P, GxB_SHORT);
+    #endif
+            //GrB_reduce(scalar, accum op, reduction monoid, vector/matrix, descriptor)
+            //matrix to vector reduction also has a mask argument, not optional, but can be NULL
+            CHECK(GrB_reduce(&delta_f_global, NO_ACCUM, GrB_MIN_MONOID_FP64, P, DEFAULT_DESC));
+            //printf("Gamma value; %lf\n", delta_f_global);
 
-        GrB_Descriptor transpose_a;
-        GrB_Descriptor_new(&transpose_a);
-        GrB_Descriptor_set(transpose_a, GrB_INP0, GrB_TRAN);
+            GrB_UnaryOp apply_delta_op;
+            CHECK( GrB_UnaryOp_new(&apply_delta_op, apply_delta, GrB_FP64, GrB_BOOL) );
 
-        CHECK( GrB_Matrix_apply(P, NO_MASK, NO_ACCUM, apply_delta_op, M, transpose_a) );
-        //GxB_print(P, GxB_SHORT);
-        CHECK( GrB_Matrix_apply(P, NO_MASK, GrB_PLUS_FP64, GrB_AINV_FP64, P, transpose_a) );
-        //GxB_print(P, GxB_SHORT);
+            //GxB_print(M, GxB_SHORT);
 
-        //GxB_print(R, GxB_SHORT);
-        GrB_eWiseAdd(R, NO_MASK, NO_ACCUM, GxB_PLUS_FP64_MONOID, R, P, DEFAULT_DESC);
-        //GxB_print(R, GxB_SHORT);
+            GrB_Descriptor transpose_a;
+            GrB_Descriptor_new(&transpose_a);
+            GrB_Descriptor_set(transpose_a, GrB_INP0, GrB_TRAN);
 
-        GrB_Descriptor replace;
-        GrB_Descriptor_new(&replace);
-        GrB_Descriptor_set(replace, GrB_OUTP, GrB_REPLACE);
+            CHECK( GrB_Matrix_apply(P, NO_MASK, NO_ACCUM, apply_delta_op, M, transpose_a) );
+            //GxB_print(P, GxB_SHORT);
+            CHECK( GrB_Matrix_apply(P, NO_MASK, GrB_PLUS_FP64, GrB_AINV_FP64, P, transpose_a) );
+            //GxB_print(P, GxB_SHORT);
 
-        GrB_apply(R, R, NO_ACCUM, GrB_IDENTITY_FP64, R, replace); //Remove zero-edges
-        //GxB_print(R, GxB_SHORT);
-    }
+            //GxB_print(R, GxB_SHORT);
+            GrB_eWiseAdd(R, NO_MASK, NO_ACCUM, GxB_PLUS_FP64_MONOID, R, P, DEFAULT_DESC);
+            //GxB_print(R, GxB_SHORT);
 
-    double total_flow = 0;
-    for (GrB_Index i = 0; i < n; i++) {
-        double capacity = 0;
-        double residual = 0;
+            GrB_Descriptor replace;
+            GrB_Descriptor_new(&replace);
+            GrB_Descriptor_set(replace, GrB_OUTP, GrB_REPLACE);
 
-        if(GrB_Matrix_extractElement(&capacity, A, source, i) == GrB_NO_VALUE)
-            capacity = 0;
-        if(GrB_Matrix_extractElement(&residual, R, source, i) == GrB_NO_VALUE)
-            residual = 0;
-        //printf("Found edge (%ld,%ld) w cap: %lf and residual: %lf. Adding %lf to total flow\n", source, i, capacity, residual, capacity-residual);
-        total_flow += capacity-residual;
-    }
-    //Could use elementwise multiplication between graph and R to figure out the min-cut?
-    //Intersection between graph and residuals complement?
-    GrB_Descriptor mask_complement;
-    GrB_Descriptor_new(&mask_complement);
-    GrB_Descriptor_set(mask_complement, GrB_MASK, GrB_COMP);
+            GrB_apply(R, R, NO_ACCUM, GrB_IDENTITY_FP64, R, replace); //Remove zero-edges
+            //GxB_print(R, GxB_SHORT);
+        }
 
-    GrB_Matrix min_cut;
-    GrB_Matrix_new(&min_cut, GrB_FP64, n, n);
-    GrB_apply(min_cut, R, NO_ACCUM, GrB_IDENTITY_FP64, A, mask_complement);
+        double total_flow = 0;
+        for (GrB_Index i = 0; i < n; i++) {
+            double capacity = 0;
+            double residual = 0;
 
-    GrB_Vector reachable;
-    GrB_Vector_new(&reachable, GrB_BOOL, n);
-    mincut_bfs(&reachable, R, source);
+            if(GrB_Matrix_extractElement(&capacity, A, source, i) == GrB_NO_VALUE)
+                capacity = 0;
+            if(GrB_Matrix_extractElement(&residual, R, source, i) == GrB_NO_VALUE)
+                residual = 0;
+            //printf("Found edge (%ld,%ld) w cap: %lf and residual: %lf. Adding %lf to total flow\n", source, i, capacity, residual, capacity-residual);
+            total_flow += capacity-residual;
+        }
+        //Are there edge-cases where flow will go back into source? No, becasue BFS always begins in the source
+        printf("Max flow: %lf\n", total_flow);
 
-    printf("Min-cut edges:\n");
-    double val;
-    double min_cut_value = 0;
-    for (GrB_Index i = 0; i < n; i++) {
-        if(GrB_Vector_extractElement(&val, reachable, i) != GrB_NO_VALUE) {
-            for (GrB_Index j = 0; j < n; j++) {
-                if(GrB_Matrix_extractElement(&val, min_cut, i, j) != GrB_NO_VALUE) {
-                    printf("(%ld,%ld)\t%lf\n", i, j, val);
-                    min_cut_value += val;
+        //End after determining flow, but before correctness
+        time_t end = time(NULL);
+        printf("Took %lf seconds\n", difftime(end, start));
+
+
+#ifndef PROFILE
+        printf("Testing correctness:\n");
+
+        double total_source_flow = total_flow;
+        printf("Total flow out of source: %lf\n", total_source_flow);
+
+        double total_sink_flow = 0;
+        for (GrB_Index i = 0; i < n; i++) {
+            double capacity = 0;
+            double residual = 0;
+
+            if(GrB_Matrix_extractElement(&capacity, A, i, sink) == GrB_NO_VALUE)
+                capacity = 0;
+            if(GrB_Matrix_extractElement(&residual, R, i, sink) == GrB_NO_VALUE)
+                residual = 0;
+            //printf("Found edge (%ld,%ld) w cap: %lf and residual: %lf. Adding %lf to total flow\n", source, i, capacity, residual, capacity-residual);
+            total_sink_flow += capacity-residual;
+        }
+        printf("Total flow into sink: %lf\n", total_sink_flow);
+
+
+
+        GrB_Vector reachable;
+        GrB_Vector_new(&reachable, GrB_BOOL, n);
+        mincut_bfs(&reachable, R, source);
+
+        printf("Min-cut edges:\n");
+        double val;
+        double min_cut_value = 0;
+        for (GrB_Index i = 0; i < n; i++) {
+            if(GrB_Vector_extractElement(&val, reachable, i) != GrB_NO_VALUE) {
+                for (GrB_Index j = 0; j < n; j++) {
+                    if(GrB_Vector_extractElement(&val, reachable, j) == GrB_NO_VALUE
+                        //&& GrB_Matrix_extractElement(&val, min_cut, i, j) != GrB_NO_VALUE)
+                        && GrB_Matrix_extractElement(&val, A, i, j) != GrB_NO_VALUE)
+                    {
+                        printf("(%ld,%ld)\t%lf\n", i, j, val);
+                        min_cut_value += val;
+                    }
                 }
             }
         }
+        printf("Min cut: %lf\n", min_cut_value);
+#endif
+
     }
-    //Are there edge-cases where flow will go back into source? No, becasue BFS always begins in the source
-    printf("Max flow: %lf\n", total_flow);
-    printf("Min cut: %lf\n", min_cut_value);
     GrB_finalize ( ) ;
 }
