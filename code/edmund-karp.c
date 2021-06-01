@@ -1,8 +1,10 @@
 
 #include <GraphBLAS.h>
 #include <stdio.h>
+#include <omp.h>
 #include <time.h>
 #include "readmtx.h"
+
 
 #ifdef DEBUG
 #define CHECK(x) \
@@ -36,33 +38,77 @@ void set_s_t_bfs(
     GrB_Index *t
 )
 {
-    /*
     GrB_Index n;
-    GrB_Matrix level = NULL;
-    GrB_Matrix frontiers;
+    GrB_Matrix levels = NULL;
+    GrB_Matrix frontiers = NULL;
     GrB_Descriptor desc = NULL;
 
     CHECK( GrB_Matrix_nrows(&n, R) );
 
-    CHECK( GrB_Matrixr_new(&level, GrB_INT32, n, n) );
+    CHECK( GrB_Matrix_new(&levels, GrB_INT32, n, n) );
+    CHECK( GrB_Matrix_new(&frontiers, GrB_INT32, n, n) );
 
-    GrB_Vector_setElement(level, 0, s);
-
-    GrB_Vector_new(&frontier, GrB_BOOL, n);
-    GrB_Vector_setElement(frontier, true, s);
-
+if (false) { //Can enable all-to-all search by using GrB_extract afterwards
+    for(int i = 0; i < n; i++){
+        GrB_Matrix_setElement(frontiers, true, i, i);
+    }
+} else {
+    for(int i = 0; i < 1; i++){
+        GrB_Matrix_setElement(frontiers, true, i, i);
+    }
+}
     GrB_Descriptor_new(&desc);
     GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP);
+    GrB_Descriptor_set(desc, GrB_MASK, GrB_STRUCTURE);
     GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE);
 
     bool successor = true;
+    int level = 0;
     while (successor) {
-        GrB_vxm(frontier, reachable, NO_ACCUM, GxB_LOR_LAND_BOOL, frontier, R, desc);
-        GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC);
-        GrB_assign(reachable, frontier, NULL, true, GrB_ALL, n, NULL);
+        GrB_Matrix_assign_INT32     // C<Mask>(I,J) = accum (C(I,J),x)
+        (
+            levels,                   // input/output matrix for results
+            frontiers,          // optional mask for C, unused if NULL
+            NO_ACCUM,       // optional accum for Z=accum(C(I,J),x)
+            level,                   // scalar to assign to C(I,J)
+            GrB_ALL,             // row indices
+            n,                   // number of row indices
+            GrB_ALL,             // column indices
+            n,                   // number of column indices
+            DEFAULT_DESC       // descriptor for C and Mask
+        );
+        GrB_mxm(frontiers, levels, NO_ACCUM, GxB_LOR_LAND_BOOL, frontiers, R, desc);
+        GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontiers, DEFAULT_DESC);
+        level++;
+        printf("current depth: %d \n", level);
     }
-    */
+#ifdef DEBUG
+    GxB_print(levels, GxB_SHORT);
+#endif
+    GrB_Vector deepest;
+    CHECK( GrB_Vector_new(&deepest, GrB_INT32, n) );
+    CHECK( GrB_reduce(deepest, NO_MASK, NO_ACCUM, GrB_MAX_MONOID_INT32, levels, DEFAULT_DESC) );
+    printf("deepest:\n", deepest);
+    GxB_print(deepest, GxB_SHORT);
 
+    int val = -1;
+    for(int i = 0; i < n; i++){
+        if(GrB_Vector_extractElement(&val, deepest, i) != GrB_NO_VALUE && val == level-1){
+            *s = i;
+            for(int j = 0; j < n; j++){
+                if(GrB_Matrix_extractElement(&val, levels, i, j) != GrB_NO_VALUE && val == level-1){
+                    *t = j;
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    printf("s:%ld, t:%ld\n", *s, *t);
+
+    GrB_Index num_reachable = -1;
+    GrB_Vector_nvals(&num_reachable, levels);
+    printf("Number reachable vertices:%ld\n", num_reachable);
 }
 
 void mincut_bfs(
@@ -242,8 +288,8 @@ bool get_augmenting_path(
 
 int main (int argc, char **argv)
 {
-    if(argc < 4) {
-        printf("Usage: ./edmund-karp filename.mtx <s> <t>\n");
+    if(argc < 2) {
+        printf("Usage: ./edmund-karp filename.mtx (<runs>) (<s>) (<t>)\n");
         return 1;
     }
 
@@ -254,6 +300,8 @@ int main (int argc, char **argv)
     GrB_init ( GrB_NONBLOCKING );
 #endif
 
+    size_t threads = omp_get_max_threads();
+    printf("max threads:%ld\n", threads);
 
     GrB_Index n;            //No. of vertices
     GrB_Index edges;        //No. of edges
@@ -265,12 +313,16 @@ int main (int argc, char **argv)
     GrB_Matrix P = NULL;    //Weighted path
     GrB_Matrix R = NULL;    //Residual network
     GrB_Vector index_ramp;  //v[i] = i. For extracting parent in BFS
+    int runs = -1;
     GrB_Index source = -1;
     GrB_Index sink = -1;
 
     readMtx(argv[1], &n, &edges, &row_indeces, &col_indeces, &values);
     CHECK( GrB_Matrix_new (&A, GrB_FP64, n, n) );
     CHECK( GrB_Matrix_build (A, row_indeces, col_indeces, values, edges, GrB_PLUS_FP64) );
+
+
+
 #ifdef DEBUG
     GxB_print(A, GxB_SHORT);
 #endif
@@ -286,15 +338,28 @@ int main (int argc, char **argv)
 #endif
     //printf("Success? %s\n", get_augmenting_path(A, 0, 5, M)?"yes! :D":"no :(");
 
-    source = atoi(argv[2]);
-    sink = atoi(argv[3]); //TODO set sink to something sensible
-    printf("SOURCE:%ld, SINK:%ld\n", source, sink);
-    if (sink > n) {
-        printf("Out of bounds sink y'all ERROR to the MAX!\n");
-        return 1;
+    if(argc < 5) {
+        set_s_t_bfs(A, &source, &sink);
+        //return 0;
+    } else {
+        source = atoi(argv[3]);
+        sink = atoi(argv[4]); //TODO set sink to something sensible
+        printf("SOURCE:%ld, SINK:%ld\n", source, sink);
+        if (sink > n) {
+            printf("Out of bounds sink y'all ERROR to the MAX!\n");
+            return 1;
+        }
     }
 
-    for (int runs = 0; runs < 3; runs++)
+    if(argc < 3) {
+        runs = 3;
+    } else {
+        printf("Got here!\n");
+        runs = atoi(argv[2]);
+        printf("runs:%d\n", runs);
+    }
+
+    for (int run = 0; run < runs; run++)
     {
         time_t start = time(NULL);
 
@@ -359,14 +424,13 @@ int main (int argc, char **argv)
             total_flow += capacity-residual;
         }
         //Are there edge-cases where flow will go back into source? No, becasue BFS always begins in the source
-        printf("Max flow: %lf\n", total_flow);
+        printf("s-t: %ld-%ld. Max flow: %lf\n", source, sink, total_flow);
 
         //End after determining flow, but before correctness
         time_t end = time(NULL);
         printf("Took %lf seconds\n", difftime(end, start));
 
 
-#ifndef PROFILE
         printf("Testing correctness:\n");
 
         double total_source_flow = total_flow;
@@ -386,7 +450,7 @@ int main (int argc, char **argv)
         }
         printf("Total flow into sink: %lf\n", total_sink_flow);
 
-
+#if defined(PROFILE) || defined(DEBUG)
 
         GrB_Vector reachable;
         GrB_Vector_new(&reachable, GrB_BOOL, n);

@@ -1,0 +1,12 @@
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-road.tar.gz
+s:0, t:20897930
+depth: 6261
+s-t: 0-20897930. Max flow: 258.000000
+Took 469.000000 seconds (thread number unspecified, CPU usage up to 8000%)
+Testing correctness:
+Total flow out of source: 258.000000
+Total flow into sink: 258.000000
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-twitter.tar.gz
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-web.tar.gz
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-kron.tar.gz
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-urand.tar.gz
