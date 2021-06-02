@@ -14,6 +14,6 @@ debug: edmund-karp.c readmtx.h
 profile: edmund-karp.c readmtx.h
 	gcc edmund-karp.c -D PROFILE $(common_flags) -Og -o edmund-karp-prof
 
-.PHONY: run
-run: edmund-karp
-	./edmund-karp
+
+s_t_search: s_t_search.c readmtx.h
+	gcc s_t_search.c $(common_flags) -o s_t_search

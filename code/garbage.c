@@ -1,4 +1,95 @@
 
+//Matrix-based all-to-all bfs search for s & t. too time-consuming
+//Perform multiple simultaneous BFS searches to determine s-t
+void set_s_t_bfs(
+    const GrB_Matrix A,
+    GrB_Index *s,
+    GrB_Index *t
+)
+{
+    GrB_Index n;
+    GrB_Matrix levels = NULL;
+    GrB_Matrix frontiers = NULL;
+    GrB_Descriptor desc = NULL;
+
+    CHECK( GrB_Matrix_nrows(&n, A) );
+
+    CHECK( GrB_Matrix_new(&levels, GrB_INT32, n, n) );
+    CHECK( GrB_Matrix_new(&frontiers, GrB_INT32, n, n) );
+
+if (false) { //Can enable all-to-all search by using GrB_extract afterwards
+    for(int i = 0; i < n; i++){
+        GrB_Matrix_setElement(frontiers, true, i, i);
+    }
+} else {
+    for(int i = 0; i < 1; i++){
+        GrB_Matrix_setElement(frontiers, true, i, i);
+    }
+}
+    GrB_Descriptor_new(&desc);
+    GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP);
+    GrB_Descriptor_set(desc, GrB_MASK, GrB_STRUCTURE);
+    GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE);
+
+    bool successor = true;
+    int level = 0;
+    while (successor) {
+        GrB_Matrix_assign_INT32     // C<Mask>(I,J) = accum (C(I,J),x)
+        (
+            levels,                   // input/output matrix for results
+            frontiers,          // optional mask for C, unused if NULL
+            NO_ACCUM,       // optional accum for Z=accum(C(I,J),x)
+            level,                   // scalar to assign to C(I,J)
+            GrB_ALL,             // row indices
+            n,                   // number of row indices
+            GrB_ALL,             // column indices
+            n,                   // number of column indices
+            DEFAULT_DESC       // descriptor for C and Mask
+        );
+        GrB_mxm(frontiers, levels, NO_ACCUM, GxB_LOR_LAND_BOOL, frontiers, A, desc);
+        GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontiers, DEFAULT_DESC);
+        level++;
+        printf("current depth: %d \n", level);
+    }
+#ifdef DEBUG
+    GxB_print(levels, GxB_SHORT);
+#endif
+    GrB_Vector deepest;
+    CHECK( GrB_Vector_new(&deepest, GrB_INT32, n) );
+    CHECK( GrB_reduce(deepest, NO_MASK, NO_ACCUM, GrB_MAX_MONOID_INT32, levels, DEFAULT_DESC) );
+    printf("deepest:\n", deepest);
+    GxB_print(deepest, GxB_SHORT);
+
+    int val = -1;
+    for(int i = 0; i < n; i++){
+        if(GrB_Vector_extractElement(&val, deepest, i) != GrB_NO_VALUE && val == level-1){
+            *s = i;
+            for(int j = 0; j < n; j++){
+                if(GrB_Matrix_extractElement(&val, levels, i, j) != GrB_NO_VALUE && val == level-1){
+                    *t = j;
+                    break;
+                }
+            }
+            break;
+        }
+    }
+    printf("s:%ld, t:%ld\n", *s, *t);
+
+    GrB_Index num_reachable = -1;
+    GrB_Vector_nvals(&num_reachable, levels);
+    printf("Number reachable vertices:%ld\n", num_reachable);
+}
+
+//ewise addition for applying frontier to parent list in bfs, less efficient than apply
+CHECK( GrB_eWiseAdd(parent_list, //w
+    NO_MASK, //mask
+    //GrB_PLUS_INT32, //accum
+    NO_ACCUM,
+    GrB_PLUS_INT32, //unary op. w<M> = accum (w, op (u)). Nor sure this identity is the same as for indexes
+    parent_list,
+    wavefront, //u
+    DEFAULT_DESC) ); // descriptor
+
 //Used for locating all filled edges, not necessary for finding min-cut
 
 GrB_Descriptor mask_complement;

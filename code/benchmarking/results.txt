@@ -1,0 +1,8 @@
+GAP-road
+s:0, t:20897930
+depth: 6261
+s-t: 0-20897930. Max flow: 258.000000
+Took 469.000000 seconds (thread number unspecified, but CPU usage up to 8000%)
+Testing correctness:
+Total flow out of source: 258.000000
+Total flow into sink: 258.000000
