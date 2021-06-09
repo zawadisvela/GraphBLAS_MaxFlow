@@ -2,9 +2,11 @@
 #include <GraphBLAS.h>
 #include <stdio.h>
 #include <omp.h>
-#include <time.h>
+//#include <time.h>
 #include "readmtx.h"
 #include "s_t_bfs.h"
+#include <sys/time.h>
+#define WALLTIME(t) ((double)(t).tv_sec + 1e-6 * (double)(t).tv_usec)
 
 
 #ifdef DEBUG
@@ -23,14 +25,115 @@
 #define NO_ACCUM GxB_DEFAULT
 #define DEFAULT_DESC GxB_DEFAULT
 
-#define DOUBLE_PREC 1
 
-
-double delta_f_global = 0 ;
-void apply_delta (void *result, const void *element)
+void improved_mincut_bfs(
+    GrB_Matrix *C,
+    const GrB_Matrix A,
+    const GrB_Matrix R,
+    GrB_Index s
+)
 {
-    (* ((double *) result)) = delta_f_global ;
+    GrB_Index n;
+    CHECK( GrB_Matrix_nrows(&n, A) );
+
+    GrB_Vector reachable;
+    GrB_Vector_new(&reachable, GrB_INT32, n);
+    CHECK( GrB_Vector_setElement(reachable, 1, s) );
+
+    GrB_Vector frontier;
+    CHECK( GrB_Vector_new(&frontier, GrB_BOOL, n) );
+    CHECK( GrB_Vector_setElement(frontier, true, s) );
+
+    GrB_Descriptor desc = NULL;
+    CHECK( GrB_Descriptor_new(&desc) );
+    CHECK( GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP) );
+    CHECK( GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE) );
+
+    bool successor = true;
+    while (successor) {
+        CHECK( GrB_vxm(frontier, reachable, NO_ACCUM, GxB_LOR_LAND_BOOL, frontier, R, desc) );
+        CHECK( GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC) );
+        CHECK( GrB_assign(reachable, frontier, NULL, true, GrB_ALL, n, NULL) );
+    }
+
+    GrB_Vector t_cut;
+    GrB_Vector_new(&t_cut, GrB_INT32, n);
+
+    CHECK( GrB_vxm(t_cut, reachable, NO_ACCUM, GxB_ANY_FIRSTJ_INT32, reachable, A, desc) );
+
+    GrB_Vector s_cut;
+    GrB_Vector_new(&s_cut, GrB_INT32, n);
+
+    GrB_Descriptor transpose_b = NULL;
+    CHECK( GrB_Descriptor_new(&transpose_b) );
+    CHECK( GrB_Descriptor_set(transpose_b, GrB_INP1, GrB_TRAN) );
+
+    CHECK( GrB_vxm(s_cut, reachable, NO_ACCUM, GxB_ANY_FIRSTJ_INT32, t_cut, A, transpose_b) );
+
+    GxB_print(s_cut, GxB_SHORT);
+
+    GxB_print(t_cut, GxB_SHORT);
+
+    GrB_Index s_len  = -1;
+    CHECK( GrB_Vector_nvals(&s_len, s_cut) );
+    GrB_Index *s_indices = malloc(s_len * sizeof(GrB_Index));
+    GrB_Index *s_vals = malloc(s_len * sizeof(GrB_Index));
+
+    GrB_Index t_len  = -1;
+    CHECK( GrB_Vector_nvals(&t_len, t_cut) );
+    GrB_Index *t_indices = malloc(t_len * sizeof(GrB_Index));
+    GrB_Index *t_vals = malloc(t_len * sizeof(GrB_Index));
+
+    CHECK( GrB_Vector_extractTuples(s_indices, s_vals, &s_len, s_cut) );
+
+    CHECK( GrB_Vector_extractTuples(t_indices, t_vals, &t_len, t_cut) );
+
+    GrB_Matrix cut_extract = NULL;
+    GrB_Matrix_new(&cut_extract, GrB_FP64, s_len, t_len);
+
+    CHECK( GrB_extract(cut_extract, NO_MASK, NO_ACCUM, A, s_indices, s_len, t_indices, t_len, DEFAULT_DESC) );
+
+    GxB_print(cut_extract, GxB_SHORT);
+
+    GrB_Index cut_len = -1;
+    GrB_Matrix_nvals(&cut_len, cut_extract);
+
+    GrB_Index *cut_s = malloc(cut_len * sizeof(GrB_Index));
+    GrB_Index *cut_t = malloc(cut_len * sizeof(GrB_Index));
+    double *cut_val = malloc(cut_len * sizeof(GrB_Index));
+
+    GrB_Matrix_extractTuples(cut_s, cut_t, cut_val, &cut_len, cut_extract);
+
+#ifdef DEBUG
+    printf("MIN-CUT:\n");
+#endif
+    for(int i = 0; i < cut_len; i++) {
+#ifdef DEBUG
+        printf("(%ld, %ld): %lf\n", s_indices[cut_s[i]], t_indices[cut_t[i]], cut_val[i]);
+#endif
+        cut_s[i] = s_indices[cut_s[i]];
+        cut_t[i] = t_indices[cut_t[i]];
+    }
+
+    GrB_Matrix_new(C, GrB_FP64, n, n);
+    CHECK( GrB_Matrix_build (*C, cut_s, cut_t, cut_val, cut_len, GrB_PLUS_FP64) );
+
+#ifdef DEBUG
+    GxB_print(*C, GxB_SHORT);
+#endif
+    GrB_free(&reachable);
+    GrB_free(&frontier);
+    GrB_free(&desc);
+    GrB_free(&transpose_b);
+    free(s_indices);
+    free(s_vals);
+    free(t_indices);
+    free(t_vals);
+    free(cut_s);
+    free(cut_t);
+    free(cut_val);
 }
+
 
 void mincut_bfs(
     GrB_Vector* result,
@@ -73,13 +176,8 @@ bool get_augmenting_path(
     GrB_Index n;
     CHECK( GrB_Matrix_nrows(&n, R) );
 
-/*
-    GrB_Matrix R = NULL;
-    CHECK( GrB_Matrix_dup(&R, graph) );
-*/
     GrB_Vector parent_list = NULL;
     CHECK( GrB_Vector_new(&parent_list, GrB_INT32, n) );
-    CHECK( GrB_Vector_setElement(parent_list, source, source) );
 
     GrB_Vector wavefront = NULL;
     CHECK( GrB_Vector_new(&wavefront, GrB_INT32, n) );
@@ -95,40 +193,72 @@ bool get_augmenting_path(
     CHECK( GrB_Descriptor_set (desc, GrB_MASK, GrB_STRUCTURE) );     // Don't care about values, only structure of mask
     CHECK( GrB_Descriptor_set (desc, GrB_OUTP, GrB_REPLACE) );  // clear q first
 
-    while (((GrB_Vector_extractElement(&sink_parent, parent_list, sink) == GrB_NO_VALUE)) && (wavefront_nvals > 0))
+    while ((GrB_Vector_extractElement(&sink_parent, parent_list, sink) == GrB_NO_VALUE) && (wavefront_nvals > 0))
     {
         //printf("\nCurrent frontier:\n");
         //GxB_print(wavefront, GxB_SHORT);
 
+        CHECK( GrB_Vector_apply(parent_list, //w
+            NO_MASK, //mask
+            GrB_PLUS_INT32, //accum. Needed because otherwise the operation will act as a replace.
+            //As with all graphblas operations, if only one operand is present it will be passed through
+            //This could have been any binary operator. see top of p. 171 in the API
+            GrB_IDENTITY_INT32, //unary op. w<M> = accum (w, op (u)). Identity(x) = x
+            wavefront, //u
+            DEFAULT_DESC) ); // descriptor
+
+
+        CHECK( GrB_vxm(wavefront, //c
+            parent_list, //mask, ignores preciously found vertices and automatically removes self-loops
+            NO_ACCUM, //no accumulate/default
+#if defined(DEBUG) || defined(PROFILE)
+            GxB_MIN_FIRSTJ_INT32, //semiring. First to extract parent. Why min? Could be ANY?
+#else
+            GxB_ANY_FIRSTJ_INT32, //Should yield same result, and leaves more implementation freedom
+#endif
+            wavefront,
+            R, // M
+            desc) ); //descriptor
+/*
+
         // convert all stored values to their column index
+        GrB_Vector dup_frontier = NULL;
+        GrB_Vector_dup(&dup_frontier, wavefront);
+
         CHECK( GrB_eWiseMult(wavefront,
             NO_MASK, NO_ACCUM, //mask, accumulate op
             GrB_FIRST_INT32,
             index_ramp, wavefront,
             DEFAULT_DESC) ); //descriptor
 
+
+
         CHECK( GrB_vxm(wavefront, //c
-            //NULL,
-            parent_list, //mask <- automatically removes self-loops
+            parent_list, //mask, ignores preciously found vertices and automatically removes self-loops
             NO_ACCUM, //no accumulate/default
-#if defined(DEBUG) || defined(PROFILE)
+        #if defined(DEBUG) || defined(PROFILE)
             GxB_MIN_FIRST_FP64, //semiring. First to extract parent. Why min? Could be ANY?
-#else
+        #else
             GxB_ANY_FIRST_FP64, //Should yield same result, and leaves more implementation freedom
-#endif
-            wavefront, //
+        #endif
+            wavefront,
             R, // M
             desc) ); //descriptor
 
-        //printf("RESULT w\n:");
-        ////GxB_print(wavefront, GxB_SHORT);
-        CHECK( GrB_Vector_apply(parent_list, //w
-            NO_MASK, //mask
-            GrB_PLUS_INT32, //accum. What, why? There won't ever be overlap because the parent is used as mask, but can't we just not feed it a accumulator then?
-            //NO_ACCUM,
-            GrB_IDENTITY_INT32, //unary op. w<M> = accum (w, op (u)). Nor sure this identity is the same as for indexes
-            wavefront, //u
-            DEFAULT_DESC) ); // descriptor
+        CHECK( GrB_vxm(dup_frontier, //c
+            parent_list, //mask, ignores preciously found vertices and automatically removes self-loops
+            NO_ACCUM, //no accumulate/default
+#if defined(DEBUG) || defined(PROFILE)
+            GxB_MIN_FIRSTJ_INT32, //semiring. First to extract parent. Why min? Could be ANY?
+#else
+            GxB_ANY_FIRSTJ_INT32, //Vector is treated as row-vector, as such, first J! is needed, not first I
+#endif
+            dup_frontier,
+            R, // M
+            desc) ); //descriptor
+        GxB_print(wavefront, GxB_SHORT);
+        GxB_print(dup_frontier, GxB_SHORT);
+    */
 
         CHECK( GrB_Vector_nvals(&wavefront_nvals, wavefront) );
     }
@@ -153,7 +283,6 @@ bool get_augmenting_path(
 }
 
 
-
 int main (int argc, char **argv)
 {
     if(argc < 2) {
@@ -171,8 +300,8 @@ int main (int argc, char **argv)
     size_t threads = omp_get_max_threads();
     printf("max threads:%ld\n", threads);
 
-    GrB_Index n;            //No. of vertices
-    GrB_Index edges;        //No. of edges
+    GrB_Index n = 0;            //No. of vertices
+    GrB_Index edges = 0;        //No. of edges
     GrB_Index* row_indeces;
     GrB_Index* col_indeces;
     double* values;
@@ -184,6 +313,7 @@ int main (int argc, char **argv)
     int runs = -1;
     GrB_Index source = -1;
     GrB_Index sink = -1;
+    struct timeval start, end;
 
     readMtx(argv[1], &n, &edges, &row_indeces, &col_indeces, &values);
     CHECK( GrB_Matrix_new (&A, GrB_FP64, n, n) );
@@ -202,7 +332,6 @@ int main (int argc, char **argv)
     printf("Index ramp:\n");
     GxB_print(index_ramp, GxB_SHORT);
 #endif
-    //printf("Success? %s\n", get_augmenting_path(A, 0, 5, M)?"yes! :D":"no :(");
 
     if(argc < 5) {
         s_t_bfs(A, &source, &sink);
@@ -220,41 +349,46 @@ int main (int argc, char **argv)
     if(argc < 3) {
         runs = 3;
     } else {
-        printf("Got here!\n");
         runs = atoi(argv[2]);
-        printf("runs:%d\n", runs);
     }
+    printf("Runs:%d\n", runs);
 
     for (int run = 0; run < runs; run++)
     {
-        time_t start = time(NULL);
+
+        printf("\n-------Run %d-------\n", run+1);
+        gettimeofday ( &start, NULL );
 
         CHECK( GrB_Matrix_dup(&R, A) );
-
         int count = 0;
         GrB_Index nvals;
         GrB_Matrix_nvals(&nvals, A);
         while (get_augmenting_path(R, source, sink, index_ramp, M) && count++ < nvals)
         {
+
+            //Extract the capacity values coinciding with the path
+            CHECK( GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_TIMES_FP64, M, R, DEFAULT_DESC) );
+
+#ifdef DEBUG
             printf("----------- Iteration: %d -----------\n", count);
-
-            GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_TIMES_FP64, M, R, DEFAULT_DESC);
-    #ifdef DEBUG
             printf("\nPath:\n");
-            GxB_print(P, GxB_SHORT);
-    #endif
-            //GrB_reduce(scalar, accum op, reduction monoid, vector/matrix, descriptor)
-            //matrix to vector reduction also has a mask argument, not optional, but can be NULL
-            CHECK(GrB_reduce(&delta_f_global, NO_ACCUM, GrB_MIN_MONOID_FP64, P, DEFAULT_DESC));
+                        GxB_print(P, GxB_SHORT);
+#endif
 
-            //Construct path and inverse, negative path
-            GrB_UnaryOp apply_delta_op;
-            CHECK( GrB_UnaryOp_new(&apply_delta_op, apply_delta, GrB_FP64, GrB_BOOL) );
+            //Reduction to get the delta, the minimum capacity along the path
+            //matrix to vector reduction also has a mask argument, not optional, but can be NULL
+            double delta_f = 0;
+            CHECK(GrB_reduce(&delta_f, NO_ACCUM, GrB_MIN_MONOID_FP64, P, DEFAULT_DESC));
+
+            //Assign the negated delta first using the path mask to get the negative capacity changes...
+            CHECK( GrB_assign(P, M, NO_ACCUM, -delta_f, GrB_ALL, n, GrB_ALL, n, DEFAULT_DESC) );
+            //...then apply the transposed negated result matrix to itself to get the positive capacity changes
+
             GrB_Descriptor transpose_a;
             GrB_Descriptor_new(&transpose_a);
             GrB_Descriptor_set(transpose_a, GrB_INP0, GrB_TRAN);
-            CHECK( GrB_Matrix_apply(P, NO_MASK, NO_ACCUM, apply_delta_op, M, transpose_a) );
             CHECK( GrB_Matrix_apply(P, NO_MASK, GrB_PLUS_FP64, GrB_AINV_FP64, P, transpose_a) );
+
             //Add values to residual, reducing/increasing capacities as defined
             GrB_eWiseAdd(R, NO_MASK, NO_ACCUM, GxB_PLUS_FP64_MONOID, R, P, DEFAULT_DESC);
 
@@ -281,8 +415,9 @@ int main (int argc, char **argv)
         printf("s-t: %ld-%ld. Max flow: %lf\n", source, sink, total_flow);
 
         //End after determining flow, but before correctness
-        time_t end = time(NULL);
-        printf("Took %lf seconds\n", difftime(end, start));
+        gettimeofday ( &end, NULL );
+        double s = (WALLTIME(end)-WALLTIME(start));
+        printf("Time: %lf\n", s);
 
         printf("Testing correctness:\n");
 
@@ -298,35 +433,17 @@ int main (int argc, char **argv)
                 capacity = 0;
             if(GrB_Matrix_extractElement(&residual, R, i, sink) == GrB_NO_VALUE)
                 residual = 0;
-            //printf("Found edge (%ld,%ld) w cap: %lf and residual: %lf. Adding %lf to total flow\n", source, i, capacity, residual, capacity-residual);
             total_sink_flow += capacity-residual;
         }
         printf("Total flow into sink: %lf\n", total_sink_flow);
 
-#if defined(PROFILE) || defined(DEBUG)
+        GrB_Matrix min_cut;
+        improved_mincut_bfs(&min_cut, A, R, s);
 
-        GrB_Vector reachable;
-        GrB_Vector_new(&reachable, GrB_BOOL, n);
-        mincut_bfs(&reachable, R, source);
+        double min_cut_value = -1;
+        CHECK( GrB_reduce(&min_cut_value, NO_ACCUM, GrB_PLUS_MONOID_FP64, min_cut, DEFAULT_DESC) );
 
-        printf("Min-cut edges:\n");
-        double val;
-        double min_cut_value = 0;
-        for (GrB_Index i = 0; i < n; i++) {
-            if(GrB_Vector_extractElement(&val, reachable, i) != GrB_NO_VALUE) {
-                for (GrB_Index j = 0; j < n; j++) {
-                    if(GrB_Vector_extractElement(&val, reachable, j) == GrB_NO_VALUE
-                        //&& GrB_Matrix_extractElement(&val, min_cut, i, j) != GrB_NO_VALUE)
-                        && GrB_Matrix_extractElement(&val, A, i, j) != GrB_NO_VALUE)
-                    {
-                        printf("(%ld,%ld)\t%lf\n", i, j, val);
-                        min_cut_value += val;
-                    }
-                }
-            }
-        }
-        printf("Min cut: %lf\n", min_cut_value);
-#endif
+        printf("Min cut value still = %lf\n", min_cut_value);
 
     }
     GrB_finalize ( ) ;

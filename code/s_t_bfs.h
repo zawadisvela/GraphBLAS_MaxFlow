@@ -46,7 +46,9 @@ void s_t_bfs(
     bool successor = true;
     int depth = 0;
     while (successor) {
+#ifdef DEBUG
         printf("current depth: %d \n", depth);
+#endif
         GrB_Vector_assign_INT32     // C<Mask>(I,J) = accum (C(I,J),x)
         (
             level,                   // input/output matrix for results
@@ -61,10 +63,12 @@ void s_t_bfs(
         GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC);
         depth++;
     }
+#ifdef DEBUG
     GxB_print(level, GxB_SHORT);
+#endif
     GrB_Index deepest = -1;
     CHECK( GrB_reduce(&deepest, NO_ACCUM, GrB_MAX_MONOID_INT32, level, DEFAULT_DESC) );
-    printf("deepest:%ld\n", deepest);
+    printf("Deepest:%ld\n", deepest);
 
     int val = -1;
     for(int j = 0; j < n; j++){
@@ -74,7 +78,7 @@ void s_t_bfs(
         }
     }
 
-    printf("s:%ld, t:%ld\n", *s, *t);
+    printf("s-t: %ld-%ld\n", *s, *t);
 
     GrB_Index num_reachable = -1;
     GrB_Vector_nvals(&num_reachable, level);
