@@ -1,0 +1,5 @@
+Graph properties: symmetric, integer,
+Everything is fine!
+Deepest:6261
+s-t: 0-20897930
+Number reachable vertices:23947347
