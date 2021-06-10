@@ -1,38 +1,32 @@
 max threads:20
 Graph properties: symmetric, pattern,
 Everything is fine!
-SOURCE:0, SINK:4619
+SOURCE:807, SINK:4279
 Runs:3
 
 -------Run 1-------
-s-t: 0-4619. Max flow: 227.000000
-Time: 0.051280
-Correctness and min-cut:
-Total flow out of source: 227.000000
-Total flow into sink: 227.000000
-Min-cut sum: 227.000000
+s-t: 807-4279. Max flow: 366.000000
+Time: 0.051667
 
 -------Run 2-------
-s-t: 0-4619. Max flow: 227.000000
-Time: 0.047883
-Correctness and min-cut:
-Total flow out of source: 227.000000
-Total flow into sink: 227.000000
-Min-cut sum: 227.000000
+s-t: 807-4279. Max flow: 366.000000
+Time: 0.046211
 
 -------Run 3-------
-s-t: 0-4619. Max flow: 227.000000
-Time: 0.047971
-Correctness and min-cut:
-Total flow out of source: 227.000000
-Total flow into sink: 227.000000
-Min-cut sum: 227.000000
+s-t: 807-4279. Max flow: 366.000000
+Time: 0.045915
 
-./edmund-karp uk/uk.mtx 3 0 4619
+Correctness and min-cut:
+Total flow out of source: 366.000000
+Total flow into sink: 366.000000
+Min-cut sum: 366.000000
+Time to determine min-cut: 0.001694
+
+./edmund-karp ../uk/uk.mtx 3 807 4279
 
 OMP_NUM_THREADS=20
 
 
-Min time: 0.047883
-Max time: 0.05128
-Avg time: 0.04904466666666666
+Min time: 0.045915
+Max time: 0.051667
+Avg time: 0.047931

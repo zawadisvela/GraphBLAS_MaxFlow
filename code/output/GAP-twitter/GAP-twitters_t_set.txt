@@ -1,0 +1,10 @@
+Graph properties: integer,
+Everything is fine!
+Try:1	Source:18515348
+Deepest:15
+Number reachable vertices:35016137
+57% of all vertices reached
+
+----------------
+
+s-t: 18515348-46655700
