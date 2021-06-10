@@ -1,5 +1,6 @@
 Graph properties: symmetric, pattern,
 Everything is fine!
-Deepest:148
-s-t: 0-4619
+Try:1	Source:807
+Deepest:124
+s-t: 807-4279
 Number reachable vertices:4824
