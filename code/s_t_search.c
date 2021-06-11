@@ -13,8 +13,11 @@ int main(int argc, char** argv)
     GrB_Index* col_indeces;
     double* values;
     GrB_Matrix A = NULL;    //Input graph
-    GrB_Index s = 0; //Default source
+    GrB_Index s = -1; //Default source
     GrB_Index t = -1;
+
+    if(argc > 2)
+        s = atoi(argv[2]);
 
     readMtx(argv[1], &n, &edges, &row_indeces, &col_indeces, &values);
     CHECK( GrB_Matrix_new (&A, GrB_BOOL, n, n) );
