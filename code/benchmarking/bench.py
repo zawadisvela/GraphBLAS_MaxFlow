@@ -22,35 +22,17 @@ def main():
 
     for url in file:
 
-        #output = subprocess.run(["ls"], stdout=PIPE, stderr=PIPE)
+        #output = subprocess.run(['ls'], stdout=PIPE, stderr=PIPE)
         #print (output.stdout)
         #break
 
         command = 'cat '+url.rstrip()
         output = subprocess.run(command.split(), stdout=PIPE)
-        print (output.stdout.decode("utf-8"))
+        print (output.stdout.decode('utf-8'))
 
-        url = url.rstrip()
-        command = 'wget '+url
-        print(command)
-        os.system(command)
-
-        tar_name = url.split('/')[-1]
-        command = 'tar -xf '+tar_name
-        print(command)
-        os.system(command)
-
-        command = 'rm '+tar_name
-        print(command)
-        os.system(command)
-
-        graph_name = tar_name.split('.')[0]
-        filename = graph_name+'/'+graph_name+'.mtx'
-        #filename = '../input/uk/uk.mtx'
-
-        command = 'make edmund-karp'
-        print(command)
-        os.system(command)
+        input_dir = '../'
+        graph_name = url.split('/')[-1].split('.')[0]
+        filename = input_dir+graph_name+'/'+graph_name+'.mtx'
 
         output_dir = 'output/'+graph_name
         if not os.path.isdir(output_dir):
@@ -58,9 +40,39 @@ def main():
             print(command)
             os.system(command)
 
+        all_done = True
+        for threads in thread_configs:
+            out_name = output_dir+'/'+graph_name+'_results_'+str(threads)+'_threads.txt'
+            if not os.path.isfile(out_name) or len(open(out_name).readlines()) == 0:
+                all_done = False
+
+        if all_done:
+            continue
+
+        if not os.path.isfile(filename):
+            url = url.rstrip()
+            command = 'wget '+url
+            print(command)
+            os.system(command)
+
+            tar_name = url.split('/')[-1]
+            command = 'tar -C '+input_dir+' -xf '+tar_name
+            print(command)
+            os.system(command)
+
+            command = 'rm '+tar_name
+            print(command)
+            os.system(command)
+
+        #filename = '../input/uk/uk.mtx'
+
+        command = 'make edmund-karp'
+        print(command)
+        os.system(command)
+
         s_t_search_file = output_dir+'/'+graph_name+'s_t_set.txt'
 
-        if True: #not os.path.isfile(s_t_search_file):
+        if not os.path.isfile(s_t_search_file) or len(open(s_t_search_file).readlines()) == 0:
             command = 'make s_t_search'
             print(command)
             os.system(command)
@@ -68,6 +80,7 @@ def main():
             handle = open(s_t_search_file, 'w')
             command = './s_t_search '+filename
             print(command)
+            os.environ['OMP_NUM_THREADS'] = str(80)
             output = subprocess.run(command.split(), stdout=handle)
             handle.close()
 
@@ -80,30 +93,28 @@ def main():
 
         for threads in thread_configs:
             #command = 'export OMP_NUM_THREADS='+str(threads)
-            #print(os.environ["OMP_NUM_THREADS"])
-            os.environ["OMP_NUM_THREADS"] = str(threads)
-            print(os.environ["OMP_NUM_THREADS"])
+            #print(os.environ['OMP_NUM_THREADS'])
+            os.environ['OMP_NUM_THREADS'] = str(threads)
+            print(os.environ['OMP_NUM_THREADS'])
             #print(command)
             #os.system(command)
             #output = subprocess.run(command.split())
 
             out_name = output_dir+'/'+graph_name+'_results_'+str(threads)+'_threads.txt'
-            if True: #not os.path.isfile(out_name):
+            if not os.path.isfile(out_name) or len(open(out_name).readlines()) == 0:
                 outfile = open(out_name, 'w')
                 command = './edmund-karp '+filename+' '+str(runs)+' '+str(s)+' '+str(t)
                 print(command)
-                outfile.write(command+'\n'+'OMP_NUM_THREADS='+os.environ["OMP_NUM_THREADS"]+'\n\n')
                 output = subprocess.run(command.split(), stdout=outfile)
+                outfile.write('\n'+command+'\n'+'OMP_NUM_THREADS='+os.environ['OMP_NUM_THREADS']+'\n\n')
                 outfile.close()
                 print('FINISHED RUN')
                 #Adding average, max and min time
                 outfile = open(out_name, 'r')
                 times = []
                 for line in outfile:
-                    if line.startswith('Time'):
-                        print('whaaat')
+                    if line.startswith('Time:'):
                         times.append(float(line.split(' ')[1]))
-                    print(times)
                 print('times:', times)
                 outfile.close()
                 print('times:', times)
@@ -114,7 +125,7 @@ def main():
                 outfile.close()
 
 
-        command = 'rm -rf '+graph_name+'/'
+        command = 'rm -rf '+input_dir+graph_name+'/'
         print(command)
         os.system(command)
 
