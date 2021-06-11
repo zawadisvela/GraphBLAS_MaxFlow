@@ -37,17 +37,15 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
     while(line[0] == '%')
         getline(&line, &line_size, fp);
 
-    int m=0, e=0;
-    sscanf(line, "%ld %d %d", n, &m, &e);
-
+    size_t m=0, e=0;
+    sscanf(line, "%ld %ld %ld", n, &m, &e);
     if (is_symmetric) {
         e *= 2;
     }
-
+    printf("Graphsize: %ld %ld %ld\n", *n, m, e);
     *I = malloc(sizeof(GrB_Index)*e);
     *J = malloc(sizeof(GrB_Index)*e);
     *V = malloc(sizeof(double)*e);
-
     GrB_Index i, j;
     int count = 0;
     while(getline(&line, &line_size, fp) != -1){
@@ -71,13 +69,14 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
             (*I)[count] = j-1;
             (*J)[count] = i-1;
         }
+
         count++;
     }
 
     if(e==count) {
         printf("Everything is fine!\n");
     } else {
-        printf("e:%d, count:%d. everything is not fine.....\n", e, count);
+        printf("e:%ld, count:%d. everything is not fine.....\n", e, count);
     }
 
     *edges = e;
