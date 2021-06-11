@@ -1,4 +1,68 @@
+///Index ramp based bfs stuff
+
+
+
+CHECK( GrB_Vector_new(&index_ramp, GrB_INT32, n) );
+for (int i = 0; i < n; i++)
+        CHECK( GrB_Vector_setElement(index_ramp, i, i) );
+#ifdef DEBUG
+    printf("Index ramp:\n");
+    GxB_print(index_ramp, GxB_SHORT);
+#endif
+
+
+// convert all stored values to their column index
+CHECK( GrB_eWiseMult(wavefront,
+    NO_MASK, NO_ACCUM, //mask, accumulate op
+    GrB_FIRST_INT32,
+    index_ramp, wavefront,
+    DEFAULT_DESC) ); //descriptor
+
+
+CHECK( GrB_vxm(wavefront, //c
+    parent_list, //mask, ignores preciously found vertices and automatically removes self-loops
+    NO_ACCUM, //no accumulate/default
+    #if defined(DEBUG) || defined(PROFILE)
+    GxB_MIN_FIRST_FP64, //semiring. First to extract parent. Why min? Could be ANY?
+    #else
+    GxB_ANY_FIRST_FP64, //Should yield same result, and leaves more implementation freedom
+    #endif
+    wavefront,
+    R, // M
+    desc) ); //descriptor
+
+
+
 //Old garbage min-cut extraction
+
+void mincut_bfs(
+    GrB_Vector* result,
+    const GrB_Matrix R,
+    GrB_Index s
+)
+{
+    GrB_Index n;
+    CHECK( GrB_Matrix_nrows(&n, R) );
+
+    GrB_Vector reachable = *result;
+    CHECK( GrB_Vector_setElement(reachable, true, s) );
+
+    GrB_Vector frontier;
+    CHECK( GrB_Vector_new(&frontier, GrB_BOOL, n) );
+    CHECK( GrB_Vector_setElement(frontier, true, s) );
+
+    GrB_Descriptor desc = NULL;
+    CHECK( GrB_Descriptor_new(&desc) );
+    CHECK( GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP) );
+    CHECK( GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE) );
+
+    bool successor = true;
+    while (successor) {
+        CHECK( GrB_vxm(frontier, reachable, NO_ACCUM, GxB_LOR_LAND_BOOL, frontier, R, desc) );
+        CHECK( GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC) );
+        CHECK( GrB_assign(reachable, frontier, NULL, true, GrB_ALL, n, NULL) );
+    }
+}
 
 #if defined(PROFILE) || defined(DEBUG)
         GrB_Vector reachable = NULL;
