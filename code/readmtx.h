@@ -47,7 +47,7 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
     *J = malloc(sizeof(GrB_Index)*e);
     *V = malloc(sizeof(double)*e);
     GrB_Index i, j;
-    int count = 0;
+    size_t count = 0;
     while(getline(&line, &line_size, fp) != -1){
 
         double v = 0;
@@ -76,7 +76,7 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
     if(e==count) {
         printf("Everything is fine!\n");
     } else {
-        printf("e:%ld, count:%d. everything is not fine.....\n", e, count);
+        printf("e:%ld, count:%ld. everything is not fine.....\n", e, count);
     }
 
     *edges = e;
