@@ -1,0 +1,33 @@
+max threads:80
+Graph properties: integer,
+Everything is fine!
+SOURCE:36752470, SINK:2498107
+Runs:3
+
+-------Run 1-------
+s-t: 36752470-2498107. Max flow: 31.000000
+Time: 91.137807
+
+-------Run 2-------
+s-t: 36752470-2498107. Max flow: 31.000000
+Time: 93.310420
+
+-------Run 3-------
+s-t: 36752470-2498107. Max flow: 31.000000
+Time: 92.704361
+
+Correctness and min-cut:
+Total flow out of source: 31.000000
+Total flow into sink: 31.000000
+Min-cut sum: 31.000000
+Elapsed time to determine min-cut: 21.523877
+Total number of iterations: 7
+
+./edmund-karp ../GAP-web/GAP-web.mtx 3 36752470 2498107
+
+OMP_NUM_THREADS=80
+
+
+Min time: 91.137807
+Max time: 93.31042
+Avg time: 92.38419599999999

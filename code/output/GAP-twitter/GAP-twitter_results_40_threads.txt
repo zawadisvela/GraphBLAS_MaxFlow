@@ -1,0 +1,33 @@
+max threads:40
+Graph properties: integer,
+e:1468364884, count:9357114. everything is not fine.....
+SOURCE:18515348, SINK:46655700
+Runs:3
+
+-------Run 1-------
+s-t: 18515348-46655700. Max flow: 0.000000
+Time: 3.944714
+
+-------Run 2-------
+s-t: 18515348-46655700. Max flow: 0.000000
+Time: 3.953943
+
+-------Run 3-------
+s-t: 18515348-46655700. Max flow: 0.000000
+Time: 3.962929
+
+Correctness and min-cut:
+Total flow out of source: 0.000000
+Total flow into sink: 0.000000
+Min-cut sum: 0.000000
+Elapsed time to determine min-cut: 4.054741
+Total number of iterations: 0
+
+./edmund-karp ../GAP-twitter/GAP-twitter.mtx 3 18515348 46655700
+
+OMP_NUM_THREADS=40
+
+
+Min time: 3.944714
+Max time: 3.962929
+Avg time: 3.9538619999999995
