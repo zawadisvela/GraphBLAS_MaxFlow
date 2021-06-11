@@ -1,0 +1,12 @@
+Graph properties: symmetric, integer,
+Graphsize: 134217726 134217726 4223264644
+Everything is fine!
+Try:0	Source:22009017
+Deepest:8
+Number reachable vertices:63032893
+
+----------------
+
+s-t: 59458945-20196733
+
+Could not find source reaching at least half of graph
