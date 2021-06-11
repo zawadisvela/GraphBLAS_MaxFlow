@@ -48,8 +48,11 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
     *V = malloc(sizeof(double)*e);
     GrB_Index i, j;
     size_t count = 0;
+    size_t update_count = (e/20000)*2; //Need even number
     while(getline(&line, &line_size, fp) != -1){
-
+        if(count % update_count == 0){
+            printf("Reading:  %.4f\%\r", 100*count/(double)e);
+        }
         double v = 0;
         sscanf(line, "%ld %ld %lf", &i, &j, &v);
         if(v == 0) {
@@ -72,7 +75,6 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
 
         count++;
     }
-
     if(e==count) {
         printf("Everything is fine!\n");
     } else {
