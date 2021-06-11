@@ -40,10 +40,15 @@ void s_t_bfs(
     CHECK( GrB_Vector_new(&frontier, GrB_BOOL, n) );
 
     int tries = 0;
+    bool single_try = false;
 
-    while(num_reachable < n/2 && tries++ < n/2) {
+    if((long)(*s) < 0){
         *s = rand() % n;
+    }else{
+        single_try = true;
+    }
 
+    do  {
         printf("Try:%d\tSource:%ld\n", tries, *s);
 
         GrB_Vector_setElement(frontier, true, *s);
@@ -84,15 +89,17 @@ void s_t_bfs(
         }
 
         GrB_Vector_nvals(&num_reachable, level);
+        *s = rand() % n;
         printf("Number reachable vertices:%ld\n\n", num_reachable);
 
         GrB_Vector_clear(frontier);
         GrB_Vector_clear(level);
-    }
+    } while(num_reachable < n/2 && tries++ < n/2 && !single_try);
     printf("----------------\n");
     if(num_reachable >= n/2){
         printf("\ns-t: %ld-%ld\n", *s, *t);
     }else{
+        printf("\ns-t: %ld-%ld\n", *s, *t);
         printf("\nCould not find source reaching at least half of graph\n");
     }
     GrB_free(&frontier);
