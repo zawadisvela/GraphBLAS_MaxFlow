@@ -37,7 +37,7 @@ void s_t_bfs(
     GrB_Vector frontier = NULL;
 
     CHECK( GrB_Vector_new(&level, GrB_INT32, n) );
-    CHECK( GrB_Vector_new(&frontier, GrB_INT32, n) );
+    CHECK( GrB_Vector_new(&frontier, GrB_BOOL, n) );
 
     int tries = 0;
 

@@ -17,8 +17,8 @@ int main(int argc, char** argv)
     GrB_Index t = -1;
 
     readMtx(argv[1], &n, &edges, &row_indeces, &col_indeces, &values);
-    CHECK( GrB_Matrix_new (&A, GrB_FP64, n, n) );
-    CHECK( GrB_Matrix_build (A, row_indeces, col_indeces, values, edges, GrB_PLUS_FP64) );
+    CHECK( GrB_Matrix_new (&A, GrB_BOOL, n, n) );
+    CHECK( GrB_Matrix_build (A, row_indeces, col_indeces, values, edges, GrB_LOR) );
 
     free(row_indeces);
     free(col_indeces);
