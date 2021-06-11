@@ -1,0 +1,574 @@
+Graph properties: symmetric, integer,
+Graphsize: 134217726 134217726 4223264644
+Everything is fine!
+Try:1	Source:59458945
+Deepest:0
+Number reachable vertices:1
+
+Try:2	Source:41624530
+Deepest:6
+Number reachable vertices:63032893
+
+Try:3	Source:71080065
+Deepest:0
+Number reachable vertices:1
+
+Try:4	Source:104024203
+Deepest:0
+Number reachable vertices:1
+
+Try:5	Source:78699629
+Deepest:7
+Number reachable vertices:63032893
+
+Try:6	Source:21585157
+Deepest:6
+Number reachable vertices:63032893
+
+Try:7	Source:48796756
+Deepest:7
+Number reachable vertices:63032893
+
+Try:8	Source:39147780
+Deepest:0
+Number reachable vertices:1
+
+Try:9	Source:59645745
+Deepest:7
+Number reachable vertices:63032893
+
+Try:10	Source:115899613
+Deepest:7
+Number reachable vertices:63032893
+
+Try:11	Source:85678280
+Deepest:0
+Number reachable vertices:1
+
+Try:12	Source:8312767
+Deepest:0
+Number reachable vertices:1
+
+Try:13	Source:112280060
+Deepest:0
+Number reachable vertices:1
+
+Try:14	Source:28778251
+Deepest:0
+Number reachable vertices:1
+
+Try:15	Source:31631873
+Deepest:7
+Number reachable vertices:63032893
+
+Try:16	Source:88465762
+Deepest:0
+Number reachable vertices:1
+
+Try:17	Source:23003280
+Deepest:0
+Number reachable vertices:1
+
+Try:18	Source:63988440
+Deepest:0
+Number reachable vertices:1
+
+Try:19	Source:35653720
+Deepest:7
+Number reachable vertices:63032893
+
+Try:20	Source:95496202
+Deepest:7
+Number reachable vertices:63032893
+
+Try:21	Source:35005211
+Deepest:0
+Number reachable vertices:1
+
+Try:22	Source:118942190
+Deepest:0
+Number reachable vertices:1
+
+Try:23	Source:26267115
+Deepest:7
+Number reachable vertices:63032893
+
+Try:24	Source:116343717
+Deepest:0
+Number reachable vertices:1
+
+Try:25	Source:68030330
+Deepest:7
+Number reachable vertices:63032893
+
+Try:26	Source:55715174
+Deepest:7
+Number reachable vertices:63032893
+
+Try:27	Source:10287410
+Deepest:0
+Number reachable vertices:1
+
+Try:28	Source:99447397
+Deepest:6
+Number reachable vertices:63032893
+
+Try:29	Source:131908177
+Deepest:7
+Number reachable vertices:63032893
+
+Try:30	Source:66049957
+Deepest:0
+Number reachable vertices:1
+
+Try:31	Source:27772121
+Deepest:6
+Number reachable vertices:63032893
+
+Try:32	Source:57149364
+Deepest:0
+Number reachable vertices:1
+
+Try:33	Source:107674488
+Deepest:7
+Number reachable vertices:63032893
+
+Try:34	Source:98852154
+Deepest:0
+Number reachable vertices:1
+
+Try:35	Source:26955809
+Deepest:7
+Number reachable vertices:63032893
+
+Try:36	Source:52156359
+Deepest:0
+Number reachable vertices:1
+
+Try:37	Source:120437311
+Deepest:0
+Number reachable vertices:1
+
+Try:38	Source:75752566
+Deepest:7
+Number reachable vertices:63032893
+
+Try:39	Source:91304107
+Deepest:0
+Number reachable vertices:1
+
+Try:40	Source:45865330
+Deepest:0
+Number reachable vertices:1
+
+Try:41	Source:57434421
+Deepest:0
+Number reachable vertices:1
+
+Try:42	Source:42764661
+Deepest:0
+Number reachable vertices:1
+
+Try:43	Source:54178065
+Deepest:0
+Number reachable vertices:1
+
+Try:44	Source:35496755
+Deepest:0
+Number reachable vertices:1
+
+Try:45	Source:71542880
+Deepest:7
+Number reachable vertices:63032893
+
+Try:46	Source:85809907
+Deepest:6
+Number reachable vertices:63032893
+
+Try:47	Source:123962486
+Deepest:0
+Number reachable vertices:1
+
+Try:48	Source:94546160
+Deepest:0
+Number reachable vertices:1
+
+Try:49	Source:15580589
+Deepest:0
+Number reachable vertices:1
+
+Try:50	Source:25398480
+Deepest:0
+Number reachable vertices:1
+
+Try:51	Source:55824605
+Deepest:0
+Number reachable vertices:1
+
+Try:52	Source:50585800
+Deepest:7
+Number reachable vertices:63032893
+
+Try:53	Source:10122913
+Deepest:0
+Number reachable vertices:1
+
+Try:54	Source:82091720
+Deepest:7
+Number reachable vertices:63032893
+
+Try:55	Source:32711792
+Deepest:7
+Number reachable vertices:63032893
+
+Try:56	Source:78153243
+Deepest:0
+Number reachable vertices:1
+
+Try:57	Source:3589136
+Deepest:0
+Number reachable vertices:1
+
+Try:58	Source:42999170
+Deepest:7
+Number reachable vertices:63032893
+
+Try:59	Source:43382914
+Deepest:7
+Number reachable vertices:63032893
+
+Try:60	Source:1279555
+Deepest:7
+Number reachable vertices:63032893
+
+Try:61	Source:109049127
+Deepest:7
+Number reachable vertices:63032893
+
+Try:62	Source:71155035
+Deepest:7
+Number reachable vertices:63032893
+
+Try:63	Source:58428920
+Deepest:0
+Number reachable vertices:1
+
+Try:64	Source:82505889
+Deepest:0
+Number reachable vertices:1
+
+Try:65	Source:35789432
+Deepest:7
+Number reachable vertices:63032893
+
+Try:66	Source:85384697
+Deepest:0
+Number reachable vertices:1
+
+Try:67	Source:444490
+Deepest:6
+Number reachable vertices:63032893
+
+Try:68	Source:22009017
+Deepest:8
+Number reachable vertices:63032893
+
+Try:69	Source:26919505
+Deepest:7
+Number reachable vertices:63032893
+
+Try:70	Source:91748597
+Deepest:0
+Number reachable vertices:1
+
+Try:71	Source:67874316
+Deepest:7
+Number reachable vertices:63032893
+
+Try:72	Source:84353895
+Deepest:6
+Number reachable vertices:63032893
+
+Try:73	Source:295500
+Deepest:0
+Number reachable vertices:1
+
+Try:74	Source:122052381
+Deepest:7
+Number reachable vertices:63032893
+
+Try:75	Source:119850650
+Deepest:0
+Number reachable vertices:1
+
+Try:76	Source:71838381
+Deepest:7
+Number reachable vertices:63032893
+
+Try:77	Source:73644530
+Deepest:6
+Number reachable vertices:63032893
+
+Try:78	Source:109595378
+Deepest:0
+Number reachable vertices:1
+
+Try:79	Source:32166783
+Deepest:7
+Number reachable vertices:63032893
+
+Try:80	Source:89225120
+Deepest:7
+Number reachable vertices:63032893
+
+Try:81	Source:776101
+Deepest:0
+Number reachable vertices:1
+
+Try:82	Source:87991356
+Deepest:7
+Number reachable vertices:63032893
+
+Try:83	Source:5593194
+Deepest:0
+Number reachable vertices:1
+
+Try:84	Source:10899014
+Deepest:7
+Number reachable vertices:63032893
+
+Try:85	Source:35865350
+Deepest:7
+Number reachable vertices:63032893
+
+Try:86	Source:38304954
+Deepest:0
+Number reachable vertices:1
+
+Try:87	Source:89052225
+Deepest:7
+Number reachable vertices:63032893
+
+Try:88	Source:39454487
+Deepest:0
+Number reachable vertices:1
+
+Try:89	Source:81304124
+Deepest:0
+Number reachable vertices:1
+
+Try:90	Source:132435139
+Deepest:0
+Number reachable vertices:1
+
+Try:91	Source:40734042
+Deepest:7
+Number reachable vertices:63032893
+
+Try:92	Source:56135526
+Deepest:0
+Number reachable vertices:1
+
+Try:93	Source:69372416
+Deepest:7
+Number reachable vertices:63032893
+
+Try:94	Source:99162930
+Deepest:0
+Number reachable vertices:1
+
+Try:95	Source:4423657
+Deepest:0
+Number reachable vertices:1
+
+Try:96	Source:105161848
+Deepest:7
+Number reachable vertices:63032893
+
+Try:97	Source:50329870
+Deepest:7
+Number reachable vertices:63032893
+
+Try:98	Source:4868148
+Deepest:0
+Number reachable vertices:1
+
+Try:99	Source:127170834
+Deepest:6
+Number reachable vertices:63032893
+
+Try:100	Source:77249375
+Deepest:7
+Number reachable vertices:63032893
+
+Try:101	Source:96616713
+Deepest:6
+Number reachable vertices:63032893
+
+Try:102	Source:60827392
+Deepest:0
+Number reachable vertices:1
+
+Try:103	Source:27385544
+Deepest:7
+Number reachable vertices:63032893
+
+Try:104	Source:96912214
+Deepest:6
+Number reachable vertices:63032893
+
+Try:105	Source:48662015
+Deepest:6
+Number reachable vertices:63032893
+
+Try:106	Source:13018437
+Deepest:0
+Number reachable vertices:1
+
+Try:107	Source:34532837
+Deepest:7
+Number reachable vertices:63032893
+
+Try:108	Source:122306546
+Deepest:6
+Number reachable vertices:63032893
+
+Try:109	Source:122613783
+Deepest:0
+Number reachable vertices:1
+
+Try:110	Source:66699588
+Deepest:7
+Number reachable vertices:63032893
+
+Try:111	Source:77313940
+Deepest:7
+Number reachable vertices:63032893
+
+Try:112	Source:123389852
+Deepest:0
+Number reachable vertices:1
+
+Try:113	Source:20473219
+Deepest:7
+Number reachable vertices:63032893
+
+Try:114	Source:82907102
+Deepest:6
+Number reachable vertices:63032893
+
+Try:115	Source:71108
+Deepest:7
+Number reachable vertices:63032893
+
+Try:116	Source:56338537
+Deepest:7
+Number reachable vertices:63032893
+
+Try:117	Source:121212057
+Deepest:0
+Number reachable vertices:1
+
+Try:118	Source:89123333
+Deepest:7
+Number reachable vertices:63032893
+
+Try:119	Source:95792992
+Deepest:6
+Number reachable vertices:63032893
+
+Try:120	Source:68298455
+Deepest:0
+Number reachable vertices:1
+
+Try:121	Source:87340714
+Deepest:7
+Number reachable vertices:63032893
+
+Try:122	Source:2309277
+Deepest:0
+Number reachable vertices:1
+
+Try:123	Source:124433949
+Deepest:0
+Number reachable vertices:1
+
+Try:124	Source:22495405
+Deepest:7
+Number reachable vertices:63032893
+
+Try:125	Source:101472207
+Deepest:0
+Number reachable vertices:1
+
+Try:126	Source:128857607
+Deepest:0
+Number reachable vertices:1
+
+Try:127	Source:127657221
+Deepest:0
+Number reachable vertices:1
+
+Try:128	Source:17584319
+Deepest:6
+Number reachable vertices:63032893
+
+Try:129	Source:133725723
+Deepest:0
+Number reachable vertices:1
+
+Try:130	Source:120610297
+Deepest:6
+Number reachable vertices:63032893
+
+Try:131	Source:94833663
+Deepest:7
+Number reachable vertices:63032893
+
+Try:132	Source:96124678
+Deepest:0
+Number reachable vertices:1
+
+Try:133	Source:47219963
+Deepest:7
+Number reachable vertices:63032893
+
+Try:134	Source:122219175
+Deepest:7
+Number reachable vertices:63032893
+
+Try:135	Source:58819134
+Deepest:7
+Number reachable vertices:63032893
+
+Try:136	Source:95881979
+Deepest:7
+Number reachable vertices:63032893
+
+Try:137	Source:1019854
+Deepest:7
+Number reachable vertices:63032893
+
+Try:138	Source:93351971
+Deepest:7
+Number reachable vertices:63032893
+
+Try:139	Source:83970767
+Deepest:6
+Number reachable vertices:63032893
+
+Try:140	Source:123633638
+Deepest:0
+Number reachable vertices:1
+
+Try:141	Source:25833802
+Deepest:6
+Number reachable vertices:63032893
+
+Try:142	Source:27066981
+Deepest:0
+Number reachable vertices:1
+
+Try:143	Source:112805732
+Deepest:0
+Number reachable vertices:1
