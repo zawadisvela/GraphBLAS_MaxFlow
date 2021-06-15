@@ -46,15 +46,24 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
     *I = malloc(sizeof(GrB_Index)*e);
     *J = malloc(sizeof(GrB_Index)*e);
     *V = malloc(sizeof(double)*e);
+
     GrB_Index i, j;
     size_t count = 0;
-    size_t update_count = (e/20000)*2; //Need even number
+    size_t total_updates = 1000;
+    size_t update_count = (e/total_updates)*2;//Need even number
+    if(update_count == 0) {
+        update_count = 2;
+    }
+    printf("Determined update frequency: %ld\n", update_count);
     while(getline(&line, &line_size, fp) != -1){
         if(count % update_count == 0){
-            printf("Reading:  %.4f\%\r", 100*count/(double)e);
+            printf("Reading:  %.4f\r", 100*count/(double)e);
         }
+
         double v = 0;
+
         sscanf(line, "%ld %ld %lf", &i, &j, &v);
+
         if(v == 0) {
             v = rand() % (int)1000 + 40; //new edge weights
             //v = rand() % (int)1.7976931348623157E+308 + 1; //new edge weights

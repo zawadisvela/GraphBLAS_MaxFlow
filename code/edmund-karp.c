@@ -26,6 +26,9 @@
 #define DEFAULT_DESC GxB_DEFAULT
 
 
+static int runs = -1;
+static int run = 0;
+
 void get_mincut(
     GrB_Matrix *C,
     const GrB_Matrix A,
@@ -33,40 +36,59 @@ void get_mincut(
     GrB_Index s
 )
 {
+#ifdef DEBUG
+    printf(">>>Beginning get_mincut()\n");
+    GxB_print(A, GxB_SHORT);
+    GxB_print(R, GxB_SHORT);
+#endif
+    GrB_Vector reachable;
+    GrB_Vector frontier;
+    GrB_Descriptor desc = NULL;
+    GrB_Descriptor transpose_b = NULL;
+    GrB_Vector s_cut;
+    GrB_Vector t_cut;
+    GrB_Matrix cut_extract = NULL;
+
     GrB_Index n;
     CHECK( GrB_Matrix_nrows(&n, A) );
 
-    GrB_Vector reachable;
     GrB_Vector_new(&reachable, GrB_INT32, n);
     CHECK( GrB_Vector_setElement(reachable, 1, s) );
 
-    GrB_Vector frontier;
+
     CHECK( GrB_Vector_new(&frontier, GrB_BOOL, n) );
     CHECK( GrB_Vector_setElement(frontier, true, s) );
 
-    GrB_Descriptor desc = NULL;
     CHECK( GrB_Descriptor_new(&desc) );
     CHECK( GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP) );
     CHECK( GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE) );
 
     bool successor = true;
     while (successor) {
+    //for (int i = 0; i < 3; i++) {
+        GxB_print(frontier, GxB_SHORT);
         CHECK( GrB_vxm(frontier, reachable, NO_ACCUM, GxB_LOR_LAND_BOOL, frontier, R, desc) );
         CHECK( GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC) );
         CHECK( GrB_assign(reachable, frontier, NULL, true, GrB_ALL, n, NULL) );
     }
 
-    GrB_Vector t_cut;
+    #ifdef DEBUG
+        GxB_print(reachable, GxB_SHORT);
+    #endif
+
     GrB_Vector_new(&t_cut, GrB_INT32, n);
     CHECK( GrB_vxm(t_cut, reachable, NO_ACCUM, GxB_ANY_FIRSTJ_INT32, reachable, A, desc) );
 
-    GrB_Descriptor transpose_b = NULL;
     CHECK( GrB_Descriptor_new(&transpose_b) );
     CHECK( GrB_Descriptor_set(transpose_b, GrB_INP1, GrB_TRAN) );
 
-    GrB_Vector s_cut;
     GrB_Vector_new(&s_cut, GrB_INT32, n);
     CHECK( GrB_vxm(s_cut, reachable, NO_ACCUM, GxB_ANY_FIRSTJ_INT32, t_cut, A, transpose_b) );
+
+#ifdef DEBUG
+    GxB_print(s_cut, GxB_SHORT);
+    GxB_print(t_cut, GxB_SHORT);
+#endif
 
     GrB_Index s_len  = -1;
     CHECK( GrB_Vector_nvals(&s_len, s_cut) );
@@ -81,7 +103,6 @@ void get_mincut(
     CHECK( GrB_Vector_extractTuples(s_indices, s_vals, &s_len, s_cut) );
     CHECK( GrB_Vector_extractTuples(t_indices, t_vals, &t_len, t_cut) );
 
-    GrB_Matrix cut_extract = NULL;
     GrB_Matrix_new(&cut_extract, GrB_FP64, s_len, t_len);
 
     CHECK( GrB_extract(cut_extract, NO_MASK, NO_ACCUM, A, s_indices, s_len, t_indices, t_len, DEFAULT_DESC) );
@@ -107,6 +128,9 @@ void get_mincut(
     GrB_free(&frontier);
     GrB_free(&desc);
     GrB_free(&transpose_b);
+    GrB_free(&s_cut);
+    GrB_free(&t_cut);
+    GrB_free(&cut_extract);
     free(s_indices);
     free(s_vals);
     free(t_indices);
@@ -114,6 +138,9 @@ void get_mincut(
     free(cut_s);
     free(cut_t);
     free(cut_val);
+    #ifdef DEBUG
+        printf(">>>End get_mincut()\n");
+    #endif
 }
 
 bool get_augmenting_path(
@@ -143,7 +170,13 @@ bool get_augmenting_path(
     CHECK( GrB_Descriptor_set (desc, GrB_MASK, GrB_COMP) );     // invert the mask
     CHECK( GrB_Descriptor_set (desc, GrB_MASK, GrB_STRUCTURE) );     // Don't care about values, only structure of mask
     CHECK( GrB_Descriptor_set (desc, GrB_OUTP, GrB_REPLACE) );  // clear q first
-
+//#ifdef DEBUG
+    int depth = 0;
+if (run == runs-1) {
+    printf("Starting BFS\n");
+    printf("Depth: %d, frontier size: %ld \n", depth++, frontier_nvals);
+}
+//#endif
     while ((GrB_Vector_extractElement(&sink_parent, parent_list, sink) == GrB_NO_VALUE) && (frontier_nvals > 0))
     {
         CHECK( GrB_Vector_apply(parent_list, //w
@@ -168,6 +201,11 @@ bool get_augmenting_path(
             desc) ); //descriptor
 
         CHECK( GrB_Vector_nvals(&frontier_nvals, frontier) );
+//#ifdef DEBUG
+if (run == runs-1) {
+        printf("Depth: %d, frontier size: %ld \n", depth++, frontier_nvals);
+}
+//#endif
     }
 
     if ((GrB_Vector_extractElement(&sink_parent, parent_list, sink) == GrB_NO_VALUE))
@@ -215,14 +253,20 @@ int main (int argc, char **argv)
     GrB_Matrix P = NULL;    //Weighted path
     GrB_Matrix R = NULL;    //Residual network
     GrB_Vector index_ramp;  //v[i] = i. For extracting parent in BFS
-    int runs = -1;
     GrB_Index source = -1;
     GrB_Index sink = -1;
     struct timeval start, end;
 
+    gettimeofday ( &start, NULL );
+
     readMtx(argv[1], &n, &edges, &row_indeces, &col_indeces, &values);
     CHECK( GrB_Matrix_new (&A, GrB_FP64, n, n) );
     CHECK( GrB_Matrix_build (A, row_indeces, col_indeces, values, edges, GrB_PLUS_FP64) );
+
+
+    gettimeofday ( &end, NULL );
+    double dur = (WALLTIME(end)-WALLTIME(start));
+    printf("Read&build matrix time: %lf\n", dur);
 
     free(row_indeces);
     free(col_indeces);
@@ -254,7 +298,7 @@ int main (int argc, char **argv)
     }
     printf("Runs:%d\n", runs);
 
-    for (int run = 0; run < runs; run++)
+    for (; run < runs; run++)
     {
 
         printf("\n-------Run %d-------\n", run+1);
@@ -269,17 +313,17 @@ int main (int argc, char **argv)
         GrB_Descriptor_set(replace, GrB_OUTP, GrB_REPLACE);
 
         CHECK( GrB_Matrix_dup(&R, A) );
-        size_t count = 0;
+        size_t count = 1;
         GrB_Index nvals;
         GrB_Matrix_nvals(&nvals, A);
+        printf("----------- Iteration: %ld -----------\n", count);
         while (get_augmenting_path(R, source, sink, M) && count++ < nvals)
         {
             //Extract the capacity values coinciding with the path
             CHECK( GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_SECOND_FP64, M, R, DEFAULT_DESC) );
 #ifdef DEBUG
-            printf("----------- Iteration: %d -----------\n", count);
             printf("\nPath:\n");
-                        GxB_print(P, GxB_SHORT);
+            GxB_print(P, GxB_SHORT);
 #endif
             //Reduction to get the delta, the minimum capacity along the path
             //matrix to vector reduction also has a mask argument, not optional, but can be NULL
@@ -297,6 +341,10 @@ int main (int argc, char **argv)
 
              //Remove zero-edges
             GrB_apply(R, R, NO_ACCUM, GrB_IDENTITY_FP64, R, replace);
+#ifdef DEBUG
+            GxB_print(R, GxB_SHORT);
+#endif
+            printf("----------- Iteration: %ld -----------\n", count);
         }
 
         double total_flow = 0;
@@ -308,15 +356,17 @@ int main (int argc, char **argv)
                 capacity = 0;
             if(GrB_Matrix_extractElement(&residual, R, source, i) == GrB_NO_VALUE)
                 residual = 0;
-            //printf("Found edge (%ld,%ld) w cap: %lf and residual: %lf. Adding %lf to total flow\n", source, i, capacity, residual, capacity-residual);
+            if(capacity != 0)
+                printf("Found edge (%ld,%ld) w cap: %lf and residual: %lf. Adding %lf to total flow\n", source, i, capacity, residual, capacity-residual);
             total_flow += capacity-residual;
+            //printf("Flow now at %d\n", total_flow);
         }
         printf("s-t: %ld-%ld. Max flow: %lf\n", source, sink, total_flow);
 
         //End after determining flow, but before correctness
         gettimeofday ( &end, NULL );
-        double s = (WALLTIME(end)-WALLTIME(start));
-        printf("Time: %lf\n", s);
+        double dur = (WALLTIME(end)-WALLTIME(start));
+        printf("Time: %lf\n", dur);
         if (run == runs-1) {
             printf("\nCorrectness and min-cut:\n");
 
@@ -337,7 +387,7 @@ int main (int argc, char **argv)
             printf("Total flow into sink: %lf\n", total_sink_flow);
 
             GrB_Matrix min_cut;
-            get_mincut(&min_cut, A, R, s);
+            get_mincut(&min_cut, A, R, source);
 
             double min_cut_value = -1;
             CHECK( GrB_reduce(&min_cut_value, NO_ACCUM, GrB_PLUS_MONOID_FP64, min_cut, DEFAULT_DESC) );
@@ -347,8 +397,8 @@ int main (int argc, char **argv)
             GxB_print(min_cut, GxB_SHORT);
 #endif
             gettimeofday ( &start, NULL );
-            s = (WALLTIME(start)-WALLTIME(end));
-            printf("Elapsed time to determine min-cut: %lf\n", s);
+            dur = (WALLTIME(start)-WALLTIME(end));
+            printf("Min-cut time: %lf\n", dur);
             printf("Total number of iterations: %ld\n", count);
         }
     }
