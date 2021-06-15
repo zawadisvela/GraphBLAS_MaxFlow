@@ -81,7 +81,8 @@ def main():
             command = './s_t_search '+filename
             print(command)
             os.environ['OMP_NUM_THREADS'] = str(80)
-            output = subprocess.run(command.split(), stdout=handle)
+            #output = subprocess.run(command.split(), stdout=handle)
+            os.system(command)
             handle.close()
 
         s = -1
