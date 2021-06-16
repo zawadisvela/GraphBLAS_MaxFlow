@@ -229,8 +229,8 @@ if (run == runs-1) {
 
 int main (int argc, char **argv)
 {
+    printf("Usage: ./edmund-karp filename.mtx (<runs>) (<s>) (<t>)\n");
     if(argc < 2) {
-        printf("Usage: ./edmund-karp filename.mtx (<runs>) (<s>) (<t>)\n");
         return 1;
     }
     //Blocking better for debuggbing
