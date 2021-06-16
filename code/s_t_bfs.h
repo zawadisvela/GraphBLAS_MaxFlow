@@ -1,4 +1,5 @@
 #include <GraphBLAS.h>
+#include <string.h>
 
 #ifdef DEBUG
 #define CHECK(x) \
@@ -31,125 +32,174 @@ void s_t_bfs(
 )
 {
     GrB_Index n;
-    CHECK( GrB_Matrix_nrows(&n, A) );
-
-    GrB_Index num_reachable = 0;
-
-    GrB_Descriptor desc = NULL;
-    GrB_Descriptor_new(&desc);
-    GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP);
-    GrB_Descriptor_set(desc, GrB_MASK, GrB_STRUCTURE);
-    GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE);
-
+    GrB_Descriptor vxm_desc = NULL;
     GrB_Vector weights = NULL;
     GrB_Vector depths = NULL;
     GrB_Vector frontier = NULL;
+    GrB_Matrix A_t = NULL;
+    GrB_UnaryOp dampen_op;
+
+    GrB_Index num_reachable = 0;
+    bool single_try = false;
+
+    CHECK( GrB_Matrix_nrows(&n, A) );
+
+    GrB_Descriptor_new(&vxm_desc);
+    GrB_Descriptor_set(vxm_desc, GrB_MASK, GrB_COMP);
+    GrB_Descriptor_set(vxm_desc, GrB_MASK, GrB_STRUCTURE);
+    GrB_Descriptor_set(vxm_desc, GrB_OUTP, GrB_REPLACE);
 
     CHECK( GrB_Vector_new(&weights, GrB_FP32, n) );
     CHECK( GrB_Vector_new(&depths, GrB_INT32, n) );
     CHECK( GrB_Vector_new(&frontier, GrB_FP32, n) );
 
-    int tries = 0;
-    bool single_try = false;
+    GrB_Matrix_new(&A_t, GrB_BOOL, n, n);
+    GrB_transpose(A_t, NO_MASK, NO_ACCUM, A, DEFAULT_DESC);
+
+    CHECK( GrB_UnaryOp_new(&dampen_op, dampen, GrB_FP32, GrB_FP32) );
 
     if((long)(*s) < 0){
-        *s = 0; //rand() % n;
+        *s = 0; //rand() % n; Start w 0, then move to random
     }else{
         single_try = true;
     }
 
+    GrB_Index current_source = *s;
+    GrB_Matrix current_graph = A;
+
+    GrB_Index s_prev = 0;
+    GrB_Index t_prev = 0;
+
+    int iter = -1;
+    int max_iter = 5;
+
     while (true) {
-        printf("Try number:%d\tSource:%ld\n", tries, *s);
+        for (iter = 0; iter < max_iter && (s_prev != *s || t_prev != *t); iter++) {
+            printf("------------------------\n" );
+            printf("Iteration:%d\t", iter);
 
-        GrB_Vector_setElement(frontier, 1, *s);
-        GrB_Vector_setElement(weights, 1, *s);
-
-        GrB_UnaryOp dampen_op;
-        CHECK( GrB_UnaryOp_new(&dampen_op, dampen, GrB_FP32, GrB_FP32) );
-
-
-        bool successor = true;
-        int depth = 0;
-        GrB_Index frontier_nvals = -1;
-
-        GrB_Vector_nvals(&frontier_nvals, frontier);
-        printf("Depth: %d, frontier size: %ld \n", depth++, frontier_nvals);
-        while (successor) {
-    #ifdef DEBUG
-            printf("current depth: %d \n", depth);
-    #endif
-            GrB_vxm(frontier, weights, NO_ACCUM, GxB_PLUS_FIRST_FP32, frontier, A, desc);
-            GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC);
-
-            //printf("\n>>>>>pre-apply:\n");
-            //GxB_print(frontier, GxB_SHORT);
-            CHECK( GrB_Vector_apply(frontier, NO_MASK, NO_ACCUM, dampen_op, frontier, DEFAULT_DESC) );
-            //printf(">>>>>post-apply:\n");
-            //GxB_print(frontier, GxB_SHORT);
-            //printf(">>>>>>>>>>>>>>>\n");
+            if (iter % 2 == 0) {
+                printf("Forward search from %ld\n", *s);
+                current_graph = A;
+                current_source = *s;
+            }else{
+                printf("Backward search from %ld\n", *t);
+                current_graph = A_t;
+                current_source = *t;
+            }
+            s_prev = *s;
+            t_prev = *t;
+            printf("\n");
 
 
 
-            GrB_eWiseAdd(weights, NO_MASK, NO_ACCUM, GxB_PLUS_FP32_MONOID, weights, frontier, DEFAULT_DESC);
+            GrB_Vector_setElement(frontier, 1, current_source);
+            GrB_Vector_setElement(weights, 1, current_source);
 
-            depth++;
-            GrB_Vector_assign_INT32(depths, frontier, NO_ACCUM, depth, GrB_ALL, n, DEFAULT_DESC);
+            bool successor = true;
+            int depth = 0;
+            GrB_Index frontier_nvals = -1;
 
             GrB_Vector_nvals(&frontier_nvals, frontier);
-            printf("Depth: %d, frontier size: %ld \n", depth, frontier_nvals);
-        }
-    #ifdef DEBUG
-        GxB_print(weights, GxB_SHORT);
-    #endif
-        float max_weight = -1;
-        CHECK( GrB_reduce(&max_weight, NO_ACCUM, GrB_MAX_MONOID_FP32, weights, DEFAULT_DESC) );
-        printf("Max weight:%f", max_weight);
+            while (successor) {
+                printf("Depth: %d, frontier size: %ld \n", depth, frontier_nvals);
 
-        int t_depth = -1;
-        float val = -1;
-        for(int j = 0; j < n; j++){
-            if(GrB_Vector_extractElement(&val, weights, j) != GrB_NO_VALUE && val == max_weight){
-                *t = j;
-                GrB_Vector_extractElement(&t_depth, depths, j);
-                break;
+                GrB_Vector_assign_INT32(depths, frontier, NO_ACCUM, depth, GrB_ALL, n, DEFAULT_DESC);
+
+                GrB_vxm(frontier, weights, NO_ACCUM, GxB_PLUS_FIRST_FP32, frontier, current_graph, vxm_desc);
+
+                GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC);
+
+                CHECK( GrB_Vector_apply(frontier, NO_MASK, NO_ACCUM, dampen_op, frontier, DEFAULT_DESC) );
+
+                GrB_eWiseAdd(weights, NO_MASK, NO_ACCUM, GxB_PLUS_FP32_MONOID, weights, frontier, DEFAULT_DESC);
+
+                GrB_Vector_nvals(&frontier_nvals, frontier);
+
+                depth++;
+            }
+        #ifdef DEBUG
+            GxB_print(weights, GxB_SHORT);
+        #endif
+            float max_weight = -1;
+            CHECK( GrB_reduce(&max_weight, NO_ACCUM, GrB_MAX_MONOID_FP32, weights, DEFAULT_DESC) );
+            printf("Max weight:%f", max_weight);
+
+            int max_depth = -1;
+            GrB_Index max_index;
+            float val = -1;
+            for(int j = 0; j < n; j++){
+                if(GrB_Vector_extractElement(&val, weights, j) != GrB_NO_VALUE && val == max_weight){
+                    max_index = j;
+                    GrB_Vector_extractElement(&max_depth, depths, j);
+                    break;
+                }
+            }
+            printf(" - depth: %d", max_depth);
+            printf(" - dampening_factor: %f\n", dampening_factor);
+
+            if(current_source == *s) {
+                *t = max_index;
+            }else{
+                *s = max_index;
+            }
+
+            printf("\nCandidate s-t: %ld-%ld\n", *s, *t);
+            GrB_Vector_nvals(&num_reachable, weights);
+            printf("Number reachable vertices:%ld/%ld\n\n", num_reachable, n);
+
+            GrB_Vector_clear(frontier);
+            GrB_Vector_clear(depths);
+            GrB_Vector_clear(weights);
+        }
+
+        printf("\nFinished in %d/%d iterations\n\n", iter, max_iter);
+
+        printf("Finished w these states: iter = %d, max_iter = %d\n s_prev = %ld, *s = %ld\n t_prev = %ld, *t = %ld\n",
+            iter, max_iter, s_prev, *s, t_prev, *t);
+
+        char answer[255];
+        int successful_scans = -1;
+        printf("Enter new search: <dampening> <source>/\"random\"\nEnter anything else to abort\n" );
+        successful_scans = scanf("%f %s", &dampening_factor, answer);
+        printf("Answers: %f %s\n", dampening_factor, answer);
+        if(successful_scans < 2){
+            break;
+        }else if(strcmp(answer, "random") == 0){
+            *s = rand() % n;
+            printf("Random source: %ld!!!!\n", *s);
+        }else{
+            GrB_Index new_source = -1;
+            successful_scans = sscanf(answer, "%ld\n", &new_source);
+            if(successful_scans == 1){
+                *s = new_source;
+            }else{
+                printf("Failed to read new source, using previous\n");
             }
         }
-        printf(" - depth: %d", t_depth);
-        printf(" - dampening_factor: %f\n", dampening_factor);
-
-        printf("\nCandidate s-t: %ld-%ld\n", *s, *t);
-        GrB_Vector_nvals(&num_reachable, weights);
-        printf("Number reachable vertices:%ld/%ld\n\n", num_reachable, n);
-
-        char answer;
+        *t = *s;
+        /*
         printf("New search? (y/n)\n");
         scanf("\n%c", &answer);
         printf("The answer you gave: %c\n", answer);
         if(answer == 'y' || answer == 'Y') {
-            printf("Same source? (y/n)\n");
+            printf("Same source? y/n/R(andom)\n");
             scanf(" %c", &answer);
             printf("The answer you gave: %c\n", answer);
-            if(answer == 'n' || answer == 'N') {
+            if(answer == 'r' || answer == 'R') {
                 *s = rand() % n;
                 printf("New source: %ld\n", *s);
+            }else if(answer == 'n' || answer == 'N'){
+                printf("Enter source y/n/R(andom)\n");
+                scanf(" %d", &new_source);
+                *s = new_source;
             }
             printf("Enter new dampening factor. Current dampening factor = %f\n", dampening_factor);
             scanf("%f", &dampening_factor);
-            GrB_Vector_clear(frontier);
-            GrB_Vector_clear(depths);
-            GrB_Vector_clear(weights);
         } else {
             break;
         }
-/*
-        if(num_reachable < n/3 && tries++ < n/2 && !single_try) {
-            *s = rand() % n;
-            GrB_Vector_clear(frontier);
-            GrB_Vector_clear(weights);
-        } else {
-            break;
-        }
-*/
+        */
     }
     printf("----------------\n");
     if(num_reachable >= n/3){
