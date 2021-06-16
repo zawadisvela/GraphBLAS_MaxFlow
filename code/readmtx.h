@@ -57,7 +57,7 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
     printf("Determined update frequency: %ld\n", update_count);
     while(getline(&line, &line_size, fp) != -1){
         if(count % update_count == 0){
-            printf("Reading:  %.4f\r", 100*count/(double)e);
+            printf("Reading:  %.4f%%\r", 100*count/(double)e);
         }
 
         double v = 0;
