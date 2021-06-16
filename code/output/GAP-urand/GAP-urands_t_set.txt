@@ -1,0 +1,71 @@
+------------------------
+Iteration:1	Backward search from 66845141
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 46
+Depth: 2, frontier size: 1472
+Depth: 3, frontier size: 47185
+Depth: 4, frontier size: 1501071
+Depth: 5, frontier size: 39900713
+Depth: 6, frontier size: 92760376
+Depth: 7, frontier size: 6864
+Max weight:3.664062 - depth: 7 - dampening_factor: 2.000000
+
+Candidate s-t: 111933135-66845141
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:2	Forward search from 111933135
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1255
+Depth: 3, frontier size: 39994
+Depth: 4, frontier size: 1275656
+Depth: 5, frontier size: 34845834
+Depth: 6, frontier size: 98031080
+Depth: 7, frontier size: 23871
+Max weight:3.703125 - depth: 7 - dampening_factor: 2.000000
+
+Candidate s-t: 111933135-67656199
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:3	Backward search from 67656199
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 48
+Depth: 2, frontier size: 1501
+Depth: 3, frontier size: 48126
+Depth: 4, frontier size: 1529550
+Depth: 5, frontier size: 40533124
+Depth: 6, frontier size: 92099567
+Depth: 7, frontier size: 5811
+Max weight:3.796875 - depth: 7 - dampening_factor: 2.000000
+
+Candidate s-t: 68626472-67656199
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:4	Forward search from 68626472
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 40
+Depth: 2, frontier size: 1256
+Depth: 3, frontier size: 39965
+Depth: 4, frontier size: 1272209
+Depth: 5, frontier size: 34768843
+Depth: 6, frontier size: 98110623
+Depth: 7, frontier size: 24791
+Max weight:3.796875 - depth: 7 - dampening_factor: 2.000000
+
+Candidate s-t: 68626472-67656199
+Number reachable vertices:134217728/134217728
+
+Finished in 5/5 iterations
+
+Finished w these states: iter = 5, max_iter = 5
+ s_prev = 68626472, *s = 68626472
+ t_prev = 67656199, *t = 67656199
+
+s-t: 68626472-67656199

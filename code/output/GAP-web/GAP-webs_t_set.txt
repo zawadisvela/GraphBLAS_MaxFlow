@@ -1,13 +1,316 @@
-Graph properties: integer,
-Everything is fine!
-Try:1	Source:32024098
-Deepest:0
-Number reachable vertices:1
+------------------------
+Iteration:0	Forward search from 36752470
 
-Try:2	Source:36752470
-Deepest:54
-Number reachable vertices:50542646
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 72
+Depth: 2, frontier size: 291
+Depth: 3, frontier size: 1407
+Depth: 4, frontier size: 9518
+Depth: 5, frontier size: 87837
+Depth: 6, frontier size: 507169
+Depth: 7, frontier size: 1812839
+Depth: 8, frontier size: 3590064
+Depth: 9, frontier size: 6140157
+Depth: 10, frontier size: 6208548
+Depth: 11, frontier size: 5752826
+Depth: 12, frontier size: 4555253
+Depth: 13, frontier size: 4505219
+Depth: 14, frontier size: 4677335
+Depth: 15, frontier size: 2721588
+Depth: 16, frontier size: 2112802
+Depth: 17, frontier size: 1504619
+Depth: 18, frontier size: 1294872
+Depth: 19, frontier size: 1018941
+Depth: 20, frontier size: 703584
+Depth: 21, frontier size: 676816
+Depth: 22, frontier size: 460635
+Depth: 23, frontier size: 327918
+Depth: 24, frontier size: 261771
+Depth: 25, frontier size: 227351
+Depth: 26, frontier size: 189447
+Depth: 27, frontier size: 183189
+Depth: 28, frontier size: 167854
+Depth: 29, frontier size: 138604
+Depth: 30, frontier size: 118152
+Depth: 31, frontier size: 94448
+Depth: 32, frontier size: 106246
+Depth: 33, frontier size: 107039
+Depth: 34, frontier size: 57555
+Depth: 35, frontier size: 33355
+Depth: 36, frontier size: 45569
+Depth: 37, frontier size: 43842
+Depth: 38, frontier size: 48965
+Depth: 39, frontier size: 26150
+Depth: 40, frontier size: 10208
+Depth: 41, frontier size: 2269
+Depth: 42, frontier size: 3214
+Depth: 43, frontier size: 4356
+Depth: 44, frontier size: 1895
+Depth: 45, frontier size: 322
+Depth: 46, frontier size: 140
+Depth: 47, frontier size: 116
+Depth: 48, frontier size: 65
+Depth: 49, frontier size: 65
+Depth: 50, frontier size: 63
+Depth: 51, frontier size: 43
+Depth: 52, frontier size: 38
+Depth: 53, frontier size: 3
+Depth: 54, frontier size: 1
+Max weight:54041597968384.000000 - depth: 14 - dampening_factor: 1.200000
 
-----------------
+Candidate s-t: 36752470-30361330
+Number reachable vertices:50542646/50636151
 
-s-t: 36752470-2498107
+------------------------
+Iteration:1	Backward search from 30361330
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1209
+Depth: 2, frontier size: 1066
+Depth: 3, frontier size: 907
+Depth: 4, frontier size: 751
+Depth: 5, frontier size: 599
+Depth: 6, frontier size: 445
+Depth: 7, frontier size: 7
+Depth: 8, frontier size: 4406
+Depth: 9, frontier size: 5125
+Depth: 10, frontier size: 4091
+Depth: 11, frontier size: 136877
+Depth: 12, frontier size: 1034427
+Depth: 13, frontier size: 3566335
+Depth: 14, frontier size: 14443923
+Depth: 15, frontier size: 6176357
+Depth: 16, frontier size: 4639293
+Depth: 17, frontier size: 2288566
+Depth: 18, frontier size: 1550609
+Depth: 19, frontier size: 799479
+Depth: 20, frontier size: 347335
+Depth: 21, frontier size: 304050
+Depth: 22, frontier size: 326437
+Depth: 23, frontier size: 147082
+Depth: 24, frontier size: 48355
+Depth: 25, frontier size: 45451
+Depth: 26, frontier size: 24879
+Depth: 27, frontier size: 6193
+Depth: 28, frontier size: 3617
+Depth: 29, frontier size: 1248
+Depth: 30, frontier size: 2536
+Depth: 31, frontier size: 1763
+Depth: 32, frontier size: 6509
+Depth: 33, frontier size: 6652
+Depth: 34, frontier size: 1210
+Depth: 35, frontier size: 152
+Depth: 36, frontier size: 344
+Depth: 37, frontier size: 1040
+Depth: 38, frontier size: 3456
+Depth: 39, frontier size: 6686
+Depth: 40, frontier size: 62
+Depth: 41, frontier size: 119
+Depth: 42, frontier size: 14
+Depth: 43, frontier size: 9
+Depth: 44, frontier size: 10
+Depth: 45, frontier size: 8
+Depth: 46, frontier size: 9
+Depth: 47, frontier size: 8
+Depth: 48, frontier size: 9
+Depth: 49, frontier size: 8
+Depth: 50, frontier size: 8
+Depth: 51, frontier size: 5
+Depth: 52, frontier size: 6
+Depth: 53, frontier size: 5
+Depth: 54, frontier size: 6
+Depth: 55, frontier size: 5
+Depth: 56, frontier size: 6
+Depth: 57, frontier size: 5
+Depth: 58, frontier size: 6
+Depth: 59, frontier size: 4
+Depth: 60, frontier size: 3
+Depth: 61, frontier size: 2
+Depth: 62, frontier size: 3
+Depth: 63, frontier size: 2
+Depth: 64, frontier size: 3
+Depth: 65, frontier size: 2
+Depth: 66, frontier size: 3
+Depth: 67, frontier size: 2
+Depth: 68, frontier size: 3
+Depth: 69, frontier size: 2
+Depth: 70, frontier size: 3
+Depth: 71, frontier size: 2
+Depth: 72, frontier size: 3
+Depth: 73, frontier size: 2
+Depth: 74, frontier size: 3
+Depth: 75, frontier size: 2
+Depth: 76, frontier size: 3
+Depth: 77, frontier size: 2
+Depth: 78, frontier size: 3
+Depth: 79, frontier size: 2
+Depth: 80, frontier size: 3
+Depth: 81, frontier size: 2
+Depth: 82, frontier size: 3
+Depth: 83, frontier size: 2
+Depth: 84, frontier size: 3
+Depth: 85, frontier size: 2
+Depth: 86, frontier size: 3
+Depth: 87, frontier size: 2
+Depth: 88, frontier size: 3
+Depth: 89, frontier size: 2
+Depth: 90, frontier size: 3
+Depth: 91, frontier size: 2
+Depth: 92, frontier size: 3
+Depth: 93, frontier size: 2
+Depth: 94, frontier size: 3
+Depth: 95, frontier size: 2
+Depth: 96, frontier size: 3
+Depth: 97, frontier size: 2
+Depth: 98, frontier size: 3
+Depth: 99, frontier size: 2
+Depth: 100, frontier size: 3
+Depth: 101, frontier size: 2
+Depth: 102, frontier size: 3
+Depth: 103, frontier size: 2
+Depth: 104, frontier size: 3
+Depth: 105, frontier size: 2
+Depth: 106, frontier size: 3
+Depth: 107, frontier size: 2
+Depth: 108, frontier size: 3
+Depth: 109, frontier size: 2
+Depth: 110, frontier size: 3
+Depth: 111, frontier size: 2
+Depth: 112, frontier size: 3
+Depth: 113, frontier size: 2
+Depth: 114, frontier size: 3
+Depth: 115, frontier size: 2
+Depth: 116, frontier size: 3
+Depth: 117, frontier size: 2
+Depth: 118, frontier size: 3
+Depth: 119, frontier size: 2
+Depth: 120, frontier size: 2
+Depth: 121, frontier size: 1
+Depth: 122, frontier size: 1
+Depth: 123, frontier size: 1
+Depth: 124, frontier size: 1
+Depth: 125, frontier size: 1
+Depth: 126, frontier size: 1
+Depth: 127, frontier size: 1
+Depth: 128, frontier size: 1
+Depth: 129, frontier size: 1
+Depth: 130, frontier size: 1
+Depth: 131, frontier size: 1
+Depth: 132, frontier size: 1
+Depth: 133, frontier size: 1
+Depth: 134, frontier size: 1
+Depth: 135, frontier size: 1
+Depth: 136, frontier size: 1
+Depth: 137, frontier size: 1
+Depth: 138, frontier size: 1
+Depth: 139, frontier size: 1
+Depth: 140, frontier size: 1
+Depth: 141, frontier size: 1
+Depth: 142, frontier size: 1
+Depth: 143, frontier size: 1
+Depth: 144, frontier size: 1
+Depth: 145, frontier size: 1
+Depth: 146, frontier size: 1
+Depth: 147, frontier size: 1
+Depth: 148, frontier size: 1
+Depth: 149, frontier size: 1
+Depth: 150, frontier size: 1
+Depth: 151, frontier size: 1
+Depth: 152, frontier size: 1
+Depth: 153, frontier size: 1
+Depth: 154, frontier size: 1
+Depth: 155, frontier size: 1
+Depth: 156, frontier size: 1
+Depth: 157, frontier size: 1
+Depth: 158, frontier size: 1
+Depth: 159, frontier size: 1
+Depth: 160, frontier size: 1
+Depth: 161, frontier size: 1
+Depth: 162, frontier size: 1
+Depth: 163, frontier size: 1
+Depth: 164, frontier size: 1
+Depth: 165, frontier size: 1
+Max weight:2531174173431037952.000000 - depth: 22 - dampening_factor: 1.200000
+
+Candidate s-t: 1883874-30361330
+Number reachable vertices:35939977/50636151
+
+------------------------
+Iteration:2	Forward search from 1883874
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 60
+Depth: 2, frontier size: 331
+Depth: 3, frontier size: 1578
+Depth: 4, frontier size: 2857
+Depth: 5, frontier size: 4490
+Depth: 6, frontier size: 4963
+Depth: 7, frontier size: 4889
+Depth: 8, frontier size: 3713
+Depth: 9, frontier size: 2042
+Depth: 10, frontier size: 534
+Depth: 11, frontier size: 1553
+Depth: 12, frontier size: 17592
+Depth: 13, frontier size: 135124
+Depth: 14, frontier size: 623555
+Depth: 15, frontier size: 2286589
+Depth: 16, frontier size: 3912795
+Depth: 17, frontier size: 6079420
+Depth: 18, frontier size: 5318533
+Depth: 19, frontier size: 5858623
+Depth: 20, frontier size: 4854703
+Depth: 21, frontier size: 5758223
+Depth: 22, frontier size: 3493529
+Depth: 23, frontier size: 2590011
+Depth: 24, frontier size: 2074006
+Depth: 25, frontier size: 1546725
+Depth: 26, frontier size: 1133320
+Depth: 27, frontier size: 886295
+Depth: 28, frontier size: 672462
+Depth: 29, frontier size: 648631
+Depth: 30, frontier size: 413329
+Depth: 31, frontier size: 329186
+Depth: 32, frontier size: 313072
+Depth: 33, frontier size: 240143
+Depth: 34, frontier size: 188691
+Depth: 35, frontier size: 172015
+Depth: 36, frontier size: 182276
+Depth: 37, frontier size: 143806
+Depth: 38, frontier size: 93419
+Depth: 39, frontier size: 78210
+Depth: 40, frontier size: 93242
+Depth: 41, frontier size: 102781
+Depth: 42, frontier size: 57535
+Depth: 43, frontier size: 32644
+Depth: 44, frontier size: 44416
+Depth: 45, frontier size: 43960
+Depth: 46, frontier size: 48396
+Depth: 47, frontier size: 26164
+Depth: 48, frontier size: 9681
+Depth: 49, frontier size: 2217
+Depth: 50, frontier size: 3209
+Depth: 51, frontier size: 4356
+Depth: 52, frontier size: 1895
+Depth: 53, frontier size: 322
+Depth: 54, frontier size: 140
+Depth: 55, frontier size: 116
+Depth: 56, frontier size: 65
+Depth: 57, frontier size: 65
+Depth: 58, frontier size: 63
+Depth: 59, frontier size: 43
+Depth: 60, frontier size: 38
+Depth: 61, frontier size: 3
+Depth: 62, frontier size: 1
+Max weight:2531202210977546240.000000 - depth: 22 - dampening_factor: 1.200000
+
+Candidate s-t: 1883874-30361330
+Number reachable vertices:50542646/50636151
+
+
+Finished in 3/5 iterations
+
+Finished w these states: iter = 3, max_iter = 5
+ s_prev = 1883874, *s = 1883874
+ t_prev = 30361330, *t = 30361330
+
+s-t: 1883874-30361330

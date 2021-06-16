@@ -1,0 +1,52 @@
+max threads:80
+Graph properties: integer,
+Graphsize: 61578415 61578415 1468364884
+Everything is fine!
+SOURCE:18515348, SINK:46655700
+Runs:1
+
+-------Run 1-------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1
+Depth: 2, frontier size: 5258
+Depth: 3, frontier size: 1285449
+Depth: 4, frontier size: 20496463
+Depth: 5, frontier size: 11459274
+Depth: 6, frontier size: 1596553
+Depth: 7, frontier size: 155556
+Depth: 8, frontier size: 15642
+Depth: 9, frontier size: 1699
+Depth: 10, frontier size: 196
+Depth: 11, frontier size: 27
+Depth: 12, frontier size: 9
+Depth: 13, frontier size: 6
+Depth: 14, frontier size: 2
+Depth: 15, frontier size: 1
+Depth: 16, frontier size: 0
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1
+Depth: 2, frontier size: 5258
+Depth: 3, frontier size: 1285449
+Depth: 4, frontier size: 20496463
+Depth: 5, frontier size: 11459274
+Depth: 6, frontier size: 1596553
+Depth: 7, frontier size: 155556
+Depth: 8, frontier size: 15642
+Depth: 9, frontier size: 1699
+Depth: 10, frontier size: 196
+Depth: 11, frontier size: 27
+Depth: 12, frontier size: 9
+Depth: 13, frontier size: 6
+Depth: 14, frontier size: 1
+Depth: 15, frontier size: 0
+s-t: 18515348-46655700. Max flow: 38.000000
+Time: 12.460456
+
+Correctness and min-cut:
+Total flow out of source: 38.000000
+Total flow into sink: 38.000000
+Min-cut sum: 38.000000
+Elapsed time to determine min-cut: 23.310305
+Total number of iterations: 1

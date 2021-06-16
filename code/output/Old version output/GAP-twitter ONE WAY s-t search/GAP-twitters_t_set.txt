@@ -1,0 +1,32 @@
+Try number:0	Source:19075572
+Depth: 0, frontier size: 1
+Depth: 2, frontier size: 8
+Depth: 3, frontier size: 3239
+Depth: 4, frontier size: 7814555
+Depth: 5, frontier size: 20666883
+Depth: 6, frontier size: 5817219
+Depth: 7, frontier size: 645204
+Depth: 8, frontier size: 61912
+Depth: 9, frontier size: 6327
+Depth: 10, frontier size: 670
+Depth: 11, frontier size: 89
+Depth: 12, frontier size: 22
+Depth: 13, frontier size: 6
+Depth: 14, frontier size: 2
+Depth: 15, frontier size: 1
+Depth: 16, frontier size: 0
+
+Max weight: 31069.757812 - depth: 7 - dampening factor = 1.200000
+
+Number reachable vertices:35016137/61578415
+s-t: 19075572-32451116
+
+New search? (y/n)
+y
+The answer you gave: y
+Same source? (y/n)
+n
+The answer you gave: n
+New source: 52019710
+Enter new dampening factor. Current dampening factor = 1.200000
+1.2

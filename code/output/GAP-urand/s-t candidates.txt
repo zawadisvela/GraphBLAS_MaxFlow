@@ -1,0 +1,274 @@
+Graph properties: symmetric, integer,
+Graphsize: 134217728 134217728 4294966740
+Determined update frequency: 8589932
+Everything is fine!
+------------------------
+Iteration:0	Forward search from 0
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 36
+Depth: 2, frontier size: 1143
+Depth: 3, frontier size: 36573
+Depth: 4, frontier size: 1164068
+Depth: 5, frontier size: 32240801
+Depth: 6, frontier size: 100728652
+Depth: 7, frontier size: 46454
+Max weight:125.865776 - depth: 7 - dampening_factor: 1.200000
+
+Candidate s-t: 0-67146579
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:1	Backward search from 67146579
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 51
+Depth: 2, frontier size: 1567
+Depth: 3, frontier size: 50060
+Depth: 4, frontier size: 1592984
+Depth: 5, frontier size: 41892259
+Depth: 6, frontier size: 90676612
+Depth: 7, frontier size: 4194
+Max weight:145.959625 - depth: 7 - dampening_factor: 1.200000
+
+Candidate s-t: 14026909-67146579
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:2	Forward search from 14026909
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 42
+Depth: 2, frontier size: 1302
+Depth: 3, frontier size: 41206
+Depth: 4, frontier size: 1313019
+Depth: 5, frontier size: 35707812
+Depth: 6, frontier size: 97134742
+Depth: 7, frontier size: 19604
+Max weight:145.959686 - depth: 7 - dampening_factor: 1.200000
+
+Candidate s-t: 14026909-67146579
+Number reachable vertices:134217728/134217728
+
+
+Finished in 3/5 iterations
+
+Finished w these states: iter = 3, max_iter = 5
+ s_prev = 14026909, *s = 14026909
+ t_prev = 67146579, *t = 67146579
+Enter new search: <dampening> <source>/"random"
+Enter anything else to abort
+1.2 random
+Answers: 1.200000 random
+
+
+Random source: 59458919!!!!
+------------------------
+Iteration:0	Forward search from 59458919
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1267
+Depth: 3, frontier size: 40678
+Depth: 4, frontier size: 1292870
+Depth: 5, frontier size: 35246733
+Depth: 6, frontier size: 97614365
+Depth: 7, frontier size: 21776
+Max weight:126.144859 - depth: 7 - dampening_factor: 1.200000
+
+Candidate s-t: 59458919-51804523
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:1	Backward search from 51804523
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 43
+Depth: 2, frontier size: 1431
+Depth: 3, frontier size: 46052
+Depth: 4, frontier size: 1465206
+Depth: 5, frontier size: 39127743
+Depth: 6, frontier size: 93568964
+Depth: 7, frontier size: 8288
+Max weight:134.517319 - depth: 7 - dampening_factor: 1.200000
+
+Candidate s-t: 76540002-51804523
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:2	Forward search from 76540002
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1249
+Depth: 3, frontier size: 39869
+Depth: 4, frontier size: 1268093
+Depth: 5, frontier size: 34679144
+Depth: 6, frontier size: 98204075
+Depth: 7, frontier size: 25259
+Max weight:134.517334 - depth: 7 - dampening_factor: 1.200000
+
+Candidate s-t: 76540002-51804523
+Number reachable vertices:134217728/134217728
+
+
+Finished in 3/5 iterations
+
+Finished w these states: iter = 3, max_iter = 5
+ s_prev = 76540002, *s = 76540002
+ t_prev = 51804523, *t = 51804523
+Enter new search: <dampening> <source>/"random"
+Enter anything else to abort
+1.2 random
+Answers: 1.200000 random
+
+
+
+Random source: 41624518!!!!
+------------------------
+Iteration:0	Forward search from 41624518
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 33
+Depth: 2, frontier size: 1046
+Depth: 3, frontier size: 33527
+Depth: 4, frontier size: 1067313
+Depth: 5, frontier size: 29908141
+Depth: 6, frontier size: 103125436
+Depth: 7, frontier size: 82231
+Max weight:112.748955 - depth: 7 - dampening_factor: 1.200000
+
+Candidate s-t: 41624518-122528920
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:1	Backward search from 122528920
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 42
+Depth: 2, frontier size: 1407
+Depth: 3, frontier size: 45119
+Depth: 4, frontier size: 1435334
+Depth: 5, frontier size: 38472796
+Depth: 6, frontier size: 94253061
+Depth: 7, frontier size: 9968
+Max weight:141.773407 - depth: 7 - dampening_factor: 1.200000
+
+Candidate s-t: 20311157-122528920
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:2	Forward search from 20311157
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 42
+Depth: 2, frontier size: 1414
+Depth: 3, frontier size: 45353
+Depth: 4, frontier size: 1442458
+Depth: 5, frontier size: 38625401
+Depth: 6, frontier size: 94093627
+Depth: 7, frontier size: 9432
+Max weight:141.773438 - depth: 7 - dampening_factor: 1.200000
+
+Candidate s-t: 20311157-122528920
+Number reachable vertices:134217728/134217728
+
+
+Finished in 3/5 iterations
+
+Finished w these states: iter = 3, max_iter = 5
+ s_prev = 20311157, *s = 20311157
+ t_prev = 122528920, *t = 122528920
+Enter new search: <dampening> <source>/"random"
+Enter anything else to abort
+
+
+
+
+Random source: 71080041!!!!
+------------------------
+Iteration:0	Forward search from 71080041
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 43
+Depth: 2, frontier size: 1291
+Depth: 3, frontier size: 41328
+Depth: 4, frontier size: 1314642
+Depth: 5, frontier size: 35752966
+Depth: 6, frontier size: 97088295
+Depth: 7, frontier size: 19162
+Max weight:3.468750 - depth: 7 - dampening_factor: 2.000000
+
+Candidate s-t: 71080041-66845141
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:1	Backward search from 66845141
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 46
+Depth: 2, frontier size: 1472
+Depth: 3, frontier size: 47185
+Depth: 4, frontier size: 1501071
+Depth: 5, frontier size: 39900713
+Depth: 6, frontier size: 92760376
+Depth: 7, frontier size: 6864
+Max weight:3.664062 - depth: 7 - dampening_factor: 2.000000
+
+Candidate s-t: 111933135-66845141
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:2	Forward search from 111933135
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1255
+Depth: 3, frontier size: 39994
+Depth: 4, frontier size: 1275656
+Depth: 5, frontier size: 34845834
+Depth: 6, frontier size: 98031080
+Depth: 7, frontier size: 23871
+Max weight:3.703125 - depth: 7 - dampening_factor: 2.000000
+
+Candidate s-t: 111933135-67656199
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:3	Backward search from 67656199
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 48
+Depth: 2, frontier size: 1501
+Depth: 3, frontier size: 48126
+Depth: 4, frontier size: 1529550
+Depth: 5, frontier size: 40533124
+Depth: 6, frontier size: 92099567
+Depth: 7, frontier size: 5811
+Max weight:3.796875 - depth: 7 - dampening_factor: 2.000000
+
+Candidate s-t: 68626472-67656199
+Number reachable vertices:134217728/134217728
+
+------------------------
+Iteration:4	Forward search from 68626472
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 40
+Depth: 2, frontier size: 1256
+Depth: 3, frontier size: 39965
+Depth: 4, frontier size: 1272209
+Depth: 5, frontier size: 34768843
+Depth: 6, frontier size: 98110623
+Depth: 7, frontier size: 24791
+Max weight:3.796875 - depth: 7 - dampening_factor: 2.000000
+
+Candidate s-t: 68626472-67656199
+Number reachable vertices:134217728/134217728
+
+
+Finished in 5/5 iterations
+
+Finished w these states: iter = 5, max_iter = 5
+ s_prev = 68626472, *s = 68626472
+ t_prev = 67656199, *t = 67656199

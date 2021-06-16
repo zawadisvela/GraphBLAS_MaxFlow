@@ -1,0 +1,44 @@
+New search? (y/n)
+y n 1.2
+The answer you gave: y
+Same source? (y/n)
+The answer you gave: n
+New source: 71080041
+Enter new dampening factor. Current dampening factor = 1.200000
+Try number:0	Source:71080041
+Depth: 0, frontier size: 1
+Depth: 2, frontier size: 43
+Depth: 3, frontier size: 1291
+Depth: 4, frontier size: 41328
+Depth: 5, frontier size: 1314642
+Depth: 6, frontier size: 35752966
+Depth: 7, frontier size: 97088295
+Depth: 8, frontier size: 19162
+Depth: 9, frontier size: 0
+Max weight:123.912193 - depth: 8 - dampening_factor: 1.200000
+
+Candidate s-t: 71080041-66845141
+Number reachable vertices:134217728/134217728
+
+New search? (y/n)
+y y 0.9
+The answer you gave: y
+Same source? (y/n)
+The answer you gave: y
+Enter new dampening factor. Current dampening factor = 1.200000
+Try number:0	Source:71080041
+Depth: 0, frontier size: 1
+Depth: 2, frontier size: 43
+Depth: 3, frontier size: 1291
+Depth: 4, frontier size: 41328
+Depth: 5, frontier size: 1314642
+Depth: 6, frontier size: 35752966
+Depth: 7, frontier size: 97088295
+Depth: 8, frontier size: 19162
+Depth: 9, frontier size: 0
+Max weight:928.294067 - depth: 8 - dampening_factor: 0.900000
+
+Candidate s-t: 71080041-66845141
+Number reachable vertices:134217728/134217728
+
+s-t: 71080041-66845141

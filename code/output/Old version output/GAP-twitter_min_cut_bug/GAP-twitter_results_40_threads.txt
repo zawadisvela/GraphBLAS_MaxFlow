@@ -1,0 +1,915 @@
+max threads:40
+Graph properties: integer,
+Graphsize: 61578415 61578415 1468364884
+Determined update frequency: 2936728
+Reading:  0.0000Reading:  0.2000Reading:  0.4000Reading:  0.6000Reading:  0.8000Reading:  1.0000Reading:  1.2000Reading:  1.4000Reading:  1.6000Reading:  1.8000Reading:  2.0000Reading:  2.2000Reading:  2.4000Reading:  2.6000Reading:  2.8000Reading:  3.0000Reading:  3.2000Reading:  3.4000Reading:  3.6000Reading:  3.8000Reading:  4.0000Reading:  4.2000Reading:  4.4000Reading:  4.6000Reading:  4.8000Reading:  5.0000Reading:  5.2000Reading:  5.4000Reading:  5.6000Reading:  5.8000Reading:  6.0000Reading:  6.2000Reading:  6.4000Reading:  6.6000Reading:  6.8000Reading:  7.0000Reading:  7.2000Reading:  7.4000Reading:  7.6000Reading:  7.8000Reading:  8.0000Reading:  8.2000Reading:  8.4000Reading:  8.6000Reading:  8.8000Reading:  9.0000Reading:  9.2000Reading:  9.4000Reading:  9.6000Reading:  9.8000Reading:  10.0000Reading:  10.2000Reading:  10.4000Reading:  10.6000Reading:  10.8000Reading:  11.0000Reading:  11.2000Reading:  11.4000Reading:  11.6000Reading:  11.8000Reading:  12.0000Reading:  12.2000Reading:  12.4000Reading:  12.6000Reading:  12.8000Reading:  13.0000Reading:  13.2000Reading:  13.4000Reading:  13.6000Reading:  13.8000Reading:  14.0000Reading:  14.2000Reading:  14.4000Reading:  14.6000Reading:  14.8000Reading:  15.0000Reading:  15.2000Reading:  15.4000Reading:  15.6000Reading:  15.8000Reading:  16.0000Reading:  16.2000Reading:  16.4000Reading:  16.6000Reading:  16.8000Reading:  17.0000Reading:  17.2000Reading:  17.4000Reading:  17.6000Reading:  17.8000Reading:  18.0000Reading:  18.2000Reading:  18.4000Reading:  18.6000Reading:  18.8000Reading:  19.0000Reading:  19.2000Reading:  19.4000Reading:  19.6000Reading:  19.8000Reading:  20.0000Reading:  20.2000Reading:  20.4000Reading:  20.6000Reading:  20.8000Reading:  21.0000Reading:  21.2000Reading:  21.4000Reading:  21.6000Reading:  21.8000Reading:  22.0000Reading:  22.2000Reading:  22.4000Reading:  22.6000Reading:  22.8000Reading:  23.0000Reading:  23.2000Reading:  23.4000Reading:  23.6000Reading:  23.8000Reading:  24.0000Reading:  24.2000Reading:  24.4000Reading:  24.6000Reading:  24.8000Reading:  25.0000Reading:  25.2000Reading:  25.4000Reading:  25.6000Reading:  25.8000Reading:  26.0000Reading:  26.2000Reading:  26.4000Reading:  26.6000Reading:  26.8000Reading:  27.0000Reading:  27.2000Reading:  27.4000Reading:  27.6000Reading:  27.8000Reading:  28.0000Reading:  28.2000Reading:  28.4000Reading:  28.6000Reading:  28.8000Reading:  29.0000Reading:  29.2000Reading:  29.4000Reading:  29.6000Reading:  29.8000Reading:  30.0000Reading:  30.2000Reading:  30.4000Reading:  30.6000Reading:  30.8000Reading:  31.0000Reading:  31.2000Reading:  31.4000Reading:  31.6000Reading:  31.8000Reading:  32.0000Reading:  32.2000Reading:  32.4000Reading:  32.6000Reading:  32.8000Reading:  33.0000Reading:  33.2000Reading:  33.4000Reading:  33.6000Reading:  33.8000Reading:  34.0000Reading:  34.2000Reading:  34.4000Reading:  34.6000Reading:  34.8000Reading:  35.0000Reading:  35.2000Reading:  35.4000Reading:  35.6000Reading:  35.8000Reading:  36.0000Reading:  36.2000Reading:  36.4000Reading:  36.6000Reading:  36.8000Reading:  37.0000Reading:  37.2000Reading:  37.4000Reading:  37.6000Reading:  37.8000Reading:  38.0000Reading:  38.2000Reading:  38.4000Reading:  38.6000Reading:  38.8000Reading:  39.0000Reading:  39.2000Reading:  39.4000Reading:  39.6000Reading:  39.8000Reading:  40.0000Reading:  40.2000Reading:  40.4000Reading:  40.6000Reading:  40.8000Reading:  41.0000Reading:  41.2000Reading:  41.4000Reading:  41.6000Reading:  41.8000Reading:  42.0000Reading:  42.2000Reading:  42.4000Reading:  42.6000Reading:  42.8000Reading:  43.0000Reading:  43.2000Reading:  43.4000Reading:  43.6000Reading:  43.8000Reading:  44.0000Reading:  44.2000Reading:  44.4000Reading:  44.6000Reading:  44.8000Reading:  45.0000Reading:  45.2000Reading:  45.4000Reading:  45.6000Reading:  45.8000Reading:  46.0000Reading:  46.2000Reading:  46.4000Reading:  46.6000Reading:  46.8000Reading:  47.0000Reading:  47.2000Reading:  47.4000Reading:  47.6000Reading:  47.8000Reading:  48.0000Reading:  48.2000Reading:  48.4000Reading:  48.6000Reading:  48.8000Reading:  49.0000Reading:  49.2000Reading:  49.4000Reading:  49.6000Reading:  49.8000Reading:  50.0000Reading:  50.2000Reading:  50.4000Reading:  50.6000Reading:  50.8000Reading:  51.0000Reading:  51.2000Reading:  51.4000Reading:  51.6000Reading:  51.8000Reading:  52.0000Reading:  52.2000Reading:  52.4000Reading:  52.6000Reading:  52.8000Reading:  53.0000Reading:  53.2000Reading:  53.4000Reading:  53.6000Reading:  53.8000Reading:  54.0000Reading:  54.2000Reading:  54.4000Reading:  54.6000Reading:  54.8000Reading:  55.0000Reading:  55.2000Reading:  55.4000Reading:  55.6000Reading:  55.8000Reading:  56.0000Reading:  56.2000Reading:  56.4000Reading:  56.6000Reading:  56.8000Reading:  57.0000Reading:  57.2000Reading:  57.4000Reading:  57.6000Reading:  57.8000Reading:  58.0000Reading:  58.2000Reading:  58.4000Reading:  58.6000Reading:  58.8000Reading:  59.0000Reading:  59.2000Reading:  59.4000Reading:  59.6000Reading:  59.8000Reading:  60.0000Reading:  60.2000Reading:  60.4000Reading:  60.6000Reading:  60.8000Reading:  61.0000Reading:  61.2000Reading:  61.4000Reading:  61.6000Reading:  61.8000Reading:  62.0000Reading:  62.2000Reading:  62.4000Reading:  62.6000Reading:  62.8000Reading:  63.0000Reading:  63.2000Reading:  63.4000Reading:  63.6000Reading:  63.8000Reading:  64.0000Reading:  64.2000Reading:  64.4000Reading:  64.6000Reading:  64.8000Reading:  65.0000Reading:  65.2000Reading:  65.4000Reading:  65.6000Reading:  65.8000Reading:  66.0000Reading:  66.2000Reading:  66.4000Reading:  66.6000Reading:  66.8000Reading:  67.0000Reading:  67.2000Reading:  67.4000Reading:  67.6000Reading:  67.8000Reading:  68.0000Reading:  68.2000Reading:  68.4000Reading:  68.6000Reading:  68.8000Reading:  69.0000Reading:  69.2000Reading:  69.4000Reading:  69.6000Reading:  69.8000Reading:  70.0000Reading:  70.2000Reading:  70.4000Reading:  70.6000Reading:  70.8000Reading:  71.0000Reading:  71.2000Reading:  71.4000Reading:  71.6000Reading:  71.8000Reading:  72.0000Reading:  72.2000Reading:  72.4000Reading:  72.6000Reading:  72.8000Reading:  73.0000Reading:  73.2000Reading:  73.4000Reading:  73.6000Reading:  73.8000Reading:  74.0000Reading:  74.2000Reading:  74.4000Reading:  74.6000Reading:  74.8000Reading:  75.0000Reading:  75.2000Reading:  75.4000Reading:  75.6000Reading:  75.8000Reading:  76.0000Reading:  76.2000Reading:  76.4000Reading:  76.6000Reading:  76.8000Reading:  77.0000Reading:  77.2000Reading:  77.4000Reading:  77.6000Reading:  77.8000Reading:  78.0000Reading:  78.2000Reading:  78.4000Reading:  78.6000Reading:  78.8000Reading:  79.0000Reading:  79.2000Reading:  79.4000Reading:  79.6000Reading:  79.8000Reading:  80.0000Reading:  80.2000Reading:  80.4000Reading:  80.6000Reading:  80.8000Reading:  81.0000Reading:  81.2000Reading:  81.4000Reading:  81.6000Reading:  81.8000Reading:  82.0000Reading:  82.2000Reading:  82.4000Reading:  82.6000Reading:  82.8000Reading:  83.0000Reading:  83.1999Reading:  83.3999Reading:  83.5999Reading:  83.7999Reading:  83.9999Reading:  84.1999Reading:  84.3999Reading:  84.5999Reading:  84.7999Reading:  84.9999Reading:  85.1999Reading:  85.3999Reading:  85.5999Reading:  85.7999Reading:  85.9999Reading:  86.1999Reading:  86.3999Reading:  86.5999Reading:  86.7999Reading:  86.9999Reading:  87.1999Reading:  87.3999Reading:  87.5999Reading:  87.7999Reading:  87.9999Reading:  88.1999Reading:  88.3999Reading:  88.5999Reading:  88.7999Reading:  88.9999Reading:  89.1999Reading:  89.3999Reading:  89.5999Reading:  89.7999Reading:  89.9999Reading:  90.1999Reading:  90.3999Reading:  90.5999Reading:  90.7999Reading:  90.9999Reading:  91.1999Reading:  91.3999Reading:  91.5999Reading:  91.7999Reading:  91.9999Reading:  92.1999Reading:  92.3999Reading:  92.5999Reading:  92.7999Reading:  92.9999Reading:  93.1999Reading:  93.3999Reading:  93.5999Reading:  93.7999Reading:  93.9999Reading:  94.1999Reading:  94.3999Reading:  94.5999Reading:  94.7999Reading:  94.9999Reading:  95.1999Reading:  95.3999Reading:  95.5999Reading:  95.7999Reading:  95.9999Reading:  96.1999Reading:  96.3999Reading:  96.5999Reading:  96.7999Reading:  96.9999Reading:  97.1999Reading:  97.3999Reading:  97.5999Reading:  97.7999Reading:  97.9999Reading:  98.1999Reading:  98.3999Reading:  98.5999Reading:  98.7999Reading:  98.9999Reading:  99.1999Reading:  99.3999Reading:  99.5999Reading:  99.7999Reading:  99.9999Everything is fine!
+Read&build matrix time: 493.248411
+SOURCE:19075572, SINK:32451116
+Runs:3
+
+-------Run 1-------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3238
+Depth: 3, frontier size: 7814555
+Depth: 4, frontier size: 20666883
+Depth: 5, frontier size: 5817219
+Depth: 6, frontier size: 645204
+Depth: 7, frontier size: 61912
+----------- Iteration: 1 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3237
+Depth: 3, frontier size: 6601040
+Depth: 4, frontier size: 20642285
+Depth: 5, frontier size: 6898251
+Depth: 6, frontier size: 785764
+Depth: 7, frontier size: 76711
+----------- Iteration: 2 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016817
+Depth: 6, frontier size: 805010
+Depth: 7, frontier size: 78183
+----------- Iteration: 3 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016817
+Depth: 6, frontier size: 805010
+Depth: 7, frontier size: 78183
+----------- Iteration: 4 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016817
+Depth: 6, frontier size: 805010
+Depth: 7, frontier size: 78183
+----------- Iteration: 5 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016816
+Depth: 6, frontier size: 805011
+Depth: 7, frontier size: 78183
+----------- Iteration: 6 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016816
+Depth: 6, frontier size: 805011
+Depth: 7, frontier size: 78183
+----------- Iteration: 7 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3235
+Depth: 3, frontier size: 6462617
+Depth: 4, frontier size: 20637078
+Depth: 5, frontier size: 7020536
+Depth: 6, frontier size: 805418
+Depth: 7, frontier size: 78236
+----------- Iteration: 8 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3235
+Depth: 3, frontier size: 6462617
+Depth: 4, frontier size: 20637078
+Depth: 5, frontier size: 7020536
+Depth: 6, frontier size: 805418
+Depth: 7, frontier size: 78236
+----------- Iteration: 9 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 10 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 11 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 12 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 13 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2074
+Depth: 3, frontier size: 4470449
+Depth: 4, frontier size: 20754989
+Depth: 5, frontier size: 8632584
+Depth: 6, frontier size: 1043125
+Depth: 7, frontier size: 101141
+----------- Iteration: 14 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2073
+Depth: 3, frontier size: 4467234
+Depth: 4, frontier size: 20743240
+Depth: 5, frontier size: 8645654
+Depth: 6, frontier size: 1044881
+Depth: 7, frontier size: 101272
+----------- Iteration: 15 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2073
+Depth: 3, frontier size: 4467234
+Depth: 4, frontier size: 20743240
+Depth: 5, frontier size: 8645653
+Depth: 6, frontier size: 1044882
+Depth: 7, frontier size: 101272
+----------- Iteration: 16 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 5
+Depth: 2, frontier size: 1602
+Depth: 3, frontier size: 4277655
+Depth: 4, frontier size: 20053466
+Depth: 5, frontier size: 9400144
+Depth: 6, frontier size: 1155896
+Depth: 7, frontier size: 113980
+----------- Iteration: 17 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 5
+Depth: 2, frontier size: 1602
+Depth: 3, frontier size: 4277655
+Depth: 4, frontier size: 20053466
+Depth: 5, frontier size: 9400144
+Depth: 6, frontier size: 1155896
+Depth: 7, frontier size: 113980
+----------- Iteration: 18 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1411
+Depth: 3, frontier size: 4188019
+Depth: 4, frontier size: 19823290
+Depth: 5, frontier size: 9675274
+Depth: 6, frontier size: 1196058
+Depth: 7, frontier size: 118301
+----------- Iteration: 19 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1411
+Depth: 3, frontier size: 4188019
+Depth: 4, frontier size: 19823290
+Depth: 5, frontier size: 9675274
+Depth: 6, frontier size: 1196058
+Depth: 7, frontier size: 118301
+----------- Iteration: 20 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 297
+Depth: 3, frontier size: 4085192
+Depth: 4, frontier size: 19519396
+Depth: 5, frontier size: 10010294
+Depth: 6, frontier size: 1261147
+Depth: 7, frontier size: 125276
+----------- Iteration: 21 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 297
+Depth: 3, frontier size: 4085192
+Depth: 4, frontier size: 19519396
+Depth: 5, frontier size: 10010293
+Depth: 6, frontier size: 1261148
+Depth: 7, frontier size: 125276
+----------- Iteration: 22 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 297
+Depth: 3, frontier size: 4085192
+Depth: 4, frontier size: 19519396
+Depth: 5, frontier size: 10010293
+Depth: 6, frontier size: 1261148
+Depth: 7, frontier size: 125276
+----------- Iteration: 23 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 296
+Depth: 3, frontier size: 4076811
+Depth: 4, frontier size: 19403856
+Depth: 5, frontier size: 10117077
+Depth: 6, frontier size: 1276675
+Depth: 7, frontier size: 126715
+----------- Iteration: 24 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 296
+Depth: 3, frontier size: 4076811
+Depth: 4, frontier size: 19403856
+Depth: 5, frontier size: 10117077
+Depth: 6, frontier size: 1276675
+Depth: 7, frontier size: 126715
+----------- Iteration: 25 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 296
+Depth: 3, frontier size: 4076810
+Depth: 4, frontier size: 19403852
+Depth: 5, frontier size: 10117080
+Depth: 6, frontier size: 1276676
+Depth: 7, frontier size: 126716
+----------- Iteration: 26 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 2
+Depth: 2, frontier size: 210
+Depth: 3, frontier size: 2506356
+Depth: 4, frontier size: 18124873
+Depth: 5, frontier size: 12420175
+Depth: 6, frontier size: 1763260
+Depth: 7, frontier size: 179461
+----------- Iteration: 27 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1
+Depth: 2, frontier size: 129
+Depth: 3, frontier size: 48482
+Depth: 4, frontier size: 13811098
+Depth: 5, frontier size: 17028953
+Depth: 6, frontier size: 3714567
+Depth: 7, frontier size: 370649
+----------- Iteration: 28 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 0
+s-t: 19075572-32451116. Max flow: 1000.000000
+Time: 239.022798
+
+-------Run 2-------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3238
+Depth: 3, frontier size: 7814555
+Depth: 4, frontier size: 20666883
+Depth: 5, frontier size: 5817219
+Depth: 6, frontier size: 645204
+Depth: 7, frontier size: 61912
+----------- Iteration: 1 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3237
+Depth: 3, frontier size: 6601040
+Depth: 4, frontier size: 20642285
+Depth: 5, frontier size: 6898251
+Depth: 6, frontier size: 785764
+Depth: 7, frontier size: 76711
+----------- Iteration: 2 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016817
+Depth: 6, frontier size: 805010
+Depth: 7, frontier size: 78183
+----------- Iteration: 3 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016817
+Depth: 6, frontier size: 805010
+Depth: 7, frontier size: 78183
+----------- Iteration: 4 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016817
+Depth: 6, frontier size: 805010
+Depth: 7, frontier size: 78183
+----------- Iteration: 5 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016817
+Depth: 6, frontier size: 805010
+Depth: 7, frontier size: 78183
+----------- Iteration: 6 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016816
+Depth: 6, frontier size: 805011
+Depth: 7, frontier size: 78183
+----------- Iteration: 7 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016816
+Depth: 6, frontier size: 805011
+Depth: 7, frontier size: 78183
+----------- Iteration: 8 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3235
+Depth: 3, frontier size: 6462617
+Depth: 4, frontier size: 20637078
+Depth: 5, frontier size: 7020536
+Depth: 6, frontier size: 805418
+Depth: 7, frontier size: 78236
+----------- Iteration: 9 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3235
+Depth: 3, frontier size: 6462617
+Depth: 4, frontier size: 20637078
+Depth: 5, frontier size: 7020536
+Depth: 6, frontier size: 805418
+Depth: 7, frontier size: 78236
+----------- Iteration: 10 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 11 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 12 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 13 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 14 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 15 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2074
+Depth: 3, frontier size: 4470449
+Depth: 4, frontier size: 20754989
+Depth: 5, frontier size: 8632584
+Depth: 6, frontier size: 1043125
+Depth: 7, frontier size: 101141
+----------- Iteration: 16 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2073
+Depth: 3, frontier size: 4467234
+Depth: 4, frontier size: 20743240
+Depth: 5, frontier size: 8645654
+Depth: 6, frontier size: 1044881
+Depth: 7, frontier size: 101272
+----------- Iteration: 17 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2073
+Depth: 3, frontier size: 4467234
+Depth: 4, frontier size: 20743240
+Depth: 5, frontier size: 8645653
+Depth: 6, frontier size: 1044882
+Depth: 7, frontier size: 101272
+----------- Iteration: 18 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 5
+Depth: 2, frontier size: 1884
+Depth: 3, frontier size: 4398308
+Depth: 4, frontier size: 20632571
+Depth: 5, frontier size: 8801926
+Depth: 6, frontier size: 1066078
+Depth: 7, frontier size: 103374
+----------- Iteration: 19 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1411
+Depth: 3, frontier size: 4188019
+Depth: 4, frontier size: 19823290
+Depth: 5, frontier size: 9675274
+Depth: 6, frontier size: 1196058
+Depth: 7, frontier size: 118301
+----------- Iteration: 20 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1411
+Depth: 3, frontier size: 4188019
+Depth: 4, frontier size: 19823290
+Depth: 5, frontier size: 9675274
+Depth: 6, frontier size: 1196058
+Depth: 7, frontier size: 118301
+----------- Iteration: 21 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1410
+Depth: 3, frontier size: 4187882
+Depth: 4, frontier size: 19823245
+Depth: 5, frontier size: 9675442
+Depth: 6, frontier size: 1196070
+Depth: 7, frontier size: 118304
+----------- Iteration: 22 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1410
+Depth: 3, frontier size: 4187882
+Depth: 4, frontier size: 19823245
+Depth: 5, frontier size: 9675441
+Depth: 6, frontier size: 1196071
+Depth: 7, frontier size: 118304
+----------- Iteration: 23 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1410
+Depth: 3, frontier size: 4187882
+Depth: 4, frontier size: 19823245
+Depth: 5, frontier size: 9675441
+Depth: 6, frontier size: 1196071
+Depth: 7, frontier size: 118304
+----------- Iteration: 24 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1409
+Depth: 3, frontier size: 4180897
+Depth: 4, frontier size: 19733978
+Depth: 5, frontier size: 9758945
+Depth: 6, frontier size: 1207604
+Depth: 7, frontier size: 119412
+----------- Iteration: 25 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1409
+Depth: 3, frontier size: 4180897
+Depth: 4, frontier size: 19733978
+Depth: 5, frontier size: 9758945
+Depth: 6, frontier size: 1207604
+Depth: 7, frontier size: 119412
+----------- Iteration: 26 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1409
+Depth: 3, frontier size: 4180896
+Depth: 4, frontier size: 19733975
+Depth: 5, frontier size: 9758948
+Depth: 6, frontier size: 1207604
+Depth: 7, frontier size: 119413
+----------- Iteration: 27 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 296
+Depth: 3, frontier size: 4076810
+Depth: 4, frontier size: 19403852
+Depth: 5, frontier size: 10117080
+Depth: 6, frontier size: 1276676
+Depth: 7, frontier size: 126716
+----------- Iteration: 28 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 2
+Depth: 2, frontier size: 210
+Depth: 3, frontier size: 2506356
+Depth: 4, frontier size: 18124873
+Depth: 5, frontier size: 12420175
+Depth: 6, frontier size: 1763260
+Depth: 7, frontier size: 179461
+----------- Iteration: 29 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1
+Depth: 2, frontier size: 129
+Depth: 3, frontier size: 48482
+Depth: 4, frontier size: 13811098
+Depth: 5, frontier size: 17028953
+Depth: 6, frontier size: 3714567
+Depth: 7, frontier size: 370649
+----------- Iteration: 30 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 0
+s-t: 19075572-32451116. Max flow: 1000.000000
+Time: 253.819531
+
+-------Run 3-------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3238
+Depth: 3, frontier size: 7814555
+Depth: 4, frontier size: 20666883
+Depth: 5, frontier size: 5817219
+Depth: 6, frontier size: 645204
+Depth: 7, frontier size: 61912
+----------- Iteration: 1 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3237
+Depth: 3, frontier size: 6601040
+Depth: 4, frontier size: 20642285
+Depth: 5, frontier size: 6898251
+Depth: 6, frontier size: 785764
+Depth: 7, frontier size: 76711
+----------- Iteration: 2 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3237
+Depth: 3, frontier size: 6601040
+Depth: 4, frontier size: 20642285
+Depth: 5, frontier size: 6898251
+Depth: 6, frontier size: 785764
+Depth: 7, frontier size: 76711
+----------- Iteration: 3 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016817
+Depth: 6, frontier size: 805010
+Depth: 7, frontier size: 78183
+----------- Iteration: 4 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016817
+Depth: 6, frontier size: 805010
+Depth: 7, frontier size: 78183
+----------- Iteration: 5 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016816
+Depth: 6, frontier size: 805011
+Depth: 7, frontier size: 78183
+----------- Iteration: 6 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3236
+Depth: 3, frontier size: 6465834
+Depth: 4, frontier size: 20638042
+Depth: 5, frontier size: 7016816
+Depth: 6, frontier size: 805011
+Depth: 7, frontier size: 78183
+----------- Iteration: 7 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3235
+Depth: 3, frontier size: 6462617
+Depth: 4, frontier size: 20637078
+Depth: 5, frontier size: 7020536
+Depth: 6, frontier size: 805418
+Depth: 7, frontier size: 78236
+----------- Iteration: 8 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 3235
+Depth: 3, frontier size: 6462617
+Depth: 4, frontier size: 20637078
+Depth: 5, frontier size: 7020536
+Depth: 6, frontier size: 805418
+Depth: 7, frontier size: 78236
+----------- Iteration: 9 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 10 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 11 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 12 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 13 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 2746
+Depth: 3, frontier size: 5272349
+Depth: 4, frontier size: 21158059
+Depth: 5, frontier size: 7593462
+Depth: 6, frontier size: 893776
+Depth: 7, frontier size: 85877
+----------- Iteration: 14 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2074
+Depth: 3, frontier size: 4470449
+Depth: 4, frontier size: 20754989
+Depth: 5, frontier size: 8632584
+Depth: 6, frontier size: 1043125
+Depth: 7, frontier size: 101141
+----------- Iteration: 15 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2073
+Depth: 3, frontier size: 4467234
+Depth: 4, frontier size: 20743240
+Depth: 5, frontier size: 8645654
+Depth: 6, frontier size: 1044881
+Depth: 7, frontier size: 101272
+----------- Iteration: 16 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2073
+Depth: 3, frontier size: 4467234
+Depth: 4, frontier size: 20743240
+Depth: 5, frontier size: 8645653
+Depth: 6, frontier size: 1044882
+Depth: 7, frontier size: 101272
+----------- Iteration: 17 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 5
+Depth: 2, frontier size: 1884
+Depth: 3, frontier size: 4398308
+Depth: 4, frontier size: 20632571
+Depth: 5, frontier size: 8801926
+Depth: 6, frontier size: 1066078
+Depth: 7, frontier size: 103374
+----------- Iteration: 18 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1411
+Depth: 3, frontier size: 4188019
+Depth: 4, frontier size: 19823290
+Depth: 5, frontier size: 9675274
+Depth: 6, frontier size: 1196058
+Depth: 7, frontier size: 118301
+----------- Iteration: 19 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1411
+Depth: 3, frontier size: 4188019
+Depth: 4, frontier size: 19823290
+Depth: 5, frontier size: 9675274
+Depth: 6, frontier size: 1196058
+Depth: 7, frontier size: 118301
+----------- Iteration: 20 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1410
+Depth: 3, frontier size: 4187882
+Depth: 4, frontier size: 19823245
+Depth: 5, frontier size: 9675442
+Depth: 6, frontier size: 1196070
+Depth: 7, frontier size: 118304
+----------- Iteration: 21 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1410
+Depth: 3, frontier size: 4187882
+Depth: 4, frontier size: 19823245
+Depth: 5, frontier size: 9675441
+Depth: 6, frontier size: 1196071
+Depth: 7, frontier size: 118304
+----------- Iteration: 22 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 1410
+Depth: 3, frontier size: 4187882
+Depth: 4, frontier size: 19823245
+Depth: 5, frontier size: 9675441
+Depth: 6, frontier size: 1196071
+Depth: 7, frontier size: 118304
+----------- Iteration: 23 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 297
+Depth: 3, frontier size: 4085191
+Depth: 4, frontier size: 19519384
+Depth: 5, frontier size: 10010305
+Depth: 6, frontier size: 1261149
+Depth: 7, frontier size: 125276
+----------- Iteration: 24 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 296
+Depth: 3, frontier size: 4076810
+Depth: 4, frontier size: 19403843
+Depth: 5, frontier size: 10117090
+Depth: 6, frontier size: 1276676
+Depth: 7, frontier size: 126715
+----------- Iteration: 25 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 296
+Depth: 3, frontier size: 4076810
+Depth: 4, frontier size: 19403843
+Depth: 5, frontier size: 10117090
+Depth: 6, frontier size: 1276676
+Depth: 7, frontier size: 126715
+----------- Iteration: 26 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 296
+Depth: 3, frontier size: 4076809
+Depth: 4, frontier size: 19403839
+Depth: 5, frontier size: 10117093
+Depth: 6, frontier size: 1276677
+Depth: 7, frontier size: 126716
+----------- Iteration: 27 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 2
+Depth: 2, frontier size: 215
+Depth: 3, frontier size: 2182107
+Depth: 4, frontier size: 19647845
+Depth: 5, frontier size: 11423725
+Depth: 6, frontier size: 1586978
+Depth: 7, frontier size: 157187
+----------- Iteration: 28 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1
+Depth: 2, frontier size: 129
+Depth: 3, frontier size: 48482
+Depth: 4, frontier size: 13811098
+Depth: 5, frontier size: 17028953
+Depth: 6, frontier size: 3714567
+Depth: 7, frontier size: 370649
+----------- Iteration: 29 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 0
+s-t: 19075572-32451116. Max flow: 1000.000000
+Time: 247.062165
+
+Correctness and min-cut:
+Total flow out of source: 1000.000000
+Total flow into sink: 1000.000000
+Min-cut sum: 0.000000
+Min-cut time: 8.716959
+Total number of iterations: 29
+
+./edmund-karp ../GAP-twitter/GAP-twitter.mtx 3 19075572 32451116
+
+OMP_NUM_THREADS=40
+
+times: [239.022798, 253.819531, 247.062165]
+Min time: 239.022798
+Max time: 253.819531
+Avg time: 246.63483133333332

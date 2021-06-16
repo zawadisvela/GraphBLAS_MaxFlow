@@ -1,0 +1,72 @@
+Try number:0	Source:36752470
+Depth: 0, frontier size: 1
+Depth: 2, frontier size: 72
+Depth: 3, frontier size: 291
+Depth: 4, frontier size: 1407
+Depth: 5, frontier size: 9518
+Depth: 6, frontier size: 87837
+Depth: 7, frontier size: 507169
+Depth: 8, frontier size: 1812839
+Depth: 9, frontier size: 3590064
+Depth: 10, frontier size: 6140157
+Depth: 11, frontier size: 6208548
+Depth: 12, frontier size: 5752826
+Depth: 13, frontier size: 4555253
+Depth: 14, frontier size: 4505219
+Depth: 15, frontier size: 4677335
+Depth: 16, frontier size: 2721588
+Depth: 17, frontier size: 2112802
+Depth: 18, frontier size: 1504619
+Depth: 19, frontier size: 1294872
+Depth: 20, frontier size: 1018941
+Depth: 21, frontier size: 703584
+Depth: 22, frontier size: 676816
+Depth: 23, frontier size: 460635
+Depth: 24, frontier size: 327918
+Depth: 25, frontier size: 261771
+Depth: 26, frontier size: 227351
+Depth: 27, frontier size: 189447
+Depth: 28, frontier size: 183189
+Depth: 29, frontier size: 167854
+Depth: 30, frontier size: 138604
+Depth: 31, frontier size: 118152
+Depth: 32, frontier size: 94448
+Depth: 33, frontier size: 106246
+Depth: 34, frontier size: 107039
+Depth: 35, frontier size: 57555
+Depth: 36, frontier size: 33355
+Depth: 37, frontier size: 45569
+Depth: 38, frontier size: 43842
+Depth: 39, frontier size: 48965
+Depth: 40, frontier size: 26150
+Depth: 41, frontier size: 10208
+Depth: 42, frontier size: 2269
+Depth: 43, frontier size: 3214
+Depth: 44, frontier size: 4356
+Depth: 45, frontier size: 1895
+Depth: 46, frontier size: 322
+Depth: 47, frontier size: 140
+Depth: 48, frontier size: 116
+Depth: 49, frontier size: 65
+Depth: 50, frontier size: 65
+Depth: 51, frontier size: 63
+Depth: 52, frontier size: 43
+Depth: 53, frontier size: 38
+Depth: 54, frontier size: 3
+Depth: 55, frontier size: 1
+Depth: 56, frontier size: 0
+
+Same result, different weights for dampening factors:
+1, 1.0005, 1.05, 1.1 and 1.2
+
+Max weight:3032994772156416.000000 - depth: 15 - dampening_factor: 0.900000
+
+Candidate s-t: 36752470-30361330
+Number reachable vertices:50542646/50636151
+
+New search? (y/n)
+n
+The answer you gave: n
+----------------
+
+s-t: 36752470-30361330

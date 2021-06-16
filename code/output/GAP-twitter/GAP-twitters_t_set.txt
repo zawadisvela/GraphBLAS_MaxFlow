@@ -1,10 +1,88 @@
-Graph properties: integer,
-Everything is fine!
-Try:1	Source:18515348
-Deepest:15
-Number reachable vertices:35016137
-57% of all vertices reached
+------------------------
+Iteration:0	Forward search from 20512060
 
-----------------
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 2314161
+Depth: 3, frontier size: 18165729
+Depth: 4, frontier size: 12456824
+Depth: 5, frontier size: 1851893
+Depth: 6, frontier size: 205903
+Depth: 7, frontier size: 19142
+Depth: 8, frontier size: 2145
+Depth: 9, frontier size: 273
+Depth: 10, frontier size: 38
+Depth: 11, frontier size: 13
+Depth: 12, frontier size: 6
+Depth: 13, frontier size: 2
+Depth: 14, frontier size: 1
+Max weight:11712569.000000 - depth: 7 - dampening_factor: 1.500000
 
-s-t: 18515348-46655700
+Candidate s-t: 20512060-16222076
+Number reachable vertices:35016137/61578415
+
+------------------------
+Iteration:1	Backward search from 16222076
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 26
+Depth: 2, frontier size: 1
+Depth: 3, frontier size: 82
+Depth: 4, frontier size: 130
+Depth: 5, frontier size: 775311
+Depth: 6, frontier size: 10107219
+Depth: 7, frontier size: 24456213
+Depth: 8, frontier size: 4519089
+Depth: 9, frontier size: 147080
+Depth: 10, frontier size: 10236
+Depth: 11, frontier size: 810
+Depth: 12, frontier size: 68
+Depth: 13, frontier size: 16
+Depth: 14, frontier size: 8
+Depth: 15, frontier size: 8
+Depth: 16, frontier size: 6
+Depth: 17, frontier size: 6
+Depth: 18, frontier size: 3
+Depth: 19, frontier size: 2
+Depth: 20, frontier size: 1
+Depth: 21, frontier size: 1
+Depth: 22, frontier size: 1
+Depth: 23, frontier size: 1
+Depth: 24, frontier size: 1
+Depth: 25, frontier size: 1
+Depth: 26, frontier size: 1
+Max weight:12530535.000000 - depth: 6 - dampening_factor: 1.500000
+
+Candidate s-t: 19757371-16222076
+Number reachable vertices:40016322/61578415
+
+------------------------
+Iteration:2	Forward search from 19757371
+
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1844499
+Depth: 2, frontier size: 18496292
+Depth: 3, frontier size: 12381073
+Depth: 4, frontier size: 2037170
+Depth: 5, frontier size: 231749
+Depth: 6, frontier size: 22490
+Depth: 7, frontier size: 2478
+Depth: 8, frontier size: 314
+Depth: 9, frontier size: 49
+Depth: 10, frontier size: 13
+Depth: 11, frontier size: 6
+Depth: 12, frontier size: 2
+Depth: 13, frontier size: 1
+Max weight:12521809.000000 - depth: 6 - dampening_factor: 1.500000
+
+Candidate s-t: 19757371-16222076
+Number reachable vertices:35016137/61578415
+
+
+Finished in 3/5 iterations
+
+Finished w these states: iter = 3, max_iter = 5
+ s_prev = 19757371, *s = 19757371
+ t_prev = 16222076, *t = 16222076
+
+ s-t: 19757371-16222076
