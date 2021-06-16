@@ -1,3 +1,71 @@
+
+
+
+    GrB_Matrix A_t = NULL;
+    GrB_Matrix_new(&A_t, GrB_BOOL, n, n);
+    GrB_transpose(A_t, NO_MASK, NO_ACCUM, A, DEFAULT_DESC);
+
+    GrB_Index s_prev = 0;
+    GrB_Index t_prev = 0;
+    while ((*s != s_prev || *t != t_prev) && tries < 4) {
+        tries++;
+    printf(" - depth: %d / %d", t_depth, depth);
+    printf("Number reachable vertices:%ld/%ld\n", num_reachable, n);
+    printf("Candidate s-t: %ld-%ld\n", *s, *t);
+
+
+
+//in-elegant reverse search
+    printf("\nReverse search\n");
+
+    GrB_Vector_clear(frontier);
+    GrB_Vector_clear(depths);
+    GrB_Vector_clear(weights);
+
+    GrB_Vector_setElement(frontier, 1, *t);
+    GrB_Vector_setElement(weights, 1, *t);
+    GrB_Vector_setElement(depths, 0, *t);
+    depth = 0;
+    successor = true;
+
+//Reverse search
+    while (successor) {
+#ifdef DEBUG
+        printf("current depth: %d \n", depth);
+#endif
+        GrB_vxm(frontier, weights, NO_ACCUM, GxB_PLUS_FIRST_FP32, frontier, A_t, desc);
+        GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC);
+
+        CHECK( GrB_Vector_apply(frontier, NO_MASK, NO_ACCUM, dampen_op, frontier, DEFAULT_DESC) );
+        GrB_eWiseAdd(weights, NO_MASK, NO_ACCUM, GxB_PLUS_FP32_MONOID, weights, frontier, DEFAULT_DESC);
+
+        depth++;
+        GrB_Vector_assign_INT32(depths, frontier, NO_ACCUM, depth, GrB_ALL, n, DEFAULT_DESC);
+
+        GrB_Vector_nvals(&frontier_nvals, frontier);
+        printf("Depth: %d, frontier size: %ld \n", depth, frontier_nvals);
+    }
+#ifdef DEBUG
+    GxB_print(weights, GxB_SHORT);
+#endif
+    max_weight = -1;
+    CHECK( GrB_reduce(&max_weight, NO_ACCUM, GrB_MAX_MONOID_FP32, weights, DEFAULT_DESC) );
+    printf("Max weight:%f", max_weight);
+
+    int s_depth = -1;
+    val = -1;
+    for(int j = 0; j < n; j++){
+        if(GrB_Vector_extractElement(&val, weights, j) != GrB_NO_VALUE && val == max_weight){
+            *s = j;
+            GrB_Vector_extractElement(&s_depth, depths, j);
+            break;
+        }
+    }
+    printf(" - depth: %d / %d", s_depth, depth);
+    printf(" - dampening_factor: %f\n", dampening_factor);
+    printf("Candidate s-t: %ld-%ld\n", *s, *t);
+
+
 ///Index ramp based bfs stuff
 
 

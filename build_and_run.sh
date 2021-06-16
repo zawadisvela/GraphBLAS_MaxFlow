@@ -10,7 +10,7 @@ $command
 
 wd=$(pwd)
 
-command="nvidia-docker run --rm -it \
+command="docker run --rm -it \
         --mount source=$wd/code,target=/code,type=bind \
         --mount source=$wd/input,target=/input,type=bind \
 	$container /bin/bash"
