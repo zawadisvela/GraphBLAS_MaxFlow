@@ -1,3 +1,4 @@
+Failed to read new source, using previous
 ------------------------
 Iteration:0	Forward search from 20512060
 
@@ -85,4 +86,4 @@ Finished w these states: iter = 3, max_iter = 5
  s_prev = 19757371, *s = 19757371
  t_prev = 16222076, *t = 16222076
 
- s-t: 19757371-16222076
+s-t: 19757371-16222076
