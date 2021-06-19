@@ -1,0 +1,67 @@
+Iteration:0	Forward search from 21585157
+
+
+  134217726x1 GraphBLAS float vector, sparse by col
+  weights, no entries
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 84
+Depth: 2, frontier size: 686481
+Depth: 3, frontier size: 50379266
+Depth: 4, frontier size: 11921831
+Depth: 5, frontier size: 45108
+Depth: 6, frontier size: 122
+Max weight:17676.369141 - depth: 4 - dampening_factor: 1.500000
+
+Candidate s-t: 21585157-85992015
+Number reachable vertices:63032893/134217726
+
+------------------------
+Iteration:1	Backward search from 85992015
+
+
+  134217726x1 GraphBLAS float vector, sparse by col
+  weights, no entries
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 52433
+Depth: 3, frontier size: 32564213
+Depth: 4, frontier size: 30179696
+Depth: 5, frontier size: 235919
+Depth: 6, frontier size: 620
+Depth: 7, frontier size: 3
+Max weight:20629.970703 - depth: 4 - dampening_factor: 1.500000
+
+Candidate s-t: 104369640-85992015
+Number reachable vertices:63032893/134217726
+
+------------------------
+Iteration:2	Forward search from 104369640
+
+
+  134217726x1 GraphBLAS float vector, sparse by col
+  weights, no entries
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 88
+Depth: 2, frontier size: 713727
+Depth: 3, frontier size: 50605895
+Depth: 4, frontier size: 11669113
+Depth: 5, frontier size: 43962
+Depth: 6, frontier size: 107
+Max weight:20629.859375 - depth: 4 - dampening_factor: 1.500000
+
+Candidate s-t: 104369640-85992015
+Number reachable vertices:63032893/134217726
+
+
+Finished in 3/5 iterations
+
+Finished w these states: iter = 3, max_iter = 5
+ s_prev = 104369640, *s = 104369640
+ t_prev = 85992015, *t = 85992015
+Enter new search: <dampening> <source>/"random"
+Enter anything else to abort
+nop
+Answers: 1.500000 21585157
+----------------
+
+s-t: 104369640-85992015
