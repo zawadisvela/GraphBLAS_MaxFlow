@@ -1,19 +1,17 @@
+//Looking for infinity in s-t search
 
-
-
-    GrB_Matrix A_t = NULL;
-    GrB_Matrix_new(&A_t, GrB_BOOL, n, n);
-    GrB_transpose(A_t, NO_MASK, NO_ACCUM, A, DEFAULT_DESC);
-
-    GrB_Index s_prev = 0;
-    GrB_Index t_prev = 0;
-    while ((*s != s_prev || *t != t_prev) && tries < 4) {
-        tries++;
-    printf(" - depth: %d / %d", t_depth, depth);
-    printf("Number reachable vertices:%ld/%ld\n", num_reachable, n);
-    printf("Candidate s-t: %ld-%ld\n", *s, *t);
-
-
+    GrB_Vector frontier_tmp;
+    GrB_Vector_dup(&frontier, frontier_tmp);
+    float max_weight = -1;
+    CHECK( GrB_reduce(&max_weight, NO_ACCUM, GrB_MAX_MONOID_FP32, weights, DEFAULT_DESC) );
+    if( isinf(max_weight) ){
+        printf("FOUND THE INFINITY!!\n");
+        printf("Depth: %d, frontier size: %ld \n", depth, frontier_nvals);
+        GxB_print(frontier, GxB_SHORT);
+        GxB_print(frontier_tmp, GxB_SHORT);
+        exit(0);
+    }
+    GrB_free(&frontier_tmp);
 
 //in-elegant reverse search
     printf("\nReverse search\n");

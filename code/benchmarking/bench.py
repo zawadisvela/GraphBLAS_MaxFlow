@@ -6,7 +6,7 @@ from subprocess import PIPE
 
 thread_configs = [80, 40, 20] #, 8, 4, 1, 2]
 
-runs = 3
+runs = 5
 
 def main():
     url_file_path = sys.argv[1]
@@ -89,7 +89,7 @@ def main():
         t = -1
         s_t_file_handle = open(s_t_search_file, 'r')
         for line in s_t_file_handle:
-            if line.startswith('s-t'):
+            if line.strip().startswith('s-t'):
                 s,t = line.split(' ')[1].split('-')
 
         for threads in thread_configs:
@@ -102,11 +102,17 @@ def main():
             #output = subprocess.run(command.split())
 
             out_name = output_dir+'/'+graph_name+'_results_'+str(threads)+'_threads.txt'
-            if not os.path.isfile(out_name) or len(open(out_name).readlines()) == 0:
+            if not os.path.isfile(out_name) or len(open(out_name).readlines()) < 10:
+                if os.path.isfile(out_name):
+                    print('File was only:', len(open(out_name).readlines()), 'long')
+                    command = 'mv '+out_name+' '+out_name.split('.')[0]+'_ERROR.txt'
+                    print(command)
+                    subprocess.run(command.split())
+
                 outfile = open(out_name, 'w')
                 command = './edmund-karp '+filename+' '+str(runs)+' '+str(s)+' '+str(t)
                 print(command)
-                output = subprocess.run(command.split(), stdout=outfile)
+                output = subprocess.run(command.split(), stdout=outfile, stderr=outfile)
                 outfile.write('\n'+command+'\n'+'OMP_NUM_THREADS='+os.environ['OMP_NUM_THREADS']+'\n\n')
                 outfile.close()
                 print('FINISHED RUN')
@@ -114,15 +120,19 @@ def main():
                 outfile = open(out_name, 'r')
                 times = []
                 for line in outfile:
-                    if line.startswith('Time:'):
-                        times.append(float(line.split(' ')[1]))
-                print('times:', times)
+                    if line.startswith('Total run time'):
+                        times.append(float(line.split(':')[1]))
+                #print('times:', times)
                 outfile.close()
                 print('times:', times)
                 outfile = open(out_name, 'a')
-                outfile.write('\nMin time: '+str(min(times)))
-                outfile.write('\nMax time: '+str(max(times)))
-                outfile.write('\nAvg time: '+str(sum(times)/len(times)))
+                try:
+                    outfile.write('\nTimes: '+str(times))
+                    outfile.write('\nMin time: '+str(min(times)))
+                    outfile.write('\nMax time: '+str(max(times)))
+                    outfile.write('\nAvg time: '+str(sum(times)/len(times)))
+                except:
+                    outfile.write('Error while reading times')
                 outfile.close()
 
 

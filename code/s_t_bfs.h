@@ -18,10 +18,10 @@
 #define DEFAULT_DESC GxB_DEFAULT
 
 
-static float dampening_factor = 1.2;
+static double dampening_factor = 1.2;
 void dampen (void *result, const void *element)
 {
-    (* ((float *) result)) = (* ((float *) element)) / dampening_factor;
+    (* ((double *) result)) = (* ((double *) element)) / dampening_factor;
 }
 
 
@@ -49,14 +49,14 @@ void s_t_bfs(
     GrB_Descriptor_set(vxm_desc, GrB_MASK, GrB_STRUCTURE);
     GrB_Descriptor_set(vxm_desc, GrB_OUTP, GrB_REPLACE);
 
-    CHECK( GrB_Vector_new(&weights, GrB_FP32, n) );
+    CHECK( GrB_Vector_new(&weights, GrB_FP64, n) );
     CHECK( GrB_Vector_new(&depths, GrB_INT32, n) );
-    CHECK( GrB_Vector_new(&frontier, GrB_FP32, n) );
+    CHECK( GrB_Vector_new(&frontier, GrB_FP64, n) );
 
     GrB_Matrix_new(&A_t, GrB_BOOL, n, n);
     GrB_transpose(A_t, NO_MASK, NO_ACCUM, A, DEFAULT_DESC);
 
-    CHECK( GrB_UnaryOp_new(&dampen_op, dampen, GrB_FP32, GrB_FP32) );
+    CHECK( GrB_UnaryOp_new(&dampen_op, dampen, GrB_FP64, GrB_FP64) );
 
     if((long)(*s) < 0){
         *s = 0; //rand() % n; Start w 0, then move to random
@@ -74,6 +74,9 @@ void s_t_bfs(
     int max_iter = 5;
 
     while (true) {
+        //Force minimum 1 iteration
+        s_prev = *s+1;
+        t_prev = *t+1;
         for (iter = 0; iter < max_iter && (s_prev != *s || t_prev != *t); iter++) {
             printf("------------------------\n" );
             printf("Iteration:%d\t", iter);
@@ -91,43 +94,56 @@ void s_t_bfs(
             t_prev = *t;
             printf("\n");
 
-
+            GrB_Vector_clear(frontier);
+            GrB_Vector_clear(depths);
+            GrB_Vector_clear(weights);
 
             GrB_Vector_setElement(frontier, 1, current_source);
             GrB_Vector_setElement(weights, 1, current_source);
+            GrB_Vector_setElement(depths, 0, current_source);
 
             bool successor = true;
             int depth = 0;
             GrB_Index frontier_nvals = -1;
 
             GrB_Vector_nvals(&frontier_nvals, frontier);
-            while (successor) {
-                printf("Depth: %d, frontier size: %ld \n", depth, frontier_nvals);
+            //while (successor) {
+            while (frontier_nvals > 0) {
+                if(depth < 500)
+                    printf("Depth: %d, frontier size: %ld \n", depth, frontier_nvals);
+                else if (depth == 500)
+                    printf("...\n");
+                depth++;
+                //GxB_print(weights, GxB_SHORT);
+                //GrB_eWiseAdd(weights, NO_MASK, NO_ACCUM, GxB_PLUS_FP64_MONOID, weights, frontier, DEFAULT_DESC);
 
-                GrB_Vector_assign_INT32(depths, frontier, NO_ACCUM, depth, GrB_ALL, n, DEFAULT_DESC);
+                //GxB_print(weights, GxB_SHORT);
+                //GxB_print(depths, GxB_SHORT);
+                //GrB_Vector frontier_2;
+                //GrB_Vector_new(&frontier_2, GrB_FP64, n);
 
-                GrB_vxm(frontier, weights, NO_ACCUM, GxB_PLUS_FIRST_FP32, frontier, current_graph, vxm_desc);
-
-                GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC);
+                GrB_vxm(frontier, weights, NO_ACCUM, GxB_PLUS_FIRST_FP64, frontier, current_graph, vxm_desc);
 
                 CHECK( GrB_Vector_apply(frontier, NO_MASK, NO_ACCUM, dampen_op, frontier, DEFAULT_DESC) );
 
-                GrB_eWiseAdd(weights, NO_MASK, NO_ACCUM, GxB_PLUS_FP32_MONOID, weights, frontier, DEFAULT_DESC);
+                CHECK( GrB_Vector_apply(weights, NO_MASK, GrB_PLUS_FP64, GrB_IDENTITY_FP64, frontier, DEFAULT_DESC) );
+
+                GrB_Vector_assign_INT32(depths, frontier, NO_ACCUM, depth, GrB_ALL, n, DEFAULT_DESC);
+
+                //GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC);
 
                 GrB_Vector_nvals(&frontier_nvals, frontier);
-
-                depth++;
             }
         #ifdef DEBUG
             GxB_print(weights, GxB_SHORT);
         #endif
-            float max_weight = -1;
-            CHECK( GrB_reduce(&max_weight, NO_ACCUM, GrB_MAX_MONOID_FP32, weights, DEFAULT_DESC) );
-            printf("Max weight:%f", max_weight);
+            double max_weight = -1;
+            CHECK( GrB_reduce(&max_weight, NO_ACCUM, GrB_MAX_MONOID_FP64, weights, DEFAULT_DESC) );
+            printf("Max weight:%lf", max_weight);
 
             int max_depth = -1;
             GrB_Index max_index;
-            float val = -1;
+            double val = -1;
             for(int j = 0; j < n; j++){
                 if(GrB_Vector_extractElement(&val, weights, j) != GrB_NO_VALUE && val == max_weight){
                     max_index = j;
@@ -136,7 +152,7 @@ void s_t_bfs(
                 }
             }
             printf(" - depth: %d", max_depth);
-            printf(" - dampening_factor: %f\n", dampening_factor);
+            printf(" - dampening_factor: %lf\n", dampening_factor);
 
             if(current_source == *s) {
                 *t = max_index;
@@ -147,10 +163,6 @@ void s_t_bfs(
             printf("\nCandidate s-t: %ld-%ld\n", *s, *t);
             GrB_Vector_nvals(&num_reachable, weights);
             printf("Number reachable vertices:%ld/%ld\n\n", num_reachable, n);
-
-            GrB_Vector_clear(frontier);
-            GrB_Vector_clear(depths);
-            GrB_Vector_clear(weights);
         }
 
         printf("\nFinished in %d/%d iterations\n\n", iter, max_iter);
@@ -161,8 +173,8 @@ void s_t_bfs(
         char answer[255];
         int successful_scans = -1;
         printf("Enter new search: <dampening> <source>/\"random\"\nEnter anything else to abort\n" );
-        successful_scans = scanf("%f %s", &dampening_factor, answer);
-        printf("Answers: %f %s\n", dampening_factor, answer);
+        successful_scans = scanf("%lf %s", &dampening_factor, answer);
+        printf("Answers: %lf %s\n", dampening_factor, answer);
         if(successful_scans < 2){
             break;
         }else if(strcmp(answer, "random") == 0){
@@ -194,8 +206,8 @@ void s_t_bfs(
                 scanf(" %d", &new_source);
                 *s = new_source;
             }
-            printf("Enter new dampening factor. Current dampening factor = %f\n", dampening_factor);
-            scanf("%f", &dampening_factor);
+            printf("Enter new dampening factor. Current dampening factor = %lf\n", dampening_factor);
+            scanf("%lf", &dampening_factor);
         } else {
             break;
         }

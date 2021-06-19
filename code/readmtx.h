@@ -50,16 +50,17 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
     GrB_Index i, j;
     size_t count = 0;
     size_t total_updates = 1000;
-    size_t update_count = (e/total_updates)*2;//Need even number
+    size_t update_count = (e/(total_updates*2))*2;//Need even number
     if(update_count == 0) {
         update_count = 2;
     }
     printf("Determined update frequency: %ld\n", update_count);
     while(getline(&line, &line_size, fp) != -1){
+        #ifdef DEBUG
         if(count % update_count == 0){
-            printf("Reading:  %.4f%%\r", 100*count/(double)e);
+            //printf("Reading:  %.4f%%\r", 100*count/(double)e);
         }
-
+        #endif
         double v = 0;
 
         sscanf(line, "%ld %ld %lf", &i, &j, &v);
@@ -87,7 +88,7 @@ void readMtx(char* filename, GrB_Index* n, GrB_Index* edges, GrB_Index** I, GrB_
     if(e==count) {
         printf("Everything is fine!\n");
     } else {
-        printf("e:%ld, count:%ld. everything is not fine.....\n", e, count);
+        printf("\ne:%ld, count:%ld. \neverything is not fine.....\n", e, count);
     }
 
     *edges = e;

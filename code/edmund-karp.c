@@ -55,7 +55,6 @@ void get_mincut(
     GrB_Vector_new(&reachable, GrB_INT32, n);
     CHECK( GrB_Vector_setElement(reachable, 1, s) );
 
-
     CHECK( GrB_Vector_new(&frontier, GrB_BOOL, n) );
     CHECK( GrB_Vector_setElement(frontier, true, s) );
 
@@ -66,7 +65,7 @@ void get_mincut(
     bool successor = true;
     while (successor) {
     //for (int i = 0; i < 3; i++) {
-        GxB_print(frontier, GxB_SHORT);
+        //GxB_print(frontier, GxB_SHORT);
         CHECK( GrB_vxm(frontier, reachable, NO_ACCUM, GxB_LOR_LAND_BOOL, frontier, R, desc) );
         CHECK( GrB_reduce(&successor, NO_ACCUM, GrB_LOR_MONOID_BOOL, frontier, DEFAULT_DESC) );
         CHECK( GrB_assign(reachable, frontier, NULL, true, GrB_ALL, n, NULL) );
@@ -152,78 +151,76 @@ bool get_augmenting_path(
 )
 {
     GrB_Index n;
-    CHECK( GrB_Matrix_nrows(&n, R) );
-
     GrB_Vector parent_list = NULL;
-    CHECK( GrB_Vector_new(&parent_list, GrB_INT32, n) );
-
     GrB_Vector frontier = NULL;
-    CHECK( GrB_Vector_new(&frontier, GrB_INT32, n) );
-    CHECK( GrB_Vector_setElement(frontier, 0xDEADBEEF, source) ); //Value doesn't matter, only existence
-
+    GrB_Descriptor vxm_desc = NULL ;     // Descriptor for vxm
     int sink_parent = -1;
     GrB_Index frontier_nvals;
+    bool found_path = true;
+
+    CHECK( GrB_Matrix_nrows(&n, R) );
+
+    CHECK( GrB_Vector_new(&parent_list, GrB_INT32, n) );
+    CHECK( GrB_Vector_new(&frontier, GrB_INT32, n) );
+
+    CHECK( GrB_Descriptor_new (&vxm_desc) );
+    CHECK( GrB_Descriptor_set (vxm_desc, GrB_MASK, GrB_COMP) );     // invert the mask
+    CHECK( GrB_Descriptor_set (vxm_desc, GrB_MASK, GrB_STRUCTURE) );     // Don't care about values, only structure of mask
+    CHECK( GrB_Descriptor_set (vxm_desc, GrB_OUTP, GrB_REPLACE) );  // clear q first
+
+    int depth = 0;
+    if (run == runs-1) {
+        printf("Starting BFS\n");
+    }
+
+    CHECK( GrB_Vector_setElement(frontier, 1, source) ); //Value irrelevant
+    CHECK( GrB_Vector_setElement(parent_list, source, source) ); //Source is it's own parent
     CHECK( GrB_Vector_nvals(&frontier_nvals, frontier) );
 
-    GrB_Descriptor desc = NULL ;           // Descriptor for vxm
-    CHECK( GrB_Descriptor_new (&desc) );
-    CHECK( GrB_Descriptor_set (desc, GrB_MASK, GrB_COMP) );     // invert the mask
-    CHECK( GrB_Descriptor_set (desc, GrB_MASK, GrB_STRUCTURE) );     // Don't care about values, only structure of mask
-    CHECK( GrB_Descriptor_set (desc, GrB_OUTP, GrB_REPLACE) );  // clear q first
-//#ifdef DEBUG
-    int depth = 0;
-if (run == runs-1) {
-    printf("Starting BFS\n");
-    printf("Depth: %d, frontier size: %ld \n", depth++, frontier_nvals);
-}
-//#endif
-    while ((GrB_Vector_extractElement(&sink_parent, parent_list, sink) == GrB_NO_VALUE) && (frontier_nvals > 0))
+    while ((frontier_nvals > 0) && (GrB_Vector_extractElement(&sink_parent, parent_list, sink) == GrB_NO_VALUE))
     {
-        CHECK( GrB_Vector_apply(parent_list, //w
-            NO_MASK, //mask
-            GrB_PLUS_INT32, //accum. Needed because otherwise the operation will act as a replace.
-            //As with all graphblas operations, if only one operand is present it will be passed through
-            //This could have been any binary operator. see top of p. 171 in the API
-            GrB_IDENTITY_INT32, //unary op. w<M> = accum (w, op (u)). Identity(x) = x
-            frontier, //u
-            DEFAULT_DESC) ); // descriptor
+        if (run == runs-1) {
+            printf("Depth: %d, frontier size: %ld \n", depth, frontier_nvals);
+        }
+        depth++;
 
-        CHECK( GrB_vxm(frontier, //c
-            parent_list, //mask, ignores preciously found vertices and automatically removes self-loops
-            NO_ACCUM, //no accumulate/default
-#if defined(DEBUG) || defined(PROFILE)
-            GxB_MIN_FIRSTJ_INT32, //semiring. First to extract parent. Why min? Could be ANY?
-#else
-            GxB_ANY_FIRSTJ_INT32, //Should yield same result, and leaves more implementation freedom
-#endif
-            frontier,
-            R, // M
-            desc) ); //descriptor
+        #if defined(DEBUG) || defined(PROFILE) || defined(DETERMINISTIC)
+        CHECK( GrB_vxm(frontier, parent_list, NO_ACCUM, GxB_MIN_FIRSTJ_INT32, frontier, R, vxm_desc) );
+        #else
+        CHECK( GrB_vxm(frontier, parent_list, NO_ACCUM, GxB_ANY_FIRSTJ_INT32, frontier, R, vxm_desc) );
+        #endif
+
+        //accum needed because otherwise the operation will act as a replace.
+        //As with all graphblas operations, if only one operand is present it will be passed through
+        //This could have been any binary operator. see top of p. 171 in the API
+        CHECK( GrB_Vector_apply(parent_list, NO_MASK, GrB_PLUS_INT32, GrB_IDENTITY_INT32, frontier, DEFAULT_DESC) );
 
         CHECK( GrB_Vector_nvals(&frontier_nvals, frontier) );
-//#ifdef DEBUG
-if (run == runs-1) {
-        printf("Depth: %d, frontier size: %ld \n", depth++, frontier_nvals);
-}
-//#endif
     }
 
     if ((GrB_Vector_extractElement(&sink_parent, parent_list, sink) == GrB_NO_VALUE))
     {
-        return false;
-    }
-    // Extract path from source to sink from parent list (reverse traverse)
-    // build a mask
-    CHECK( GrB_Matrix_clear(M) );
-    GrB_Index curr_vertex = sink;
-    while (curr_vertex != source)
-    {
+        found_path = false;
+    } else {
+        found_path = true;
+        // Extract path from source to sink from parent list (reverse traverse)
+        // build a mask
+        CHECK( GrB_Matrix_clear(M) );
+        GrB_Index curr_vertex = sink;
         GrB_Index parent;
-        CHECK( GrB_Vector_extractElement(&parent, parent_list, curr_vertex) );
-        CHECK( GrB_Matrix_setElement(M, true, parent, curr_vertex) );
-        curr_vertex = parent;
+        while (curr_vertex != source)
+        {
+            CHECK( GrB_Vector_extractElement(&parent, parent_list, curr_vertex) );
+            CHECK( GrB_Matrix_setElement(M, true, parent, curr_vertex) );
+            curr_vertex = parent;
+        }
     }
-    return true;
+
+    GrB_free(&parent_list);
+    GrB_free(&frontier);
+    GrB_free(&vxm_desc);
+
+    return found_path;
 }
 
 
@@ -234,11 +231,11 @@ int main (int argc, char **argv)
         return 1;
     }
     //Blocking better for debuggbing
-#if defined(DEBUG) || defined(PROFILE) || defined(DETERMINISTIC)
+    #if defined(DEBUG) || defined(PROFILE) || defined(DETERMINISTIC)
     GrB_init ( GrB_BLOCKING ) ;
-#else
+    #else
     GrB_init ( GrB_NONBLOCKING );
-#endif
+    #endif
 
     size_t threads = omp_get_max_threads();
     printf("max threads:%ld\n", threads);
@@ -252,10 +249,18 @@ int main (int argc, char **argv)
     GrB_Matrix M = NULL;    //Mask for path
     GrB_Matrix P = NULL;    //Weighted path
     GrB_Matrix R = NULL;    //Residual network
+    GrB_Descriptor transpose_a;
+    GrB_Descriptor replace;
     GrB_Vector index_ramp;  //v[i] = i. For extracting parent in BFS
     GrB_Index source = -1;
     GrB_Index sink = -1;
-    struct timeval start, end;
+    struct timeval start, stop;
+    double build_matrix_time = 0;
+    double total_run_time = 0;
+    double bfs_time = 0;
+    double augment_time = 0;
+    double flow_calc_time = 0;
+    double min_cut_time = 0;
 
     gettimeofday ( &start, NULL );
 
@@ -263,10 +268,15 @@ int main (int argc, char **argv)
     CHECK( GrB_Matrix_new (&A, GrB_FP64, n, n) );
     CHECK( GrB_Matrix_build (A, row_indeces, col_indeces, values, edges, GrB_PLUS_FP64) );
 
+    gettimeofday(&stop, NULL);
+    build_matrix_time = (WALLTIME(stop)-WALLTIME(start));
+    printf("Read&build matrix time: %lf\n", build_matrix_time);
 
-    gettimeofday ( &end, NULL );
-    double dur = (WALLTIME(end)-WALLTIME(start));
-    printf("Read&build matrix time: %lf\n", dur);
+    GrB_Descriptor_new(&transpose_a);
+    GrB_Descriptor_set(transpose_a, GrB_INP0, GrB_TRAN);
+
+    GrB_Descriptor_new(&replace);
+    GrB_Descriptor_set(replace, GrB_OUTP, GrB_REPLACE);
 
     free(row_indeces);
     free(col_indeces);
@@ -301,30 +311,44 @@ int main (int argc, char **argv)
     for (; run < runs; run++)
     {
 
+
+        total_run_time = 0;
+        bfs_time = 0;
+        augment_time = 0;
+        flow_calc_time = 0;
+        min_cut_time = 0;
+        gettimeofday(&start, NULL);
+
         printf("\n-------Run %d-------\n", run+1);
-        gettimeofday ( &start, NULL );
-
-        GrB_Descriptor transpose_a;
-        GrB_Descriptor_new(&transpose_a);
-        GrB_Descriptor_set(transpose_a, GrB_INP0, GrB_TRAN);
-
-        GrB_Descriptor replace;
-        GrB_Descriptor_new(&replace);
-        GrB_Descriptor_set(replace, GrB_OUTP, GrB_REPLACE);
 
         CHECK( GrB_Matrix_dup(&R, A) );
         size_t count = 1;
         GrB_Index nvals;
         GrB_Matrix_nvals(&nvals, A);
+
+        gettimeofday(&stop, NULL);
+        total_run_time += (WALLTIME(stop)-WALLTIME(start));
+        gettimeofday(&start, NULL);
+
         printf("----------- Iteration: %ld -----------\n", count);
         while (get_augmenting_path(R, source, sink, M) && count++ < nvals)
         {
+            gettimeofday(&stop, NULL);
+            total_run_time += (WALLTIME(stop)-WALLTIME(start));
+            bfs_time += (WALLTIME(stop)-WALLTIME(start));
+            gettimeofday(&start, NULL);
+
             //Extract the capacity values coinciding with the path
             CHECK( GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_SECOND_FP64, M, R, DEFAULT_DESC) );
 #ifdef DEBUG
             printf("\nPath:\n");
             GxB_print(P, GxB_SHORT);
 #endif
+            if(run == runs-1){
+                GrB_Index path_len = 0;
+                GrB_Matrix_nvals(&path_len, P);
+                printf("\nPath length: %ld\n", path_len);
+            }
             //Reduction to get the delta, the minimum capacity along the path
             //matrix to vector reduction also has a mask argument, not optional, but can be NULL
             double delta_f = 0;
@@ -344,8 +368,21 @@ int main (int argc, char **argv)
 #ifdef DEBUG
             GxB_print(R, GxB_SHORT);
 #endif
-            printf("----------- Iteration: %ld -----------\n", count);
+
+            gettimeofday(&stop, NULL);
+            total_run_time += (WALLTIME(stop)-WALLTIME(start));
+            augment_time += (WALLTIME(stop)-WALLTIME(start));
+            gettimeofday(&start, NULL);
+
+            if(count < 20 || run == runs-1)
+                printf("----------- Iteration: %ld -----------\n", count);
+            else if(count == 20)
+                printf("...\n\n");
         }
+
+        gettimeofday(&stop, NULL);
+        total_run_time += (WALLTIME(stop)-WALLTIME(start));
+        gettimeofday(&start, NULL);
 
         double total_flow = 0;
         for (GrB_Index i = 0; i < n; i++) {
@@ -356,17 +393,28 @@ int main (int argc, char **argv)
                 capacity = 0;
             if(GrB_Matrix_extractElement(&residual, R, source, i) == GrB_NO_VALUE)
                 residual = 0;
-            if(capacity != 0)
-                printf("Found edge (%ld,%ld) w cap: %lf and residual: %lf. Adding %lf to total flow\n", source, i, capacity, residual, capacity-residual);
-            total_flow += capacity-residual;
+
+            if(capacity != 0){
+                total_flow += capacity-residual;
+                //if(run == runs-1)
+                    //printf("Found edge (%ld,%ld) w cap: %lf and residual: %lf. Adding %lf to total flow\n", source, i, capacity, residual, capacity-residual);
+            }
             //printf("Flow now at %d\n", total_flow);
         }
-        printf("s-t: %ld-%ld. Max flow: %lf\n", source, sink, total_flow);
 
-        //End after determining flow, but before correctness
-        gettimeofday ( &end, NULL );
-        double dur = (WALLTIME(end)-WALLTIME(start));
-        printf("Time: %lf\n", dur);
+        //End after determining flow, but before correctnes
+        gettimeofday(&stop, NULL);
+        total_run_time += (WALLTIME(stop)-WALLTIME(start));
+        flow_calc_time += (WALLTIME(stop)-WALLTIME(start));
+        gettimeofday(&start, NULL);
+
+
+        printf("s-t: %ld-%ld. Max flow: %lf\n", source, sink, total_flow);
+        printf("Total run time: %lf\n", total_run_time);
+        printf("Time spent finding augmenting paths (BFS): %lf\n", bfs_time);
+        printf("Time computing and augmenting flow: %lf\n", augment_time);
+        printf("Time spent summing total flow: %lf\n", flow_calc_time);
+
         if (run == runs-1) {
             printf("\nCorrectness and min-cut:\n");
 
@@ -396,10 +444,12 @@ int main (int argc, char **argv)
 #ifdef DEBUG
             GxB_print(min_cut, GxB_SHORT);
 #endif
-            gettimeofday ( &start, NULL );
-            dur = (WALLTIME(start)-WALLTIME(end));
-            printf("Min-cut time: %lf\n", dur);
+            min_cut_time += (WALLTIME(start)-WALLTIME(stop));
+
+            printf("Min-cut time: %lf\n", min_cut_time);
             printf("Total number of iterations: %ld\n", count);
+
+            GrB_free(&min_cut);
         }
     }
     GrB_finalize ( ) ;
