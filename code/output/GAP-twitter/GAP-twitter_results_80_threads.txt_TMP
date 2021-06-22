@@ -1,0 +1,1193 @@
+<<<<<<< HEAD
+Usage: ./edmund-karp filename.mtx (<runs>) (<s>) (<t>)
+max threads:80
+Graph properties: integer,
+Graphsize: 61578415 61578415 1468364884
+Determined update frequency: 1468364
+Everything is fine!
+Read&build matrix time: 471.771629
+SOURCE:19757371, SINK:16222076
+Runs:5
+
+-------Run 1-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+----------- Iteration: 15 -----------
+----------- Iteration: 16 -----------
+----------- Iteration: 17 -----------
+----------- Iteration: 18 -----------
+----------- Iteration: 19 -----------
+...
+
+s-t: 19757371-16222076. Max flow: 2575.000000
+Total run time: 901.264162
+Time spent finding augmenting paths (BFS): 124.901627
+Time computing and augmenting flow: 769.431147
+Time spent summing total flow: 3.946289
+
+-------Run 2-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+----------- Iteration: 15 -----------
+----------- Iteration: 16 -----------
+----------- Iteration: 17 -----------
+----------- Iteration: 18 -----------
+----------- Iteration: 19 -----------
+...
+
+s-t: 19757371-16222076. Max flow: 2575.000000
+Total run time: 916.087611
+Time spent finding augmenting paths (BFS): 129.950469
+Time computing and augmenting flow: 777.625568
+Time spent summing total flow: 4.054024
+
+-------Run 3-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+----------- Iteration: 15 -----------
+----------- Iteration: 16 -----------
+----------- Iteration: 17 -----------
+----------- Iteration: 18 -----------
+----------- Iteration: 19 -----------
+...
+
+s-t: 19757371-16222076. Max flow: 2575.000000
+Total run time: 926.363635
+Time spent finding augmenting paths (BFS): 128.558633
+Time computing and augmenting flow: 789.851222
+Time spent summing total flow: 3.853201
+
+-------Run 4-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+----------- Iteration: 15 -----------
+----------- Iteration: 16 -----------
+----------- Iteration: 17 -----------
+----------- Iteration: 18 -----------
+----------- Iteration: 19 -----------
+...
+
+s-t: 19757371-16222076. Max flow: 2575.000000
+Total run time: 939.573480
+Time spent finding augmenting paths (BFS): 132.274981
+Time computing and augmenting flow: 799.093122
+Time spent summing total flow: 4.094810
+
+-------Run 5-------
+----------- Iteration: 1 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844499 
+Depth: 2, frontier size: 18496292 
+Depth: 3, frontier size: 12381073 
+Depth: 4, frontier size: 2037170 
+Depth: 5, frontier size: 231749 
+
+Path length: 6
+----------- Iteration: 2 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844499 
+Depth: 2, frontier size: 18496292 
+Depth: 3, frontier size: 12381073 
+Depth: 4, frontier size: 2037170 
+Depth: 5, frontier size: 231748 
+
+Path length: 6
+----------- Iteration: 3 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844499 
+Depth: 2, frontier size: 18496292 
+Depth: 3, frontier size: 12381073 
+Depth: 4, frontier size: 2037170 
+Depth: 5, frontier size: 231747 
+
+Path length: 6
+----------- Iteration: 4 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844498 
+Depth: 2, frontier size: 18496278 
+Depth: 3, frontier size: 12381085 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231748 
+
+Path length: 6
+----------- Iteration: 5 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844498 
+Depth: 2, frontier size: 18496278 
+Depth: 3, frontier size: 12381085 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231748 
+
+Path length: 6
+----------- Iteration: 6 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231748 
+
+Path length: 6
+----------- Iteration: 7 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231748 
+
+Path length: 6
+----------- Iteration: 8 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231748 
+
+Path length: 6
+----------- Iteration: 9 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231747 
+
+Path length: 6
+----------- Iteration: 10 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231747 
+
+Path length: 6
+----------- Iteration: 11 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231747 
+
+Path length: 6
+----------- Iteration: 12 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231747 
+
+Path length: 6
+----------- Iteration: 13 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231747 
+
+Path length: 6
+----------- Iteration: 14 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231746 
+
+Path length: 6
+----------- Iteration: 15 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231746 
+
+Path length: 6
+----------- Iteration: 16 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231745 
+
+Path length: 6
+----------- Iteration: 17 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844497 
+Depth: 2, frontier size: 18496269 
+Depth: 3, frontier size: 12381095 
+Depth: 4, frontier size: 2037172 
+Depth: 5, frontier size: 231744 
+
+Path length: 6
+----------- Iteration: 18 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844496 
+Depth: 2, frontier size: 18487914 
+Depth: 3, frontier size: 12388098 
+Depth: 4, frontier size: 2038391 
+Depth: 5, frontier size: 231863 
+
+Path length: 6
+----------- Iteration: 19 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844496 
+Depth: 2, frontier size: 18487914 
+Depth: 3, frontier size: 12388098 
+Depth: 4, frontier size: 2038391 
+Depth: 5, frontier size: 231862 
+
+Path length: 6
+----------- Iteration: 20 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844496 
+Depth: 2, frontier size: 18487914 
+Depth: 3, frontier size: 12388097 
+Depth: 4, frontier size: 2038392 
+Depth: 5, frontier size: 231862 
+
+Path length: 6
+----------- Iteration: 21 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844495 
+Depth: 2, frontier size: 18411818 
+Depth: 3, frontier size: 12458677 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 22 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844495 
+Depth: 2, frontier size: 18411818 
+Depth: 3, frontier size: 12458677 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 23 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844494 
+Depth: 2, frontier size: 18411809 
+Depth: 3, frontier size: 12458686 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 24 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844494 
+Depth: 2, frontier size: 18411809 
+Depth: 3, frontier size: 12458686 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 25 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844494 
+Depth: 2, frontier size: 18411809 
+Depth: 3, frontier size: 12458686 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 26 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844494 
+Depth: 2, frontier size: 18411809 
+Depth: 3, frontier size: 12458686 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 27 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844494 
+Depth: 2, frontier size: 18411809 
+Depth: 3, frontier size: 12458686 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 28 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844493 
+Depth: 2, frontier size: 18411809 
+Depth: 3, frontier size: 12458687 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 29 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844493 
+Depth: 2, frontier size: 18411809 
+Depth: 3, frontier size: 12458687 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 30 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844493 
+Depth: 2, frontier size: 18411809 
+Depth: 3, frontier size: 12458687 
+Depth: 4, frontier size: 2043430 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 31 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844493 
+Depth: 2, frontier size: 18411809 
+Depth: 3, frontier size: 12458686 
+Depth: 4, frontier size: 2043431 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 32 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844492 
+Depth: 2, frontier size: 18411756 
+Depth: 3, frontier size: 12458729 
+Depth: 4, frontier size: 2043441 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 33 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844492 
+Depth: 2, frontier size: 18411756 
+Depth: 3, frontier size: 12458729 
+Depth: 4, frontier size: 2043441 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 34 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844491 
+Depth: 2, frontier size: 18411751 
+Depth: 3, frontier size: 12458735 
+Depth: 4, frontier size: 2043441 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 35 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458742 
+Depth: 4, frontier size: 2043442 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 36 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458741 
+Depth: 4, frontier size: 2043443 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 37 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458740 
+Depth: 4, frontier size: 2043444 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 38 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458740 
+Depth: 4, frontier size: 2043444 
+Depth: 5, frontier size: 232311 
+
+Path length: 6
+----------- Iteration: 39 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458740 
+Depth: 4, frontier size: 2043444 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 40 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458740 
+Depth: 4, frontier size: 2043444 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 41 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043445 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 42 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043445 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 43 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043445 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 44 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043445 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 45 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043445 
+Depth: 5, frontier size: 232310 
+
+Path length: 6
+----------- Iteration: 46 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043445 
+Depth: 5, frontier size: 232309 
+
+Path length: 6
+----------- Iteration: 47 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043445 
+Depth: 5, frontier size: 232308 
+
+Path length: 6
+----------- Iteration: 48 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043445 
+Depth: 5, frontier size: 232307 
+
+Path length: 6
+----------- Iteration: 49 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458738 
+Depth: 4, frontier size: 2043446 
+Depth: 5, frontier size: 232307 
+
+Path length: 6
+----------- Iteration: 50 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458737 
+Depth: 4, frontier size: 2043447 
+Depth: 5, frontier size: 232307 
+
+Path length: 6
+----------- Iteration: 51 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458736 
+Depth: 4, frontier size: 2043448 
+Depth: 5, frontier size: 232307 
+
+Path length: 6
+----------- Iteration: 52 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458736 
+Depth: 4, frontier size: 2043448 
+Depth: 5, frontier size: 232307 
+
+Path length: 6
+----------- Iteration: 53 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458736 
+Depth: 4, frontier size: 2043448 
+Depth: 5, frontier size: 232306 
+
+Path length: 6
+----------- Iteration: 54 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458735 
+Depth: 4, frontier size: 2043449 
+Depth: 5, frontier size: 232306 
+
+Path length: 6
+----------- Iteration: 55 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458735 
+Depth: 4, frontier size: 2043449 
+Depth: 5, frontier size: 232306 
+
+Path length: 6
+----------- Iteration: 56 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844490 
+Depth: 2, frontier size: 18411744 
+Depth: 3, frontier size: 12458735 
+Depth: 4, frontier size: 2043449 
+Depth: 5, frontier size: 232305 
+
+Path length: 6
+----------- Iteration: 57 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844489 
+Depth: 2, frontier size: 18411741 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043449 
+Depth: 5, frontier size: 232305 
+
+Path length: 6
+----------- Iteration: 58 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844489 
+Depth: 2, frontier size: 18411741 
+Depth: 3, frontier size: 12458739 
+Depth: 4, frontier size: 2043449 
+Depth: 5, frontier size: 232305 
+
+Path length: 6
+----------- Iteration: 59 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844488 
+Depth: 2, frontier size: 18411736 
+Depth: 3, frontier size: 12458744 
+Depth: 4, frontier size: 2043450 
+Depth: 5, frontier size: 232305 
+
+Path length: 6
+----------- Iteration: 60 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844488 
+Depth: 2, frontier size: 18411736 
+Depth: 3, frontier size: 12458744 
+Depth: 4, frontier size: 2043450 
+Depth: 5, frontier size: 232305 
+
+Path length: 6
+----------- Iteration: 61 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844487 
+Depth: 2, frontier size: 18411730 
+Depth: 3, frontier size: 12458750 
+Depth: 4, frontier size: 2043451 
+Depth: 5, frontier size: 232305 
+
+Path length: 6
+----------- Iteration: 62 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844487 
+Depth: 2, frontier size: 18411730 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232305 
+
+Path length: 6
+----------- Iteration: 63 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844487 
+Depth: 2, frontier size: 18411730 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232304 
+
+Path length: 6
+----------- Iteration: 64 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844487 
+Depth: 2, frontier size: 18411730 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232304 
+
+Path length: 6
+----------- Iteration: 65 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844487 
+Depth: 2, frontier size: 18411730 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232303 
+Depth: 6, frontier size: 22548 
+
+Path length: 7
+----------- Iteration: 66 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844487 
+Depth: 2, frontier size: 18411730 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232303 
+Depth: 6, frontier size: 22548 
+
+Path length: 7
+----------- Iteration: 67 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844487 
+Depth: 2, frontier size: 18411730 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232303 
+Depth: 6, frontier size: 22548 
+
+Path length: 7
+----------- Iteration: 68 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844486 
+Depth: 2, frontier size: 18411731 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232303 
+Depth: 6, frontier size: 22548 
+
+Path length: 7
+----------- Iteration: 69 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844486 
+Depth: 2, frontier size: 18411731 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232303 
+Depth: 6, frontier size: 22548 
+
+Path length: 7
+----------- Iteration: 70 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844486 
+Depth: 2, frontier size: 18411731 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232302 
+Depth: 6, frontier size: 22549 
+
+Path length: 7
+----------- Iteration: 71 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844486 
+Depth: 2, frontier size: 18411731 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232302 
+Depth: 6, frontier size: 22549 
+
+Path length: 7
+----------- Iteration: 72 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844486 
+Depth: 2, frontier size: 18411731 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232302 
+Depth: 6, frontier size: 22549 
+
+Path length: 7
+----------- Iteration: 73 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844486 
+Depth: 2, frontier size: 18411731 
+Depth: 3, frontier size: 12458749 
+Depth: 4, frontier size: 2043452 
+Depth: 5, frontier size: 232302 
+Depth: 6, frontier size: 22549 
+
+Path length: 7
+----------- Iteration: 74 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844485 
+Depth: 2, frontier size: 18411726 
+Depth: 3, frontier size: 12458753 
+Depth: 4, frontier size: 2043453 
+Depth: 5, frontier size: 232303 
+Depth: 6, frontier size: 22549 
+
+Path length: 7
+----------- Iteration: 75 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844485 
+Depth: 2, frontier size: 18411726 
+Depth: 3, frontier size: 12458752 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232303 
+Depth: 6, frontier size: 22549 
+
+Path length: 7
+----------- Iteration: 76 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844485 
+Depth: 2, frontier size: 18411726 
+Depth: 3, frontier size: 12458752 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232302 
+Depth: 6, frontier size: 22550 
+
+Path length: 7
+----------- Iteration: 77 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844485 
+Depth: 2, frontier size: 18411726 
+Depth: 3, frontier size: 12458752 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232302 
+Depth: 6, frontier size: 22550 
+
+Path length: 7
+----------- Iteration: 78 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232302 
+Depth: 6, frontier size: 22550 
+
+Path length: 7
+----------- Iteration: 79 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 80 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 81 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 82 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 83 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 84 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 85 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 86 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 87 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 88 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232301 
+Depth: 6, frontier size: 22551 
+
+Path length: 7
+----------- Iteration: 89 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232300 
+Depth: 6, frontier size: 22552 
+
+Path length: 7
+----------- Iteration: 90 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844484 
+Depth: 2, frontier size: 18411725 
+Depth: 3, frontier size: 12458754 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232300 
+Depth: 6, frontier size: 22552 
+
+Path length: 7
+----------- Iteration: 91 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844483 
+Depth: 2, frontier size: 18411721 
+Depth: 3, frontier size: 12458759 
+Depth: 4, frontier size: 2043454 
+Depth: 5, frontier size: 232300 
+Depth: 6, frontier size: 22552 
+
+Path length: 7
+----------- Iteration: 92 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844482 
+Depth: 2, frontier size: 18411721 
+Depth: 3, frontier size: 12458759 
+Depth: 4, frontier size: 2043455 
+Depth: 5, frontier size: 232300 
+Depth: 6, frontier size: 22552 
+
+Path length: 7
+----------- Iteration: 93 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844482 
+Depth: 2, frontier size: 18411721 
+Depth: 3, frontier size: 12458759 
+Depth: 4, frontier size: 2043455 
+Depth: 5, frontier size: 232299 
+Depth: 6, frontier size: 22553 
+
+Path length: 7
+----------- Iteration: 94 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844482 
+Depth: 2, frontier size: 18411721 
+Depth: 3, frontier size: 12458759 
+Depth: 4, frontier size: 2043455 
+Depth: 5, frontier size: 232298 
+Depth: 6, frontier size: 22552 
+
+Path length: 7
+----------- Iteration: 95 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 1844482 
+Depth: 2, frontier size: 18411721 
+Depth: 3, frontier size: 12458759 
+Depth: 4, frontier size: 2043455 
+Depth: 5, frontier size: 232297 
+Depth: 6, frontier size: 22529 
+Depth: 7, frontier size: 2481 
+Depth: 8, frontier size: 314 
+Depth: 9, frontier size: 49 
+Depth: 10, frontier size: 13 
+Depth: 11, frontier size: 6 
+Depth: 12, frontier size: 2 
+Depth: 13, frontier size: 1 
+s-t: 19757371-16222076. Max flow: 2575.000000
+Total run time: 930.546602
+Time spent finding augmenting paths (BFS): 128.781718
+Time computing and augmenting flow: 793.477990
+Time spent summing total flow: 4.066547
+
+Correctness and min-cut:
+Total flow out of source: 2575.000000
+Total flow into sink: 2575.000000
+Min-cut sum: 2575.000000
+
+  61578415x61578415 GraphBLAS double matrix, hypersparse by row
+  min_cut, 23 entries
+
+    (15087657,16221316)    31
+    (15087657,16221332)    6
+    (15087657,16221352)    241
+    (15087657,16221375)    100
+    (15087657,16221384)    246
+    (15087657,16221444)    89
+    (15087657,16221666)    63
+    (15087657,16221685)    22
+    (15087657,16221714)    54
+    (15087657,16221779)    198
+    (15087657,16221858)    232
+    (15087657,16221882)    111
+    (15087657,16221913)    202
+    (15087657,16221928)    222
+    (15087657,16221941)    75
+    (15087657,16221962)    180
+    (15087657,16221973)    23
+    (15087657,16221984)    8
+    (15087657,16221995)    139
+    (15087657,16222010)    2
+    (15087657,16222085)    46
+    (15087657,16222093)    208
+    (15087657,16222103)    77
+Min-cut time: 0.000000
+Total number of iterations: 95
+
+./edmund-karp ../GAP-twitter/GAP-twitter.mtx 5 19757371 16222076
+=======
+max threads:80
+Graph properties: integer,
+e:1468364884, count:9357114. everything is not fine.....
+SOURCE:18515348, SINK:46655700
+Runs:3
+
+-------Run 1-------
+s-t: 18515348-46655700. Max flow: 0.000000
+Time: 3.924503
+
+-------Run 2-------
+s-t: 18515348-46655700. Max flow: 0.000000
+Time: 3.764634
+
+-------Run 3-------
+s-t: 18515348-46655700. Max flow: 0.000000
+Time: 3.731030
+
+Correctness and min-cut:
+Total flow out of source: 0.000000
+Total flow into sink: 0.000000
+Min-cut sum: 0.000000
+Elapsed time to determine min-cut: 3.826624
+Total number of iterations: 0
+
+./edmund-karp ../GAP-twitter/GAP-twitter.mtx 3 18515348 46655700
+>>>>>>> 534c0153a0357355fa582a0fe5131f6f6eddd007
+
+OMP_NUM_THREADS=80
+
+
+<<<<<<< HEAD
+Times: [901.264162, 916.087611, 926.363635, 939.57348, 930.546602]
+Min time: 901.264162
+Max time: 939.57348
+Avg time: 922.767098
+=======
+Min time: 3.73103
+Max time: 3.924503
+Avg time: 3.8067223333333335
+>>>>>>> 534c0153a0357355fa582a0fe5131f6f6eddd007
