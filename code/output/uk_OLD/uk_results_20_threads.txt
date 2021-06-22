@@ -1,0 +1,32 @@
+max threads:20
+Graph properties: symmetric, pattern,
+Everything is fine!
+SOURCE:807, SINK:4279
+Runs:3
+
+-------Run 1-------
+s-t: 807-4279. Max flow: 366.000000
+Time: 0.051667
+
+-------Run 2-------
+s-t: 807-4279. Max flow: 366.000000
+Time: 0.046211
+
+-------Run 3-------
+s-t: 807-4279. Max flow: 366.000000
+Time: 0.045915
+
+Correctness and min-cut:
+Total flow out of source: 366.000000
+Total flow into sink: 366.000000
+Min-cut sum: 366.000000
+Time to determine min-cut: 0.001694
+
+./edmund-karp ../uk/uk.mtx 3 807 4279
+
+OMP_NUM_THREADS=20
+
+
+Min time: 0.045915
+Max time: 0.051667
+Avg time: 0.047931

@@ -1,0 +1,77 @@
+Usage: ./edmund-karp filename.mtx (<runs>) (<s>) (<t>)
+max threads:40
+Graph properties: symmetric, integer,
+Graphsize: 134217728 134217728 4294966740
+Determined update frequency: 4294966
+Everything is fine!
+Read&build matrix time: 834.088118
+SOURCE:68626472, SINK:67656199
+Runs:5
+
+-------Run 1-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+----------- Iteration: 15 -----------
+----------- Iteration: 16 -----------
+----------- Iteration: 17 -----------
+----------- Iteration: 18 -----------
+----------- Iteration: 19 -----------
+...
+
+s-t: 68626472-67656199. Max flow: 5664.000000
+Total run time: 5788.416381
+Number of iterations: 203
+Time spent finding augmenting paths (BFS): 992.548457
+Time computing and augmenting flow: 4782.156268
+Time spent accumulating total flow: 2.983674
+
+-------Run 2-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+----------- Iteration: 15 -----------
+----------- Iteration: 16 -----------
+----------- Iteration: 17 -----------
+----------- Iteration: 18 -----------
+----------- Iteration: 19 -----------
+...
+
+s-t: 68626472-67656199. Max flow: 5664.000000
+Total run time: 5620.571225
+Number of iterations: 197
+Time spent finding augmenting paths (BFS): 964.028103
+Time computing and augmenting flow: 4640.169692
+Time spent accumulating total flow: 2.850817
+
+./edmund-karp ../GAP-urand/GAP-urand.mtx 5 68626472 67656199
+
+OMP_NUM_THREADS=40
+
+
+Times: [5788.416381, 5620.571225]
+Min time: 5620.571225
+Max time: 5788.416381
+Avg time: 5704.493802999999

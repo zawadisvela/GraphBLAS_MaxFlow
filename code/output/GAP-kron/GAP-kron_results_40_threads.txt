@@ -1,0 +1,247 @@
+Usage: ./edmund-karp filename.mtx (<runs>) (<s>) (<t>)
+max threads:40
+Graph properties: symmetric, integer,
+Graphsize: 134217726 134217726 4223264644
+Determined update frequency: 4223264
+
+e:4223264644, count:811968402. 
+everything is not fine.....
+Read&build matrix time: 208.373696
+SOURCE:104369640, SINK:85992015
+Runs:5
+
+-------Run 1-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+s-t: 104369640-85992015. Max flow: 322.000000
+Total run time: 79.298203
+Number of iterations: 14
+Time spent finding augmenting paths (BFS): 11.198476
+Time computing and augmenting flow: 63.304894
+Time spent accumulating total flow: 2.713764
+
+-------Run 2-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+s-t: 104369640-85992015. Max flow: 322.000000
+Total run time: 81.433034
+Number of iterations: 14
+Time spent finding augmenting paths (BFS): 11.197739
+Time computing and augmenting flow: 65.051233
+Time spent accumulating total flow: 2.720227
+
+-------Run 3-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+s-t: 104369640-85992015. Max flow: 322.000000
+Total run time: 77.128672
+Number of iterations: 13
+Time spent finding augmenting paths (BFS): 10.483549
+Time computing and augmenting flow: 61.283252
+Time spent accumulating total flow: 2.719843
+
+-------Run 4-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+s-t: 104369640-85992015. Max flow: 322.000000
+Total run time: 81.466874
+Number of iterations: 14
+Time spent finding augmenting paths (BFS): 11.318357
+Time computing and augmenting flow: 65.122643
+Time spent accumulating total flow: 2.708800
+
+-------Run 5-------
+----------- Iteration: 1 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 8 
+Depth: 2, frontier size: 18769 
+Depth: 3, frontier size: 8972168 
+
+Path length: 4
+----------- Iteration: 2 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 8 
+Depth: 2, frontier size: 18769 
+Depth: 3, frontier size: 8972168 
+
+Path length: 4
+----------- Iteration: 3 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 8 
+Depth: 2, frontier size: 18768 
+Depth: 3, frontier size: 8971784 
+
+Path length: 4
+----------- Iteration: 4 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 7 
+Depth: 2, frontier size: 16381 
+Depth: 3, frontier size: 8505685 
+
+Path length: 4
+----------- Iteration: 5 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 7 
+Depth: 2, frontier size: 16381 
+Depth: 3, frontier size: 8505685 
+
+Path length: 4
+----------- Iteration: 6 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 6 
+Depth: 2, frontier size: 13952 
+Depth: 3, frontier size: 7806704 
+
+Path length: 4
+----------- Iteration: 7 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 5 
+Depth: 2, frontier size: 5959 
+Depth: 3, frontier size: 4757186 
+
+Path length: 4
+----------- Iteration: 8 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 4 
+Depth: 2, frontier size: 3410 
+Depth: 3, frontier size: 3430565 
+
+Path length: 4
+----------- Iteration: 9 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 3 
+Depth: 2, frontier size: 905 
+Depth: 3, frontier size: 1397348 
+
+Path length: 4
+----------- Iteration: 10 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 2 
+Depth: 2, frontier size: 116 
+Depth: 3, frontier size: 347857 
+Depth: 4, frontier size: 25975593 
+
+Path length: 5
+----------- Iteration: 11 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 2 
+Depth: 2, frontier size: 116 
+Depth: 3, frontier size: 347857 
+Depth: 4, frontier size: 25975593 
+
+Path length: 5
+----------- Iteration: 12 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 2 
+Depth: 2, frontier size: 116 
+Depth: 3, frontier size: 347857 
+Depth: 4, frontier size: 25975593 
+
+Path length: 5
+----------- Iteration: 13 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 2 
+Depth: 2, frontier size: 115 
+Depth: 3, frontier size: 344250 
+Depth: 4, frontier size: 25923705 
+
+Path length: 5
+----------- Iteration: 14 -----------
+Starting BFS
+Depth: 0, frontier size: 1 
+Depth: 1, frontier size: 2 
+Depth: 2, frontier size: 115 
+Depth: 3, frontier size: 344250 
+Depth: 4, frontier size: 25923705 
+Depth: 5, frontier size: 6520032 
+Depth: 6, frontier size: 80047 
+Depth: 7, frontier size: 459 
+Depth: 8, frontier size: 6 
+s-t: 104369640-85992015. Max flow: 322.000000
+Total run time: 80.963480
+Number of iterations: 14
+Time spent finding augmenting paths (BFS): 11.395510
+Time computing and augmenting flow: 64.586427
+Time spent accumulating total flow: 2.720493
+
+Correctness and min-cut:
+Total flow out of source: 322.000000
+Total flow into sink: 322.000000
+Min-cut sum: 322.000000
+
+  134217726x134217726 GraphBLAS double matrix, hypersparse by row
+  min_cut, 2 entries
+
+    (11043744,85992015)    251
+    (12908276,85992015)    71
+Min-cut time: 12.764577
+
+./edmund-karp ../GAP-kron/GAP-kron.mtx 5 104369640 85992015
+
+OMP_NUM_THREADS=40
+
+
+Times: [79.298203, 81.433034, 77.128672, 81.466874, 80.96348]
+Min time: 77.128672
+Max time: 81.466874
+Avg time: 80.05805260000001

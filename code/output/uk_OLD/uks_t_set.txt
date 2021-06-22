@@ -1,0 +1,6 @@
+Graph properties: symmetric, pattern,
+Everything is fine!
+Try:1	Source:807
+Deepest:124
+s-t: 807-4279
+Number reachable vertices:4824

@@ -1,32 +1,47 @@
+Usage: ./edmund-karp filename.mtx (<runs>) (<s>) (<t>)
 max threads:80
 Graph properties: symmetric, pattern,
+Graphsize: 4824 4824 13674
+Determined update frequency: 12
 Everything is fine!
+Read&build matrix time: 0.004497
 SOURCE:807, SINK:4279
-Runs:3
+Runs:5
 
 -------Run 1-------
+----------- Iteration: 1 -----------
+----------- Iteration: 2 -----------
+----------- Iteration: 3 -----------
+----------- Iteration: 4 -----------
+----------- Iteration: 5 -----------
+----------- Iteration: 6 -----------
+----------- Iteration: 7 -----------
+----------- Iteration: 8 -----------
+----------- Iteration: 9 -----------
+----------- Iteration: 10 -----------
+----------- Iteration: 11 -----------
+----------- Iteration: 12 -----------
+----------- Iteration: 13 -----------
+----------- Iteration: 14 -----------
+----------- Iteration: 15 -----------
+----------- Iteration: 16 -----------
+----------- Iteration: 17 -----------
+----------- Iteration: 18 -----------
+----------- Iteration: 19 -----------
+...
+
 s-t: 807-4279. Max flow: 366.000000
-Time: 0.065992
+Total run time: 0.067134
+Time spent finding augmenting paths (BFS): 0.048728
+Time computing and augmenting flow: 0.016836
+Time spent accumulating total flow: 0.000092
 
--------Run 2-------
-s-t: 807-4279. Max flow: 366.000000
-Time: 0.062903
-
--------Run 3-------
-s-t: 807-4279. Max flow: 366.000000
-Time: 0.062131
-
-Correctness and min-cut:
-Total flow out of source: 366.000000
-Total flow into sink: 366.000000
-Min-cut sum: 366.000000
-Time to determine min-cut: 0.002131
-
-./edmund-karp ../uk/uk.mtx 3 807 4279
+./edmund-karp ../uk/uk.mtx 5 807 4279
 
 OMP_NUM_THREADS=80
 
 
-Min time: 0.062131
-Max time: 0.065992
-Avg time: 0.06367533333333332
+Times: [0.067134]
+Min time: 0.067134
+Max time: 0.067134
+Avg time: 0.067134

@@ -1,0 +1,2414 @@
+root@1480fce04d09:/code# ./edmund-karp ../GAP-urand/GAP-urand.mtx 1 68626472 67656199
+Usage: ./edmund-karp filename.mtx (<runs>) (<s>) (<t>)
+max threads:80
+Graph properties: symmetric, integer,
+Graphsize: 134217728 134217728 4294966740
+Determined update frequency: 4294966
+Everything is fine!
+Read&build matrix time: 794.748031
+SOURCE:68626472, SINK:67656199
+Runs:1
+
+-------Run 1-------
+----------- Iteration: 1 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 40
+Depth: 2, frontier size: 1256
+Depth: 3, frontier size: 39965
+Depth: 4, frontier size: 1272209
+Depth: 5, frontier size: 34768843
+Depth: 6, frontier size: 98110623
+
+Path length: 7
+----------- Iteration: 2 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1222
+Depth: 3, frontier size: 38875
+Depth: 4, frontier size: 1237869
+Depth: 5, frontier size: 33972009
+Depth: 6, frontier size: 98937478
+
+Path length: 7
+----------- Iteration: 3 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1222
+Depth: 3, frontier size: 38875
+Depth: 4, frontier size: 1237868
+Depth: 5, frontier size: 33971982
+Depth: 6, frontier size: 98937506
+
+Path length: 7
+----------- Iteration: 4 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1221
+Depth: 3, frontier size: 38833
+Depth: 4, frontier size: 1236536
+Depth: 5, frontier size: 33940769
+Depth: 6, frontier size: 98969884
+
+Path length: 7
+----------- Iteration: 5 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1221
+Depth: 3, frontier size: 38833
+Depth: 4, frontier size: 1236536
+Depth: 5, frontier size: 33940769
+Depth: 6, frontier size: 98969884
+
+Path length: 7
+----------- Iteration: 6 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1221
+Depth: 3, frontier size: 38833
+Depth: 4, frontier size: 1236536
+Depth: 5, frontier size: 33940769
+Depth: 6, frontier size: 98969884
+
+Path length: 7
+----------- Iteration: 7 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1220
+Depth: 3, frontier size: 38800
+Depth: 4, frontier size: 1235476
+Depth: 5, frontier size: 33916057
+Depth: 6, frontier size: 98995519
+
+Path length: 7
+----------- Iteration: 8 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38777
+Depth: 4, frontier size: 1234749
+Depth: 5, frontier size: 33898769
+Depth: 6, frontier size: 99013433
+
+Path length: 7
+----------- Iteration: 9 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38777
+Depth: 4, frontier size: 1234749
+Depth: 5, frontier size: 33898769
+Depth: 6, frontier size: 99013433
+
+Path length: 7
+----------- Iteration: 10 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38777
+Depth: 4, frontier size: 1234749
+Depth: 5, frontier size: 33898769
+Depth: 6, frontier size: 99013433
+
+Path length: 7
+----------- Iteration: 11 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38776
+Depth: 4, frontier size: 1234720
+Depth: 5, frontier size: 33898065
+Depth: 6, frontier size: 99014161
+
+Path length: 7
+----------- Iteration: 12 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38776
+Depth: 4, frontier size: 1234720
+Depth: 5, frontier size: 33898065
+Depth: 6, frontier size: 99014161
+
+Path length: 7
+----------- Iteration: 13 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38776
+Depth: 4, frontier size: 1234720
+Depth: 5, frontier size: 33898064
+Depth: 6, frontier size: 99014162
+
+Path length: 7
+----------- Iteration: 14 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38776
+Depth: 4, frontier size: 1234720
+Depth: 5, frontier size: 33898064
+Depth: 6, frontier size: 99014162
+
+Path length: 7
+----------- Iteration: 15 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38776
+Depth: 4, frontier size: 1234720
+Depth: 5, frontier size: 33898064
+Depth: 6, frontier size: 99014162
+
+Path length: 7
+----------- Iteration: 16 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38776
+Depth: 4, frontier size: 1234719
+Depth: 5, frontier size: 33898040
+Depth: 6, frontier size: 99014187
+
+Path length: 7
+----------- Iteration: 17 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38776
+Depth: 4, frontier size: 1234719
+Depth: 5, frontier size: 33898040
+Depth: 6, frontier size: 99014187
+
+Path length: 7
+----------- Iteration: 18 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38776
+Depth: 4, frontier size: 1234719
+Depth: 5, frontier size: 33898040
+Depth: 6, frontier size: 99014187
+
+Path length: 7
+----------- Iteration: 19 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 39
+Depth: 2, frontier size: 1219
+Depth: 3, frontier size: 38776
+Depth: 4, frontier size: 1234718
+Depth: 5, frontier size: 33898004
+Depth: 6, frontier size: 99014224
+
+Path length: 7
+----------- Iteration: 20 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37983
+Depth: 4, frontier size: 1209543
+Depth: 5, frontier size: 33308307
+Depth: 6, frontier size: 99624996
+
+Path length: 7
+----------- Iteration: 21 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37983
+Depth: 4, frontier size: 1209542
+Depth: 5, frontier size: 33308283
+Depth: 6, frontier size: 99625021
+
+Path length: 7
+----------- Iteration: 22 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37982
+Depth: 4, frontier size: 1209503
+Depth: 5, frontier size: 33307353
+Depth: 6, frontier size: 99625989
+
+Path length: 7
+----------- Iteration: 23 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37982
+Depth: 4, frontier size: 1209502
+Depth: 5, frontier size: 33307326
+Depth: 6, frontier size: 99626015
+
+Path length: 7
+----------- Iteration: 24 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37982
+Depth: 4, frontier size: 1209501
+Depth: 5, frontier size: 33307302
+Depth: 6, frontier size: 99626040
+
+Path length: 7
+----------- Iteration: 25 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37981
+Depth: 4, frontier size: 1209465
+Depth: 5, frontier size: 33306433
+Depth: 6, frontier size: 99626940
+
+Path length: 7
+----------- Iteration: 26 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37981
+Depth: 4, frontier size: 1209464
+Depth: 5, frontier size: 33306411
+Depth: 6, frontier size: 99626963
+
+Path length: 7
+----------- Iteration: 27 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37981
+Depth: 4, frontier size: 1209463
+Depth: 5, frontier size: 33306387
+Depth: 6, frontier size: 99626987
+
+Path length: 7
+----------- Iteration: 28 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37981
+Depth: 4, frontier size: 1209463
+Depth: 5, frontier size: 33306387
+Depth: 6, frontier size: 99626987
+
+Path length: 7
+ ----------- Iteration: 29 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37981
+Depth: 4, frontier size: 1209463
+Depth: 5, frontier size: 33306387
+Depth: 6, frontier size: 99626987
+
+Path length: 7
+----------- Iteration: 30 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 38
+Depth: 2, frontier size: 1194
+Depth: 3, frontier size: 37981
+Depth: 4, frontier size: 1209462
+Depth: 5, frontier size: 33306361
+Depth: 6, frontier size: 99627014
+
+Path length: 7
+----------- Iteration: 31 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1166
+Depth: 3, frontier size: 37086
+Depth: 4, frontier size: 1180790
+Depth: 5, frontier size: 32628367
+Depth: 6, frontier size: 100327980
+
+Path length: 7
+----------- Iteration: 32 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1166
+Depth: 3, frontier size: 37086
+Depth: 4, frontier size: 1180789
+Depth: 5, frontier size: 32628337
+Depth: 6, frontier size: 100328010
+
+Path length: 7
+----------- Iteration: 33 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1166
+Depth: 3, frontier size: 37086
+Depth: 4, frontier size: 1180789
+Depth: 5, frontier size: 32628337
+Depth: 6, frontier size: 100328010
+
+Path length: 7
+----------- Iteration: 34 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1166
+Depth: 3, frontier size: 37086
+Depth: 4, frontier size: 1180789
+Depth: 5, frontier size: 32628337
+Depth: 6, frontier size: 100328010
+
+Path length: 7
+----------- Iteration: 35 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1166
+Depth: 3, frontier size: 37086
+Depth: 4, frontier size: 1180789
+Depth: 5, frontier size: 32628337
+Depth: 6, frontier size: 100328010
+
+Path length: 7
+----------- Iteration: 36 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1166
+Depth: 3, frontier size: 37086
+Depth: 4, frontier size: 1180789
+Depth: 5, frontier size: 32628336
+Depth: 6, frontier size: 100328011
+
+Path length: 7
+----------- Iteration: 37 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1166
+Depth: 3, frontier size: 37086
+Depth: 4, frontier size: 1180788
+Depth: 5, frontier size: 32628300
+Depth: 6, frontier size: 100328048
+
+Path length: 7
+----------- Iteration: 38 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 37
+Depth: 2, frontier size: 1166
+Depth: 3, frontier size: 37086
+Depth: 4, frontier size: 1180788
+Depth: 5, frontier size: 32628299
+Depth: 6, frontier size: 100328049
+
+Path length: 7
+----------- Iteration: 39 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 36
+Depth: 2, frontier size: 1132
+Depth: 3, frontier size: 35993
+Depth: 4, frontier size: 1145835
+Depth: 5, frontier size: 31798264
+Depth: 6, frontier size: 101184653
+
+Path length: 7
+----------- Iteration: 40 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 36
+Depth: 2, frontier size: 1132
+Depth: 3, frontier size: 35993
+Depth: 4, frontier size: 1145834
+Depth: 5, frontier size: 31798228
+Depth: 6, frontier size: 101184690
+
+Path length: 7
+----------- Iteration: 41 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 36
+Depth: 2, frontier size: 1132
+Depth: 3, frontier size: 35992
+Depth: 4, frontier size: 1145808
+Depth: 5, frontier size: 31797622
+Depth: 6, frontier size: 101185313
+
+Path length: 7
+----------- Iteration: 42 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 36
+Depth: 2, frontier size: 1131
+Depth: 3, frontier size: 35960
+Depth: 4, frontier size: 1144743
+Depth: 5, frontier size: 31772046
+Depth: 6, frontier size: 101211651
+
+Path length: 7
+----------- Iteration: 43 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 36
+Depth: 2, frontier size: 1131
+Depth: 3, frontier size: 35960
+Depth: 4, frontier size: 1144743
+Depth: 5, frontier size: 31772046
+Depth: 6, frontier size: 101211651
+
+Path length: 7
+----------- Iteration: 44 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 36
+Depth: 2, frontier size: 1131
+Depth: 3, frontier size: 35960
+Depth: 4, frontier size: 1144743
+Depth: 5, frontier size: 31772046
+Depth: 6, frontier size: 101211651
+
+Path length: 7
+----------- Iteration: 45 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 36
+Depth: 2, frontier size: 1131
+Depth: 3, frontier size: 35960
+Depth: 4, frontier size: 1144742
+Depth: 5, frontier size: 31772022
+Depth: 6, frontier size: 101211676
+
+Path length: 7
+----------- Iteration: 46 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 36
+Depth: 2, frontier size: 1131
+Depth: 3, frontier size: 35960
+Depth: 4, frontier size: 1144741
+Depth: 5, frontier size: 31771991
+Depth: 6, frontier size: 101211708
+
+Path length: 7
+----------- Iteration: 47 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1102
+Depth: 3, frontier size: 35045
+Depth: 4, frontier size: 1115566
+Depth: 5, frontier size: 31072498
+Depth: 6, frontier size: 101931603
+
+Path length: 7
+----------- Iteration: 48 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1102
+Depth: 3, frontier size: 35044
+Depth: 4, frontier size: 1115538
+Depth: 5, frontier size: 31071861
+Depth: 6, frontier size: 101932260
+
+Path length: 7
+----------- Iteration: 49 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1102
+Depth: 3, frontier size: 35044
+Depth: 4, frontier size: 1115537
+Depth: 5, frontier size: 31071842
+Depth: 6, frontier size: 101932278
+
+Path length: 7
+----------- Iteration: 50 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1102
+Depth: 3, frontier size: 35044
+Depth: 4, frontier size: 1115536
+Depth: 5, frontier size: 31071821
+Depth: 6, frontier size: 101932299
+
+Path length: 7
+----------- Iteration: 51 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1101
+Depth: 3, frontier size: 35013
+Depth: 4, frontier size: 1114556
+Depth: 5, frontier size: 31048076
+Depth: 6, frontier size: 101956680
+
+Path length: 7
+----------- Iteration: 52 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1101
+Depth: 3, frontier size: 35013
+Depth: 4, frontier size: 1114556
+Depth: 5, frontier size: 31048076
+Depth: 6, frontier size: 101956680
+
+Path length: 7
+----------- Iteration: 53 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34976
+Depth: 4, frontier size: 1113380
+Depth: 5, frontier size: 31019776
+Depth: 6, frontier size: 101985762
+
+Path length: 7
+----------- Iteration: 54 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34976
+Depth: 4, frontier size: 1113380
+Depth: 5, frontier size: 31019775
+Depth: 6, frontier size: 101985763
+
+Path length: 7
+----------- Iteration: 55 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34976
+Depth: 4, frontier size: 1113380
+Depth: 5, frontier size: 31019775
+Depth: 6, frontier size: 101985763
+
+Path length: 7
+----------- Iteration: 56 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34975
+Depth: 4, frontier size: 1113343
+Depth: 5, frontier size: 31018870
+Depth: 6, frontier size: 101986696
+
+Path length: 7
+----------- Iteration: 57 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34975
+Depth: 4, frontier size: 1113343
+Depth: 5, frontier size: 31018870
+Depth: 6, frontier size: 101986696
+
+Path length: 7
+----------- Iteration: 58 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34975
+Depth: 4, frontier size: 1113343
+Depth: 5, frontier size: 31018870
+Depth: 6, frontier size: 101986696
+
+Path length: 7
+----------- Iteration: 59 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34975
+Depth: 4, frontier size: 1113343
+Depth: 5, frontier size: 31018870
+Depth: 6, frontier size: 101986696
+
+Path length: 7
+----------- Iteration: 60 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34975
+Depth: 4, frontier size: 1113343
+Depth: 5, frontier size: 31018870
+Depth: 6, frontier size: 101986696
+
+Path length: 7
+----------- Iteration: 61 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34975
+Depth: 4, frontier size: 1113343
+Depth: 5, frontier size: 31018870
+Depth: 6, frontier size: 101986696
+
+Path length: 7
+----------- Iteration: 62 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34974
+Depth: 4, frontier size: 1113310
+Depth: 5, frontier size: 31018077
+Depth: 6, frontier size: 101987508
+
+Path length: 7
+----------- Iteration: 63 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34974
+Depth: 4, frontier size: 1113310
+Depth: 5, frontier size: 31018077
+Depth: 6, frontier size: 101987508
+
+Path length: 7
+----------- Iteration: 64 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34974
+Depth: 4, frontier size: 1113310
+Depth: 5, frontier size: 31018077
+Depth: 6, frontier size: 101987508
+
+Path length: 7
+----------- Iteration: 65 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1100
+Depth: 3, frontier size: 34973
+Depth: 4, frontier size: 1113281
+Depth: 5, frontier size: 31017416
+Depth: 6, frontier size: 101988184
+
+Path length: 7
+----------- Iteration: 66 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1099
+Depth: 3, frontier size: 34941
+Depth: 4, frontier size: 1112300
+Depth: 5, frontier size: 30993780
+Depth: 6, frontier size: 102012457
+
+Path length: 7
+----------- Iteration: 67 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1099
+Depth: 3, frontier size: 34941
+Depth: 4, frontier size: 1112300
+Depth: 5, frontier size: 30993779
+Depth: 6, frontier size: 102012458
+
+Path length: 7
+----------- Iteration: 68 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1098
+Depth: 3, frontier size: 34915
+Depth: 4, frontier size: 1111448
+Depth: 5, frontier size: 30973220
+Depth: 6, frontier size: 102033579
+
+Path length: 7
+----------- Iteration: 69 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1098
+Depth: 3, frontier size: 34915
+Depth: 4, frontier size: 1111448
+Depth: 5, frontier size: 30973220
+Depth: 6, frontier size: 102033579
+
+Path length: 7
+----------- Iteration: 70 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 35
+Depth: 2, frontier size: 1098
+Depth: 3, frontier size: 34915
+Depth: 4, frontier size: 1111448
+Depth: 5, frontier size: 30973220
+Depth: 6, frontier size: 102033579
+
+Path length: 7
+----------- Iteration: 71 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 34
+Depth: 2, frontier size: 1075
+Depth: 3, frontier size: 34184
+Depth: 4, frontier size: 1088205
+Depth: 5, frontier size: 30410853
+Depth: 6, frontier size: 102610760
+
+Path length: 7
+----------- Iteration: 72 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 34
+Depth: 2, frontier size: 1075
+Depth: 3, frontier size: 34183
+Depth: 4, frontier size: 1088172
+Depth: 5, frontier size: 30410078
+Depth: 6, frontier size: 102611551
+
+Path length: 7
+----------- Iteration: 73 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 33
+Depth: 2, frontier size: 1033
+Depth: 3, frontier size: 32873
+Depth: 4, frontier size: 1046878
+Depth: 5, frontier size: 29404060
+Depth: 6, frontier size: 103639455
+
+Path length: 7
+----------- Iteration: 74 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 33
+Depth: 2, frontier size: 1033
+Depth: 3, frontier size: 32873
+Depth: 4, frontier size: 1046878
+Depth: 5, frontier size: 29404059
+Depth: 6, frontier size: 103639456
+
+Path length: 7
+----------- Iteration: 75 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 32
+Depth: 2, frontier size: 993
+Depth: 3, frontier size: 31571
+Depth: 4, frontier size: 1005829
+Depth: 5, frontier size: 28391935
+Depth: 6, frontier size: 104667109
+
+Path length: 7
+----------- Iteration: 76 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 32
+Depth: 2, frontier size: 993
+Depth: 3, frontier size: 31571
+Depth: 4, frontier size: 1005829
+Depth: 5, frontier size: 28391935
+Depth: 6, frontier size: 104667109
+
+Path length: 7
+----------- Iteration: 77 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 32
+Depth: 2, frontier size: 993
+Depth: 3, frontier size: 31571
+Depth: 4, frontier size: 1005829
+Depth: 5, frontier size: 28391934
+Depth: 6, frontier size: 104667110
+
+Path length: 7
+----------- Iteration: 78 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 32
+Depth: 2, frontier size: 993
+Depth: 3, frontier size: 31571
+Depth: 4, frontier size: 1005829
+Depth: 5, frontier size: 28391934
+Depth: 6, frontier size: 104667110
+
+Path length: 7
+----------- Iteration: 79 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 31
+Depth: 2, frontier size: 952
+Depth: 3, frontier size: 30248
+Depth: 4, frontier size: 964007
+Depth: 5, frontier size: 27352067
+Depth: 6, frontier size: 105714680
+
+Path length: 7
+----------- Iteration: 80 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 31
+Depth: 2, frontier size: 952
+Depth: 3, frontier size: 30248
+Depth: 4, frontier size: 964007
+Depth: 5, frontier size: 27352067
+Depth: 6, frontier size: 105714680
+
+Path length: 7
+----------- Iteration: 81 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 31
+Depth: 2, frontier size: 952
+Depth: 3, frontier size: 30247
+Depth: 4, frontier size: 963979
+Depth: 5, frontier size: 27351370
+Depth: 6, frontier size: 105715375
+
+Path length: 7
+----------- Iteration: 82 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 30
+Depth: 2, frontier size: 914
+Depth: 3, frontier size: 29055
+Depth: 4, frontier size: 926238
+Depth: 5, frontier size: 26403305
+Depth: 6, frontier size: 106660638
+
+Path length: 7
+----------- Iteration: 83 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 876
+Depth: 3, frontier size: 27827
+Depth: 4, frontier size: 887399
+Depth: 5, frontier size: 25417854
+Depth: 6, frontier size: 107631851
+
+Path length: 7
+----------- Iteration: 84 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 876
+Depth: 3, frontier size: 27827
+Depth: 4, frontier size: 887399
+Depth: 5, frontier size: 25417854
+Depth: 6, frontier size: 107631851
+
+Path length: 7
+----------- Iteration: 85 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 876
+Depth: 3, frontier size: 27827
+Depth: 4, frontier size: 887399
+Depth: 5, frontier size: 25417853
+Depth: 6, frontier size: 107631852
+
+Path length: 7
+----------- Iteration: 86 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 876
+Depth: 3, frontier size: 27827
+Depth: 4, frontier size: 887399
+Depth: 5, frontier size: 25417852
+Depth: 6, frontier size: 107631852
+
+Path length: 7
+----------- Iteration: 87 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 875
+Depth: 3, frontier size: 27797
+Depth: 4, frontier size: 886474
+Depth: 5, frontier size: 25393998
+Depth: 6, frontier size: 107655166
+
+Path length: 7
+----------- Iteration: 88 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 875
+Depth: 3, frontier size: 27797
+Depth: 4, frontier size: 886474
+Depth: 5, frontier size: 25393998
+Depth: 6, frontier size: 107655166
+
+Path length: 7
+----------- Iteration: 89 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 875
+Depth: 3, frontier size: 27797
+Depth: 4, frontier size: 886474
+Depth: 5, frontier size: 25393998
+Depth: 6, frontier size: 107655166
+
+Path length: 7
+----------- Iteration: 90 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27757
+Depth: 4, frontier size: 885170
+Depth: 5, frontier size: 25360656
+Depth: 6, frontier size: 107687683
+
+Path length: 7
+----------- Iteration: 91 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27756
+Depth: 4, frontier size: 885148
+Depth: 5, frontier size: 25360077
+Depth: 6, frontier size: 107688244
+
+Path length: 7
+----------- Iteration: 92 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27756
+Depth: 4, frontier size: 885148
+Depth: 5, frontier size: 25360077
+Depth: 6, frontier size: 107688244
+
+Path length: 7
+----------- Iteration: 93 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27755
+Depth: 4, frontier size: 885122
+Depth: 5, frontier size: 25359387
+Depth: 6, frontier size: 107688921
+
+Path length: 7
+----------- Iteration: 94 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27755
+Depth: 4, frontier size: 885121
+Depth: 5, frontier size: 25359365
+Depth: 6, frontier size: 107688942
+
+Path length: 7
+----------- Iteration: 95 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27754
+Depth: 4, frontier size: 885092
+Depth: 5, frontier size: 25358535
+Depth: 6, frontier size: 107689744
+
+Path length: 7
+----------- Iteration: 96 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27754
+Depth: 4, frontier size: 885092
+Depth: 5, frontier size: 25358534
+Depth: 6, frontier size: 107689745
+
+Path length: 7
+----------- Iteration: 97 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27754
+Depth: 4, frontier size: 885091
+Depth: 5, frontier size: 25358497
+Depth: 6, frontier size: 107689781
+
+Path length: 7
+----------- Iteration: 98 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27754
+Depth: 4, frontier size: 885090
+Depth: 5, frontier size: 25358473
+Depth: 6, frontier size: 107689803
+
+Path length: 7
+----------- Iteration: 99 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27754
+Depth: 4, frontier size: 885090
+Depth: 5, frontier size: 25358473
+Depth: 6, frontier size: 107689803
+
+Path length: 7
+----------- Iteration: 100 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27753
+Depth: 4, frontier size: 885062
+Depth: 5, frontier size: 25357760
+Depth: 6, frontier size: 107690503
+
+Path length: 7
+----------- Iteration: 101 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27753
+Depth: 4, frontier size: 885062
+Depth: 5, frontier size: 25357759
+Depth: 6, frontier size: 107690503
+
+Path length: 7
+----------- Iteration: 102 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27753
+Depth: 4, frontier size: 885061
+Depth: 5, frontier size: 25357739
+Depth: 6, frontier size: 107690522
+
+Path length: 7
+----------- Iteration: 103 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27753
+Depth: 4, frontier size: 885060
+Depth: 5, frontier size: 25357712
+Depth: 6, frontier size: 107690546
+
+Path length: 7
+----------- Iteration: 104 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27753
+Depth: 4, frontier size: 885060
+Depth: 5, frontier size: 25357712
+Depth: 6, frontier size: 107690546
+
+Path length: 7
+----------- Iteration: 105 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 29
+Depth: 2, frontier size: 874
+Depth: 3, frontier size: 27753
+Depth: 4, frontier size: 885059
+Depth: 5, frontier size: 25357695
+Depth: 6, frontier size: 107690563
+
+Path length: 7
+----------- Iteration: 106 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 28
+Depth: 2, frontier size: 843
+Depth: 3, frontier size: 26750
+Depth: 4, frontier size: 853308
+Depth: 5, frontier size: 24544902
+Depth: 6, frontier size: 108479274
+
+Path length: 7
+----------- Iteration: 107 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 27
+Depth: 2, frontier size: 815
+Depth: 3, frontier size: 25849
+Depth: 4, frontier size: 824497
+Depth: 5, frontier size: 23800839
+Depth: 6, frontier size: 109188991
+
+Path length: 7
+----------- Iteration: 108 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 26
+Depth: 2, frontier size: 782
+Depth: 3, frontier size: 24820
+Depth: 4, frontier size: 791916
+Depth: 5, frontier size: 22952856
+Depth: 6, frontier size: 109983224
+
+Path length: 7
+----------- Iteration: 109 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 743
+Depth: 3, frontier size: 23629
+Depth: 4, frontier size: 754154
+Depth: 5, frontier size: 21960079
+Depth: 6, frontier size: 110885636
+
+Path length: 7
+----------- Iteration: 110 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 743
+Depth: 3, frontier size: 23628
+Depth: 4, frontier size: 754113
+Depth: 5, frontier size: 21959023
+Depth: 6, frontier size: 110886565
+
+Path length: 7
+----------- Iteration: 111 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 743
+Depth: 3, frontier size: 23627
+Depth: 4, frontier size: 754078
+Depth: 5, frontier size: 21958110
+Depth: 6, frontier size: 110887362
+
+Path length: 7
+----------- Iteration: 112 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 743
+Depth: 3, frontier size: 23627
+Depth: 4, frontier size: 754077
+Depth: 5, frontier size: 21958070
+Depth: 6, frontier size: 110887396
+
+Path length: 7
+----------- Iteration: 113 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 743
+Depth: 3, frontier size: 23626
+Depth: 4, frontier size: 754053
+Depth: 5, frontier size: 21957443
+Depth: 6, frontier size: 110887963
+
+Path length: 7
+----------- Iteration: 114 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 742
+Depth: 3, frontier size: 23596
+Depth: 4, frontier size: 753102
+Depth: 5, frontier size: 21932285
+Depth: 6, frontier size: 110910496
+
+Path length: 7
+----------- Iteration: 115 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 742
+Depth: 3, frontier size: 23596
+Depth: 4, frontier size: 753101
+Depth: 5, frontier size: 21932259
+Depth: 6, frontier size: 110910521
+
+Path length: 7
+----------- Iteration: 116 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 742
+Depth: 3, frontier size: 23595
+Depth: 4, frontier size: 753067
+Depth: 5, frontier size: 21931349
+Depth: 6, frontier size: 110911333
+
+Path length: 7
+----------- Iteration: 117 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 742
+Depth: 3, frontier size: 23595
+Depth: 4, frontier size: 753067
+Depth: 5, frontier size: 21931348
+Depth: 6, frontier size: 110911334
+
+Path length: 7
+----------- Iteration: 118 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 741
+Depth: 3, frontier size: 23562
+Depth: 4, frontier size: 752027
+Depth: 5, frontier size: 21903891
+Depth: 6, frontier size: 110935698
+
+Path length: 7
+----------- Iteration: 119 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 741
+Depth: 3, frontier size: 23561
+Depth: 4, frontier size: 752003
+Depth: 5, frontier size: 21903254
+Depth: 6, frontier size: 110936263
+
+Path length: 7
+----------- Iteration: 120 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 741
+Depth: 3, frontier size: 23561
+Depth: 4, frontier size: 752003
+Depth: 5, frontier size: 21903254
+Depth: 6, frontier size: 110936263
+
+Path length: 7
+----------- Iteration: 121 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 741
+Depth: 3, frontier size: 23560
+Depth: 4, frontier size: 751973
+Depth: 5, frontier size: 21902480
+Depth: 6, frontier size: 110936957
+
+Path length: 7
+----------- Iteration: 122 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 741
+Depth: 3, frontier size: 23560
+Depth: 4, frontier size: 751973
+Depth: 5, frontier size: 21902480
+Depth: 6, frontier size: 110936957
+
+Path length: 7
+----------- Iteration: 123 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 25
+Depth: 2, frontier size: 741
+Depth: 3, frontier size: 23560
+Depth: 4, frontier size: 751972
+Depth: 5, frontier size: 21902455
+Depth: 6, frontier size: 110936979
+
+Path length: 7
+----------- Iteration: 124 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 24
+Depth: 2, frontier size: 716
+Depth: 3, frontier size: 22808
+Depth: 4, frontier size: 727956
+Depth: 5, frontier size: 21265196
+Depth: 6, frontier size: 111496436
+
+Path length: 7
+----------- Iteration: 125 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 24
+Depth: 2, frontier size: 716
+Depth: 3, frontier size: 22808
+Depth: 4, frontier size: 727956
+Depth: 5, frontier size: 21265196
+Depth: 6, frontier size: 111496436
+
+Path length: 7
+----------- Iteration: 126 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 24
+Depth: 2, frontier size: 716
+Depth: 3, frontier size: 22808
+Depth: 4, frontier size: 727955
+Depth: 5, frontier size: 21265164
+Depth: 6, frontier size: 111496464
+
+Path length: 7
+----------- Iteration: 127 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 24
+Depth: 2, frontier size: 716
+Depth: 3, frontier size: 22808
+Depth: 4, frontier size: 727954
+Depth: 5, frontier size: 21265134
+Depth: 6, frontier size: 111496492
+
+Path length: 7
+----------- Iteration: 128 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 24
+Depth: 2, frontier size: 715
+Depth: 3, frontier size: 22765
+Depth: 4, frontier size: 726587
+Depth: 5, frontier size: 21229133
+Depth: 6, frontier size: 111527606
+
+Path length: 7
+----------- Iteration: 129 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 24
+Depth: 2, frontier size: 715
+Depth: 3, frontier size: 22765
+Depth: 4, frontier size: 726586
+Depth: 5, frontier size: 21229114
+Depth: 6, frontier size: 111527622
+
+Path length: 7
+----------- Iteration: 130 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 24
+Depth: 2, frontier size: 715
+Depth: 3, frontier size: 22765
+Depth: 4, frontier size: 726586
+Depth: 5, frontier size: 21229114
+Depth: 6, frontier size: 111527622
+
+Path length: 7
+----------- Iteration: 131 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 24
+Depth: 2, frontier size: 715
+Depth: 3, frontier size: 22765
+Depth: 4, frontier size: 726585
+Depth: 5, frontier size: 21229090
+Depth: 6, frontier size: 111527643
+
+Path length: 7
+----------- Iteration: 132 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 23
+Depth: 2, frontier size: 683
+Depth: 3, frontier size: 21732
+Depth: 4, frontier size: 693979
+Depth: 5, frontier size: 20358261
+Depth: 6, frontier size: 112261936
+
+Path length: 7
+----------- Iteration: 133 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 23
+Depth: 2, frontier size: 682
+Depth: 3, frontier size: 21701
+Depth: 4, frontier size: 693013
+Depth: 5, frontier size: 20332450
+Depth: 6, frontier size: 112283090
+
+Path length: 7
+----------- Iteration: 134 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 22
+Depth: 2, frontier size: 650
+Depth: 3, frontier size: 20676
+Depth: 4, frontier size: 660424
+Depth: 5, frontier size: 19455774
+Depth: 6, frontier size: 112978403
+
+Path length: 7
+----------- Iteration: 135 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 21
+Depth: 2, frontier size: 620
+Depth: 3, frontier size: 19717
+Depth: 4, frontier size: 629976
+Depth: 5, frontier size: 18627128
+Depth: 6, frontier size: 113585905
+
+Path length: 7
+----------- Iteration: 136 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 21
+Depth: 2, frontier size: 619
+Depth: 3, frontier size: 19688
+Depth: 4, frontier size: 629012
+Depth: 5, frontier size: 18600898
+Depth: 6, frontier size: 113604362
+
+Path length: 7
+----------- Iteration: 137 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 21
+Depth: 2, frontier size: 619
+Depth: 3, frontier size: 19687
+Depth: 4, frontier size: 628982
+Depth: 5, frontier size: 18600112
+Depth: 6, frontier size: 113604912
+
+Path length: 7
+----------- Iteration: 138 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 20
+Depth: 2, frontier size: 590
+Depth: 3, frontier size: 18776
+Depth: 4, frontier size: 600108
+Depth: 5, frontier size: 17810083
+Depth: 6, frontier size: 114130995
+
+Path length: 7
+----------- Iteration: 139 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 20
+Depth: 2, frontier size: 590
+Depth: 3, frontier size: 18776
+Depth: 4, frontier size: 600108
+Depth: 5, frontier size: 17810083
+Depth: 6, frontier size: 114130995
+
+Path length: 7
+----------- Iteration: 140 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 20
+Depth: 2, frontier size: 590
+Depth: 3, frontier size: 18776
+Depth: 4, frontier size: 600108
+Depth: 5, frontier size: 17810083
+Depth: 6, frontier size: 114130995
+
+Path length: 7
+----------- Iteration: 141 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 20
+Depth: 2, frontier size: 590
+Depth: 3, frontier size: 18775
+Depth: 4, frontier size: 600079
+Depth: 5, frontier size: 17809280
+Depth: 6, frontier size: 114131509
+
+Path length: 7
+----------- Iteration: 142 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 20
+Depth: 2, frontier size: 590
+Depth: 3, frontier size: 18775
+Depth: 4, frontier size: 600079
+Depth: 5, frontier size: 17809280
+Depth: 6, frontier size: 114131509
+
+Path length: 7
+----------- Iteration: 143 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 20
+Depth: 2, frontier size: 590
+Depth: 3, frontier size: 18775
+Depth: 4, frontier size: 600079
+Depth: 5, frontier size: 17809280
+Depth: 6, frontier size: 114131509
+
+Path length: 7
+----------- Iteration: 144 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 19
+Depth: 2, frontier size: 564
+Depth: 3, frontier size: 17914
+Depth: 4, frontier size: 573119
+Depth: 5, frontier size: 17066382
+Depth: 6, frontier size: 114567745
+
+Path length: 7
+----------- Iteration: 145 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 19
+Depth: 2, frontier size: 564
+Depth: 3, frontier size: 17913
+Depth: 4, frontier size: 573085
+Depth: 5, frontier size: 17065450
+Depth: 6, frontier size: 114568270
+
+Path length: 7
+----------- Iteration: 146 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 18
+Depth: 2, frontier size: 533
+Depth: 3, frontier size: 16891
+Depth: 4, frontier size: 540419
+Depth: 5, frontier size: 16157580
+Depth: 6, frontier size: 115007578
+
+Path length: 7
+----------- Iteration: 147 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 18
+Depth: 2, frontier size: 533
+Depth: 3, frontier size: 16890
+Depth: 4, frontier size: 540394
+Depth: 5, frontier size: 16156902
+Depth: 6, frontier size: 115007881
+
+Path length: 7
+----------- Iteration: 148 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 18
+Depth: 2, frontier size: 533
+Depth: 3, frontier size: 16889
+Depth: 4, frontier size: 540360
+Depth: 5, frontier size: 16155973
+Depth: 6, frontier size: 115008272
+
+Path length: 7
+----------- Iteration: 149 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 18
+Depth: 2, frontier size: 533
+Depth: 3, frontier size: 16889
+Depth: 4, frontier size: 540360
+Depth: 5, frontier size: 16155973
+Depth: 6, frontier size: 115008272
+
+Path length: 7
+----------- Iteration: 150 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 18
+Depth: 2, frontier size: 533
+Depth: 3, frontier size: 16889
+Depth: 4, frontier size: 540360
+Depth: 5, frontier size: 16155973
+Depth: 6, frontier size: 115008272
+
+Path length: 7
+----------- Iteration: 151 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 17
+Depth: 2, frontier size: 496
+Depth: 3, frontier size: 15710
+Depth: 4, frontier size: 502621
+Depth: 5, frontier size: 15098586
+Depth: 6, frontier size: 115360417
+
+Path length: 7
+----------- Iteration: 152 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 16
+Depth: 2, frontier size: 467
+Depth: 3, frontier size: 14816
+Depth: 4, frontier size: 474166
+Depth: 5, frontier size: 14293499
+Depth: 6, frontier size: 115481101
+
+Path length: 7
+----------- Iteration: 153 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 16
+Depth: 2, frontier size: 467
+Depth: 3, frontier size: 14816
+Depth: 4, frontier size: 474165
+Depth: 5, frontier size: 14293472
+Depth: 6, frontier size: 115481096
+
+Path length: 7
+----------- Iteration: 154 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 15
+Depth: 2, frontier size: 431
+Depth: 3, frontier size: 13653
+Depth: 4, frontier size: 437056
+Depth: 5, frontier size: 13236022
+Depth: 6, frontier size: 115396596
+
+Path length: 7
+----------- Iteration: 155 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 14
+Depth: 2, frontier size: 404
+Depth: 3, frontier size: 12811
+Depth: 4, frontier size: 410082
+Depth: 5, frontier size: 12460687
+Depth: 6, frontier size: 115117396
+
+Path length: 7
+----------- Iteration: 156 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 14
+Depth: 2, frontier size: 404
+Depth: 3, frontier size: 12811
+Depth: 4, frontier size: 410081
+Depth: 5, frontier size: 12460652
+Depth: 6, frontier size: 115117383
+
+Path length: 7
+----------- Iteration: 157 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 13
+Depth: 2, frontier size: 375
+Depth: 3, frontier size: 11854
+Depth: 4, frontier size: 379423
+Depth: 5, frontier size: 11571374
+Depth: 6, frontier size: 114509330
+
+Path length: 7
+----------- Iteration: 158 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 12
+Depth: 2, frontier size: 345
+Depth: 3, frontier size: 10844
+Depth: 4, frontier size: 347087
+Depth: 5, frontier size: 10628413
+Depth: 6, frontier size: 113457735
+
+Path length: 7
+----------- Iteration: 159 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 12
+Depth: 2, frontier size: 344
+Depth: 3, frontier size: 10807
+Depth: 4, frontier size: 345915
+Depth: 5, frontier size: 10593918
+Depth: 6, frontier size: 113409737
+
+Path length: 7
+----------- Iteration: 160 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 11
+Depth: 2, frontier size: 315
+Depth: 3, frontier size: 9932
+Depth: 4, frontier size: 317687
+Depth: 5, frontier size: 9764094
+Depth: 6, frontier size: 112024708
+
+Path length: 7
+----------- Iteration: 161 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 280
+Depth: 3, frontier size: 8786
+Depth: 4, frontier size: 281192
+Depth: 5, frontier size: 8682203
+Depth: 6, frontier size: 109439610
+
+Path length: 7
+----------- Iteration: 162 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 280
+Depth: 3, frontier size: 8786
+Depth: 4, frontier size: 281192
+Depth: 5, frontier size: 8682203
+Depth: 6, frontier size: 109439610
+
+Path length: 7
+----------- Iteration: 163 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 279
+Depth: 3, frontier size: 8746
+Depth: 4, frontier size: 279874
+Depth: 5, frontier size: 8642988
+Depth: 6, frontier size: 109326183
+
+Path length: 7
+----------- Iteration: 164 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 279
+Depth: 3, frontier size: 8746
+Depth: 4, frontier size: 279874
+Depth: 5, frontier size: 8642988
+Depth: 6, frontier size: 109326183
+Depth: 7, frontier size: 15959646
+
+Path length: 8
+----------- Iteration: 165 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 279
+Depth: 3, frontier size: 8746
+Depth: 4, frontier size: 279874
+Depth: 5, frontier size: 8642988
+Depth: 6, frontier size: 109326183
+Depth: 7, frontier size: 15959646
+
+Path length: 8
+----------- Iteration: 166 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 279
+Depth: 3, frontier size: 8746
+Depth: 4, frontier size: 279874
+Depth: 5, frontier size: 8642988
+Depth: 6, frontier size: 109326182
+Depth: 7, frontier size: 15959647
+
+Path length: 8
+----------- Iteration: 167 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 279
+Depth: 3, frontier size: 8746
+Depth: 4, frontier size: 279874
+Depth: 5, frontier size: 8642988
+Depth: 6, frontier size: 109326182
+Depth: 7, frontier size: 15959647
+
+Path length: 8
+----------- Iteration: 168 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 279
+Depth: 3, frontier size: 8745
+Depth: 4, frontier size: 279850
+Depth: 5, frontier size: 8642248
+Depth: 6, frontier size: 109324148
+Depth: 7, frontier size: 15962446
+
+Path length: 8
+----------- Iteration: 169 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 279
+Depth: 3, frontier size: 8744
+Depth: 4, frontier size: 279809
+Depth: 5, frontier size: 8640967
+Depth: 6, frontier size: 109320467
+Depth: 7, frontier size: 15967450
+
+Path length: 8
+----------- Iteration: 170 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 10
+Depth: 2, frontier size: 278
+Depth: 3, frontier size: 8712
+Depth: 4, frontier size: 278732
+Depth: 5, frontier size: 8608901
+Depth: 6, frontier size: 109226982
+Depth: 7, frontier size: 16094111
+
+Path length: 8
+----------- Iteration: 171 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7729
+Depth: 4, frontier size: 247083
+Depth: 5, frontier size: 7660877
+Depth: 6, frontier size: 105967152
+Depth: 7, frontier size: 20334627
+
+Path length: 8
+----------- Iteration: 172 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7729
+Depth: 4, frontier size: 247082
+Depth: 5, frontier size: 7660845
+Depth: 6, frontier size: 105967020
+Depth: 7, frontier size: 20334792
+
+Path length: 8
+----------- Iteration: 173 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7729
+Depth: 4, frontier size: 247082
+Depth: 5, frontier size: 7660845
+Depth: 6, frontier size: 105967020
+Depth: 7, frontier size: 20334792
+
+Path length: 8
+----------- Iteration: 174 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7729
+Depth: 4, frontier size: 247081
+Depth: 5, frontier size: 7660810
+Depth: 6, frontier size: 105966866
+Depth: 7, frontier size: 20334982
+
+Path length: 8
+----------- Iteration: 175 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7728
+Depth: 4, frontier size: 247056
+Depth: 5, frontier size: 7660053
+Depth: 6, frontier size: 105963939
+Depth: 7, frontier size: 20338692
+
+Path length: 8
+----------- Iteration: 176 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7727
+Depth: 4, frontier size: 247016
+Depth: 5, frontier size: 7658847
+Depth: 6, frontier size: 105959220
+Depth: 7, frontier size: 20344658
+
+Path length: 8
+----------- Iteration: 177 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7726
+Depth: 4, frontier size: 246983
+Depth: 5, frontier size: 7657830
+Depth: 6, frontier size: 105955170
+Depth: 7, frontier size: 20349759
+
+Path length: 8
+----------- Iteration: 178 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7726
+Depth: 4, frontier size: 246983
+Depth: 5, frontier size: 7657830
+Depth: 6, frontier size: 105955170
+Depth: 7, frontier size: 20349759
+
+Path length: 8
+----------- Iteration: 179 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7726
+Depth: 4, frontier size: 246982
+Depth: 5, frontier size: 7657795
+Depth: 6, frontier size: 105955028
+Depth: 7, frontier size: 20349937
+
+Path length: 8
+----------- Iteration: 180 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7726
+Depth: 4, frontier size: 246982
+Depth: 5, frontier size: 7657795
+Depth: 6, frontier size: 105955028
+Depth: 7, frontier size: 20349937
+
+Path length: 8
+----------- Iteration: 181 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 249
+Depth: 3, frontier size: 7726
+Depth: 4, frontier size: 246982
+Depth: 5, frontier size: 7657795
+Depth: 6, frontier size: 105955027
+Depth: 7, frontier size: 20349938
+
+Path length: 8
+----------- Iteration: 182 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 248
+Depth: 3, frontier size: 7693
+Depth: 4, frontier size: 245915
+Depth: 5, frontier size: 7625620
+Depth: 6, frontier size: 105826371
+Depth: 7, frontier size: 20511870
+
+Path length: 8
+----------- Iteration: 183 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 248
+Depth: 3, frontier size: 7693
+Depth: 4, frontier size: 245915
+Depth: 5, frontier size: 7625620
+Depth: 6, frontier size: 105826371
+Depth: 7, frontier size: 20511870
+
+Path length: 8
+----------- Iteration: 184 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 9
+Depth: 2, frontier size: 248
+Depth: 3, frontier size: 7693
+Depth: 4, frontier size: 245915
+Depth: 5, frontier size: 7625620
+Depth: 6, frontier size: 105826371
+Depth: 7, frontier size: 20511870
+
+Path length: 8
+----------- Iteration: 185 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 221
+Depth: 3, frontier size: 6913
+Depth: 4, frontier size: 221167
+Depth: 5, frontier size: 6879692
+Depth: 6, frontier size: 102459819
+Depth: 7, frontier size: 24649906
+
+Path length: 8
+----------- Iteration: 186 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 221
+Depth: 3, frontier size: 6913
+Depth: 4, frontier size: 221167
+Depth: 5, frontier size: 6879692
+Depth: 6, frontier size: 102459819
+Depth: 7, frontier size: 24649906
+
+Path length: 8
+----------- Iteration: 187 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 8
+Depth: 2, frontier size: 221
+Depth: 3, frontier size: 6912
+Depth: 4, frontier size: 221137
+Depth: 5, frontier size: 6878813
+Depth: 6, frontier size: 102455417
+Depth: 7, frontier size: 24655218
+
+Path length: 8
+----------- Iteration: 188 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 7
+Depth: 2, frontier size: 186
+Depth: 3, frontier size: 5826
+Depth: 4, frontier size: 186320
+Depth: 5, frontier size: 5822612
+Depth: 6, frontier size: 96217196
+Depth: 7, frontier size: 31985579
+
+Path length: 8
+----------- Iteration: 189 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 152
+Depth: 3, frontier size: 4750
+Depth: 4, frontier size: 151974
+Depth: 5, frontier size: 4771173
+Depth: 6, frontier size: 87839742
+Depth: 7, frontier size: 41449929
+
+Path length: 8
+----------- Iteration: 190 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 152
+Depth: 3, frontier size: 4749
+Depth: 4, frontier size: 151944
+Depth: 5, frontier size: 4770235
+Depth: 6, frontier size: 87831061
+Depth: 7, frontier size: 41459579
+
+Path length: 8
+----------- Iteration: 191 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 152
+Depth: 3, frontier size: 4748
+Depth: 4, frontier size: 151906
+Depth: 5, frontier size: 4769047
+Depth: 6, frontier size: 87820074
+Depth: 7, frontier size: 41471793
+
+Path length: 8
+----------- Iteration: 192 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 152
+Depth: 3, frontier size: 4747
+Depth: 4, frontier size: 151880
+Depth: 5, frontier size: 4768234
+Depth: 6, frontier size: 87812764
+Depth: 7, frontier size: 41479943
+
+Path length: 8
+----------- Iteration: 193 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 152
+Depth: 3, frontier size: 4747
+Depth: 4, frontier size: 151880
+Depth: 5, frontier size: 4768234
+Depth: 6, frontier size: 87812764
+Depth: 7, frontier size: 41479943
+
+Path length: 8
+----------- Iteration: 194 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 151
+Depth: 3, frontier size: 4721
+Depth: 4, frontier size: 151084
+Depth: 5, frontier size: 4743612
+Depth: 6, frontier size: 87585633
+Depth: 7, frontier size: 41732519
+
+Path length: 8
+----------- Iteration: 195 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 6
+Depth: 2, frontier size: 151
+Depth: 3, frontier size: 4721
+Depth: 4, frontier size: 151084
+Depth: 5, frontier size: 4743612
+Depth: 6, frontier size: 87585633
+Depth: 7, frontier size: 41732519
+
+Path length: 8
+----------- Iteration: 196 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 5
+Depth: 2, frontier size: 121
+Depth: 3, frontier size: 3790
+Depth: 4, frontier size: 121167
+Depth: 5, frontier size: 3820268
+Depth: 6, frontier size: 77876924
+Depth: 7, frontier size: 52395451
+
+Path length: 8
+----------- Iteration: 197 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 5
+Depth: 2, frontier size: 121
+Depth: 3, frontier size: 3790
+Depth: 4, frontier size: 121167
+Depth: 5, frontier size: 3820268
+Depth: 6, frontier size: 77876924
+Depth: 7, frontier size: 52395451
+
+Path length: 8
+----------- Iteration: 198 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 5
+Depth: 2, frontier size: 121
+Depth: 3, frontier size: 3790
+Depth: 4, frontier size: 121167
+Depth: 5, frontier size: 3820268
+Depth: 6, frontier size: 77876923
+Depth: 7, frontier size: 52395452
+
+Path length: 8
+----------- Iteration: 199 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 96
+Depth: 3, frontier size: 2993
+Depth: 4, frontier size: 95547
+Depth: 5, frontier size: 3022210
+Depth: 6, frontier size: 67320788
+Depth: 7, frontier size: 63776085
+
+Path length: 8
+----------- Iteration: 200 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 4
+Depth: 2, frontier size: 96
+Depth: 3, frontier size: 2993
+Depth: 4, frontier size: 95547
+Depth: 5, frontier size: 3022210
+Depth: 6, frontier size: 67320788
+Depth: 7, frontier size: 63776085
+
+Path length: 8
+----------- Iteration: 201 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 69
+Depth: 3, frontier size: 2137
+Depth: 4, frontier size: 68383
+Depth: 5, frontier size: 2171491
+Depth: 6, frontier size: 53332381
+Depth: 7, frontier size: 78643032
+
+Path length: 8
+----------- Iteration: 202 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 69
+Depth: 3, frontier size: 2136
+Depth: 4, frontier size: 68349
+Depth: 5, frontier size: 2170439
+Depth: 6, frontier size: 53313293
+Depth: 7, frontier size: 78663207
+
+Path length: 8
+----------- Iteration: 203 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 69
+Depth: 3, frontier size: 2136
+Depth: 4, frontier size: 68349
+Depth: 5, frontier size: 2170438
+Depth: 6, frontier size: 53313271
+Depth: 7, frontier size: 78663230
+
+Path length: 8
+----------- Iteration: 204 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 69
+Depth: 3, frontier size: 2136
+Depth: 4, frontier size: 68349
+Depth: 5, frontier size: 2170438
+Depth: 6, frontier size: 53313271
+Depth: 7, frontier size: 78663230
+
+Path length: 8
+----------- Iteration: 205 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 69
+Depth: 3, frontier size: 2136
+Depth: 4, frontier size: 68348
+Depth: 5, frontier size: 2170397
+Depth: 6, frontier size: 53312557
+Depth: 7, frontier size: 78663986
+
+Path length: 8
+----------- Iteration: 206 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 3
+Depth: 2, frontier size: 69
+Depth: 3, frontier size: 2136
+Depth: 4, frontier size: 68348
+Depth: 5, frontier size: 2170397
+Depth: 6, frontier size: 53312557
+Depth: 7, frontier size: 78663986
+
+Path length: 8
+----------- Iteration: 207 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 2
+Depth: 2, frontier size: 49
+Depth: 3, frontier size: 1512
+Depth: 4, frontier size: 48768
+Depth: 5, frontier size: 1552433
+Depth: 6, frontier size: 41027908
+Depth: 7, frontier size: 91581816
+
+Path length: 8
+----------- Iteration: 208 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1
+Depth: 2, frontier size: 21
+Depth: 3, frontier size: 656
+Depth: 4, frontier size: 21307
+Depth: 5, frontier size: 680626
+Depth: 6, frontier size: 20006455
+Depth: 7, frontier size: 112544448
+
+Path length: 8
+----------- Iteration: 209 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1
+Depth: 2, frontier size: 21
+Depth: 3, frontier size: 656
+Depth: 4, frontier size: 21307
+Depth: 5, frontier size: 680626
+Depth: 6, frontier size: 20006455
+Depth: 7, frontier size: 112544448
+
+Path length: 8
+----------- Iteration: 210 -----------
+Starting BFS
+Depth: 0, frontier size: 1
+Depth: 1, frontier size: 1
+Depth: 2, frontier size: 21
+Depth: 3, frontier size: 656
+Depth: 4, frontier size: 21307
+Depth: 5, frontier size: 680626
+Depth: 6, frontier size: 20006455
+Depth: 7, frontier size: 112544448
+Depth: 8, frontier size: 964212
+s-t: 68626472-67656199. Max flow: 5664.000000
+Total run time: 6541.237528
+Time spent finding augmenting paths (BFS): 862.820108
+Time computing and augmenting flow: 5666.249426
+Time spent summing total flow: 2.991748
+
+Correctness and min-cut:
+Total flow out of source: 5664.000000
+Total flow into sink: 5664.000000
+Min-cut sum: 5664.000000
+
+  134217728x134217728 GraphBLAS double matrix, hypersparse by row
+  min_cut, 48 entries
+
+    (5145427,67656199)    67
+    (13565953,67656199)    195
+    (19873510,67656199)    168
+    (25146880,67656199)    217
+    (25369514,67656199)    134
+    (25802170,67656199)    130
+    (27482219,67656199)    48
+    (29562754,67656199)    139
+    (32417971,67656199)    166
+    (33250621,67656199)    153
+    (42750618,67656199)    172
+    (44393879,67656199)    168
+    (49749919,67656199)    47
+    (51737145,67656199)    42
+    (51826148,67656199)    105
+    (55981985,67656199)    122
+    (56559096,67656199)    75
+    (58848317,67656199)    8
+    (59621710,67656199)    95
+    (59690209,67656199)    41
+    (60137976,67656199)    29
+    (61628450,67656199)    20
+    (63486050,67656199)    192
+    (65696782,67656199)    121
+    (67290182,67656199)    168
+    (70264052,67656199)    93
+    (75477787,67656199)    149
+    (76150222,67656199)    68
+    (81140405,67656199)    50
+    ...
+Min-cut time: 0.000000
+Total number of iterations: 210

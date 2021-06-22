@@ -1,0 +1,5 @@
+
+./edmund-karp ../GAP-urand/GAP-urand.mtx 5 68626472 67656199
+
+OMP_NUM_THREADS=40
+
