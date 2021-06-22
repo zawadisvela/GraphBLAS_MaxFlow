@@ -1,3 +1,27 @@
+//Apply instead of assign delta for flow *increase*
+
+CHECK( GrB_Matrix_apply(P, NO_MASK, GrB_PLUS_FP64, GrB_AINV_FP64, P, transpose_a) );
+
+
+//Code for timing BFS and augemnt flow specifically
+
+double assign_time = 0;
+double apply_time = 0;
+
+gettimeofday(&stop, NULL);
+total_run_time += (WALLTIME(stop)-WALLTIME(start));
+augment_time += (WALLTIME(stop)-WALLTIME(start));
+apply_time += (WALLTIME(stop)-WALLTIME(start));
+gettimeofday(&start, NULL);
+
+
+gettimeofday(&stop, NULL);
+total_run_time += (WALLTIME(stop)-WALLTIME(start));
+augment_time += (WALLTIME(stop)-WALLTIME(start));
+assign_time += (WALLTIME(stop)-WALLTIME(start));
+gettimeofday(&start, NULL);
+
+
 //Looking for infinity in s-t search
 
     GrB_Vector frontier_tmp;

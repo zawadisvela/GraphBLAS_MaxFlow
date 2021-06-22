@@ -278,10 +278,7 @@ int main (int argc, char **argv)
     double augment_time = 0;
     double flow_calc_time = 0;
     double min_cut_time = 0;
-/*
-    double assign_time = 0;
-    double apply_time = 0;
-*/
+
     gettimeofday ( &start, NULL );
 
     gettimeofday ( &start, NULL );
@@ -388,21 +385,10 @@ int main (int argc, char **argv)
             //Assign the negated delta first using the path mask to get the negative capacity changes...
             CHECK( GrB_Matrix_assign_FP64(P, M, NO_ACCUM, -delta_f, GrB_ALL, n, GrB_ALL, n, DEFAULT_DESC) );
             //...then apply the transposed negated result matrix to itself to get the positive capacity changes
-/*
-            gettimeofday(&stop, NULL);
-            total_run_time += (WALLTIME(stop)-WALLTIME(start));
-            augment_time += (WALLTIME(stop)-WALLTIME(start));
-            assign_time += (WALLTIME(stop)-WALLTIME(start));
-            gettimeofday(&start, NULL);
-*/
-            CHECK( GrB_Matrix_apply(P, NO_MASK, GrB_PLUS_FP64, GrB_AINV_FP64, P, transpose_a) );
-/*
-            gettimeofday(&stop, NULL);
-            total_run_time += (WALLTIME(stop)-WALLTIME(start));
-            augment_time += (WALLTIME(stop)-WALLTIME(start));
-            apply_time += (WALLTIME(stop)-WALLTIME(start));
-            gettimeofday(&start, NULL);
-*/
+
+            CHECK( GrB_transpose(M, NO_MASK, NO_ACCUM, M, DEFAULT_DESC) );
+            CHECK( GrB_Matrix_assign_FP64(P, M, NO_ACCUM, delta_f, GrB_ALL, n, GrB_ALL, n, DEFAULT_DESC) );
+
             //Add values to residual, reducing/increasing capacities as defined
             GrB_eWiseAdd(R, NO_MASK, NO_ACCUM, GxB_PLUS_FP64_MONOID, R, P, DEFAULT_DESC);
 
