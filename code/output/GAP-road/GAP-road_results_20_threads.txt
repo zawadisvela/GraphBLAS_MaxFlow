@@ -1,0 +1,38 @@
+max threads:20
+Graph properties: symmetric, integer,
+Everything is fine!
+SOURCE:0, SINK:20897930
+Runs:3
+
+-------Run 1-------
+s-t: 0-20897930. Max flow: 258.000000
+Time: 355.905374
+Correctness and min-cut:
+Total flow out of source: 258.000000
+Total flow into sink: 258.000000
+Min-cut sum: 258.000000
+
+-------Run 2-------
+s-t: 0-20897930. Max flow: 258.000000
+Time: 366.272529
+Correctness and min-cut:
+Total flow out of source: 258.000000
+Total flow into sink: 258.000000
+Min-cut sum: 258.000000
+
+-------Run 3-------
+s-t: 0-20897930. Max flow: 258.000000
+Time: 365.345902
+Correctness and min-cut:
+Total flow out of source: 258.000000
+Total flow into sink: 258.000000
+Min-cut sum: 258.000000
+
+./edmund-karp GAP-road/GAP-road.mtx 3 0 20897930
+
+OMP_NUM_THREADS=20
+
+
+Min time: 355.905374
+Max time: 366.272529
+Avg time: 362.50793500000003

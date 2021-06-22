@@ -279,6 +279,8 @@ int main (int argc, char **argv)
 */
     gettimeofday ( &start, NULL );
 
+    gettimeofday ( &start, NULL );
+
     readMtx(argv[1], &n, &edges, &row_indeces, &col_indeces, &values);
     CHECK( GrB_Matrix_new (&A, GrB_FP64, n, n) );
     CHECK( GrB_Matrix_build (A, row_indeces, col_indeces, values, edges, GrB_PLUS_FP64) );
