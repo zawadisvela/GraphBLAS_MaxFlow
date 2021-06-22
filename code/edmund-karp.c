@@ -15,11 +15,24 @@
     int err_code = x; \
     if (err_code != 0) { \
         printf("ERROR! %s:%d:%s - errcode: %d\n",__FILE__, __LINE__, __func__, err_code); \
+        fflush(stdout); \
+        exit(1); \
     } \
 }
 #else
 #define CHECK(x) x
 #endif
+
+
+#define MEM_CHECK(x) \
+{   \
+    int err_code = x; \
+    if (err_code != 0) { \
+        printf("ERROR! %s:%d:%s - errcode: %d\n",__FILE__, __LINE__, __func__, err_code); \
+        fflush(stdout); \
+        exit(1); \
+    } \
+}
 
 #define NO_MASK GxB_DEFAULT
 #define NO_ACCUM GxB_DEFAULT
@@ -52,13 +65,13 @@ void get_mincut(
     GrB_Index n;
     CHECK( GrB_Matrix_nrows(&n, A) );
 
-    GrB_Vector_new(&reachable, GrB_INT32, n);
+    MEM_CHECK( GrB_Vector_new(&reachable, GrB_INT32, n) );
     CHECK( GrB_Vector_setElement(reachable, 1, s) );
 
-    CHECK( GrB_Vector_new(&frontier, GrB_BOOL, n) );
+    MEM_CHECK( GrB_Vector_new(&frontier, GrB_BOOL, n) );
     CHECK( GrB_Vector_setElement(frontier, true, s) );
 
-    CHECK( GrB_Descriptor_new(&desc) );
+    MEM_CHECK( GrB_Descriptor_new(&desc) );
     CHECK( GrB_Descriptor_set(desc, GrB_MASK, GrB_COMP) );
     CHECK( GrB_Descriptor_set(desc, GrB_OUTP, GrB_REPLACE) );
 
@@ -75,13 +88,13 @@ void get_mincut(
         GxB_print(reachable, GxB_SHORT);
     #endif
 
-    GrB_Vector_new(&t_cut, GrB_INT32, n);
+    MEM_CHECK( GrB_Vector_new(&t_cut, GrB_INT32, n) );
     CHECK( GrB_vxm(t_cut, reachable, NO_ACCUM, GxB_ANY_FIRSTJ_INT32, reachable, A, desc) );
 
-    CHECK( GrB_Descriptor_new(&transpose_b) );
+    MEM_CHECK( GrB_Descriptor_new(&transpose_b) );
     CHECK( GrB_Descriptor_set(transpose_b, GrB_INP1, GrB_TRAN) );
 
-    GrB_Vector_new(&s_cut, GrB_INT32, n);
+    MEM_CHECK( GrB_Vector_new(&s_cut, GrB_INT32, n) );
     CHECK( GrB_vxm(s_cut, reachable, NO_ACCUM, GxB_ANY_FIRSTJ_INT32, t_cut, A, transpose_b) );
 
 #ifdef DEBUG
@@ -102,7 +115,7 @@ void get_mincut(
     CHECK( GrB_Vector_extractTuples(s_indices, s_vals, &s_len, s_cut) );
     CHECK( GrB_Vector_extractTuples(t_indices, t_vals, &t_len, t_cut) );
 
-    GrB_Matrix_new(&cut_extract, GrB_FP64, s_len, t_len);
+    MEM_CHECK( GrB_Matrix_new(&cut_extract, GrB_FP64, s_len, t_len) );
 
     CHECK( GrB_extract(cut_extract, NO_MASK, NO_ACCUM, A, s_indices, s_len, t_indices, t_len, DEFAULT_DESC) );
 
@@ -160,10 +173,10 @@ bool get_augmenting_path(
 
     CHECK( GrB_Matrix_nrows(&n, R) );
 
-    CHECK( GrB_Vector_new(&parent_list, GrB_INT32, n) );
-    CHECK( GrB_Vector_new(&frontier, GrB_INT32, n) );
+    MEM_CHECK( GrB_Vector_new(&parent_list, GrB_INT32, n) );
+    MEM_CHECK( GrB_Vector_new(&frontier, GrB_INT32, n) );
 
-    CHECK( GrB_Descriptor_new (&vxm_desc) );
+    MEM_CHECK( GrB_Descriptor_new (&vxm_desc) );
     CHECK( GrB_Descriptor_set (vxm_desc, GrB_MASK, GrB_COMP) );     // invert the mask
     CHECK( GrB_Descriptor_set (vxm_desc, GrB_MASK, GrB_STRUCTURE) );     // Don't care about values, only structure of mask
     CHECK( GrB_Descriptor_set (vxm_desc, GrB_OUTP, GrB_REPLACE) );  // clear q first
@@ -251,7 +264,6 @@ int main (int argc, char **argv)
     GrB_Matrix R = NULL;    //Residual network
     GrB_Descriptor transpose_a;
     GrB_Descriptor replace;
-    GrB_Vector index_ramp;  //v[i] = i. For extracting parent in BFS
     GrB_Index source = -1;
     GrB_Index sink = -1;
     struct timeval start, stop;
@@ -261,7 +273,10 @@ int main (int argc, char **argv)
     double augment_time = 0;
     double flow_calc_time = 0;
     double min_cut_time = 0;
-
+/*
+    double assign_time = 0;
+    double apply_time = 0;
+*/
     gettimeofday ( &start, NULL );
 
     readMtx(argv[1], &n, &edges, &row_indeces, &col_indeces, &values);
@@ -272,10 +287,10 @@ int main (int argc, char **argv)
     build_matrix_time = (WALLTIME(stop)-WALLTIME(start));
     printf("Read&build matrix time: %lf\n", build_matrix_time);
 
-    GrB_Descriptor_new(&transpose_a);
+    MEM_CHECK( GrB_Descriptor_new(&transpose_a) );
     GrB_Descriptor_set(transpose_a, GrB_INP0, GrB_TRAN);
 
-    GrB_Descriptor_new(&replace);
+    MEM_CHECK( GrB_Descriptor_new(&replace) );
     GrB_Descriptor_set(replace, GrB_OUTP, GrB_REPLACE);
 
     free(row_indeces);
@@ -285,8 +300,8 @@ int main (int argc, char **argv)
 #ifdef DEBUG
     GxB_print(A, GxB_SHORT);
 #endif
-    GrB_Matrix_new(&M, GrB_BOOL, n, n);
-    GrB_Matrix_new(&P, GrB_FP64, n, n);
+    MEM_CHECK( GrB_Matrix_new(&M, GrB_BOOL, n, n) );
+    MEM_CHECK( GrB_Matrix_new(&P, GrB_FP64, n, n) );
 
     if(argc < 5) {
         s_t_bfs(A, &source, &sink);
@@ -310,8 +325,6 @@ int main (int argc, char **argv)
 
     for (; run < runs; run++)
     {
-
-
         total_run_time = 0;
         bfs_time = 0;
         augment_time = 0;
@@ -321,7 +334,9 @@ int main (int argc, char **argv)
 
         printf("\n-------Run %d-------\n", run+1);
 
-        CHECK( GrB_Matrix_dup(&R, A) );
+        //Need to free residual between each run, fine to call on invalid objects
+        GrB_free(&R);
+        MEM_CHECK( GrB_Matrix_dup(&R, A) );
         size_t count = 1;
         GrB_Index nvals;
         GrB_Matrix_nvals(&nvals, A);
@@ -339,7 +354,9 @@ int main (int argc, char **argv)
             gettimeofday(&start, NULL);
 
             //Extract the capacity values coinciding with the path
-            CHECK( GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_SECOND_FP64, M, R, DEFAULT_DESC) );
+            //Could have used masked assign
+            //CHECK( GrB_eWiseMult(P, NO_MASK, NO_ACCUM, GrB_SECOND_FP64, M, R, DEFAULT_DESC) );
+            CHECK( GrB_assign(P, M, NO_ACCUM, R, GrB_ALL, n, GrB_ALL, n, replace) );
 #ifdef DEBUG
             printf("\nPath:\n");
             GxB_print(P, GxB_SHORT);
@@ -354,12 +371,29 @@ int main (int argc, char **argv)
             double delta_f = 0;
             CHECK(GrB_reduce(&delta_f, NO_ACCUM, GrB_MIN_MONOID_FP64, P, DEFAULT_DESC));
 
+            gettimeofday(&stop, NULL);
+            total_run_time += (WALLTIME(stop)-WALLTIME(start));
+            augment_time += (WALLTIME(stop)-WALLTIME(start));
+            gettimeofday(&start, NULL);
+
             //Assign the negated delta first using the path mask to get the negative capacity changes...
-            CHECK( GrB_assign(P, M, NO_ACCUM, -delta_f, GrB_ALL, n, GrB_ALL, n, DEFAULT_DESC) );
+            CHECK( GrB_Matrix_assign_FP64(P, M, NO_ACCUM, -delta_f, GrB_ALL, n, GrB_ALL, n, DEFAULT_DESC) );
             //...then apply the transposed negated result matrix to itself to get the positive capacity changes
-
+/*
+            gettimeofday(&stop, NULL);
+            total_run_time += (WALLTIME(stop)-WALLTIME(start));
+            augment_time += (WALLTIME(stop)-WALLTIME(start));
+            assign_time += (WALLTIME(stop)-WALLTIME(start));
+            gettimeofday(&start, NULL);
+*/
             CHECK( GrB_Matrix_apply(P, NO_MASK, GrB_PLUS_FP64, GrB_AINV_FP64, P, transpose_a) );
-
+/*
+            gettimeofday(&stop, NULL);
+            total_run_time += (WALLTIME(stop)-WALLTIME(start));
+            augment_time += (WALLTIME(stop)-WALLTIME(start));
+            apply_time += (WALLTIME(stop)-WALLTIME(start));
+            gettimeofday(&start, NULL);
+*/
             //Add values to residual, reducing/increasing capacities as defined
             GrB_eWiseAdd(R, NO_MASK, NO_ACCUM, GxB_PLUS_FP64_MONOID, R, P, DEFAULT_DESC);
 
@@ -411,9 +445,16 @@ int main (int argc, char **argv)
 
         printf("s-t: %ld-%ld. Max flow: %lf\n", source, sink, total_flow);
         printf("Total run time: %lf\n", total_run_time);
+        printf("Number of iterations: %ld\n", count);
         printf("Time spent finding augmenting paths (BFS): %lf\n", bfs_time);
         printf("Time computing and augmenting flow: %lf\n", augment_time);
-        printf("Time spent summing total flow: %lf\n", flow_calc_time);
+        printf("Time spent accumulating total flow: %lf\n", flow_calc_time);
+        //printf("Time spent assigning delta flow: %lf\n", assign_time);
+        //printf("Time spent applying delta flow: %lf\n", apply_time);
+
+        ///Flushing stoud in case program crashes!!!!
+        fflush(stdout);
+        //!!!!!!!!!!
 
         if (run == runs-1) {
             printf("\nCorrectness and min-cut:\n");
@@ -434,6 +475,8 @@ int main (int argc, char **argv)
             }
             printf("Total flow into sink: %lf\n", total_sink_flow);
 
+            gettimeofday(&start, NULL);
+
             GrB_Matrix min_cut;
             get_mincut(&min_cut, A, R, source);
 
@@ -441,16 +484,24 @@ int main (int argc, char **argv)
             CHECK( GrB_reduce(&min_cut_value, NO_ACCUM, GrB_PLUS_MONOID_FP64, min_cut, DEFAULT_DESC) );
 
             printf("Min-cut sum: %lf\n", min_cut_value);
-#ifdef DEBUG
+//#ifdef DEBUG
             GxB_print(min_cut, GxB_SHORT);
-#endif
-            min_cut_time += (WALLTIME(start)-WALLTIME(stop));
+//#endif
+            gettimeofday(&stop, NULL);
+            min_cut_time += (WALLTIME(stop)-WALLTIME(start));
 
             printf("Min-cut time: %lf\n", min_cut_time);
-            printf("Total number of iterations: %ld\n", count);
 
             GrB_free(&min_cut);
         }
     }
+
+    GrB_free(&A);
+    GrB_free(&M);
+    GrB_free(&P);
+    GrB_free(&R);
+    GrB_free(&transpose_a);
+    GrB_free(&replace);
+
     GrB_finalize ( ) ;
 }
