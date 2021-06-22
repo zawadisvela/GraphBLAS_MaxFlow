@@ -209,6 +209,11 @@ bool get_augmenting_path(
         CHECK( GrB_Vector_apply(parent_list, NO_MASK, GrB_PLUS_INT32, GrB_IDENTITY_INT32, frontier, DEFAULT_DESC) );
 
         CHECK( GrB_Vector_nvals(&frontier_nvals, frontier) );
+//#ifdef DEBUG
+if (run == runs-1) {
+        printf("Depth: %d, frontier size: %ld \n", depth++, frontier_nvals);
+}
+//#endif
     }
 
     if ((GrB_Vector_extractElement(&sink_parent, parent_list, sink) == GrB_NO_VALUE))
@@ -277,6 +282,8 @@ int main (int argc, char **argv)
     double assign_time = 0;
     double apply_time = 0;
 */
+    gettimeofday ( &start, NULL );
+
     gettimeofday ( &start, NULL );
 
     gettimeofday ( &start, NULL );
