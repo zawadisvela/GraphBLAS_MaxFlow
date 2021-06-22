@@ -49,7 +49,10 @@ def main():
         if all_done:
             continue
 
+        print("Looking for", filename)
+
         if not os.path.isfile(filename):
+            print("Didn't find", filename)
             url = url.rstrip()
             command = 'wget '+url
             print(command)
@@ -112,8 +115,16 @@ def main():
                 outfile = open(out_name, 'w')
                 command = './edmund-karp '+filename+' '+str(runs)+' '+str(s)+' '+str(t)
                 print(command)
-                output = subprocess.run(command.split(), stdout=outfile, stderr=outfile)
                 outfile.write('\n'+command+'\n'+'OMP_NUM_THREADS='+os.environ['OMP_NUM_THREADS']+'\n\n')
+                output = subprocess.run(command.split(), stdout=outfile, stderr=outfile)
+                """
+                p = subprocess.Popen(command.split(),
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT)
+                for line in iter(p.stdout.readline, b''):
+                    outfile.write(line.decode("utf-8"))
+                    print(">>> " + line.decode("utf-8").rstrip())
+                """
                 outfile.close()
                 print('FINISHED RUN')
                 #Adding average, max and min time
@@ -136,9 +147,10 @@ def main():
                 outfile.close()
 
 
-        command = 'rm -rf '+input_dir+graph_name+'/'
-        print(command)
-        os.system(command)
+        #command = 'rm -rf '+input_dir+graph_name+'/'
+        #print(command)
+        #os.system(command)
+        print("NOT deleting the graph, got disk to spare")
 
         print()
 

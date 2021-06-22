@@ -1,0 +1,6 @@
+https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/uk.tar.gz
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-road.tar.gz
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-twitter.tar.gz
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-web.tar.gz
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-kron.tar.gz
+https://suitesparse-collection-website.herokuapp.com/MM/GAP/GAP-urand.tar.gz
